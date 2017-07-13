@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */; };
+		DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */; };
+		DA33F2231F178C5400F8882B /* ZybooItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2221F178C5400F8882B /* ZybooItem.swift */; };
+		DA33F2251F178DE200F8882B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2241F178DE200F8882B /* Session.swift */; };
+		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
 		DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE7726E1F1397C900B32B89 /* AppDelegate.swift */; };
-		DAE772711F1397C900B32B89 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE772701F1397C900B32B89 /* FirstViewController.swift */; };
-		DAE772731F1397C900B32B89 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE772721F1397C900B32B89 /* SecondViewController.swift */; };
 		DAE772761F1397CA00B32B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE772741F1397CA00B32B89 /* Main.storyboard */; };
 		DAE772781F1397CA00B32B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE772771F1397CA00B32B89 /* Assets.xcassets */; };
 		DAE7727B1F1397CA00B32B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE772791F1397CA00B32B89 /* LaunchScreen.storyboard */; };
@@ -35,10 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerSessionTableViewController.swift; sourceTree = "<group>"; };
+		DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerNavViewController.swift; sourceTree = "<group>"; };
+		DA33F2221F178C5400F8882B /* ZybooItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZybooItem.swift; sourceTree = "<group>"; };
+		DA33F2241F178DE200F8882B /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
 		DAE7726B1F1397C900B32B89 /* Zyboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zyboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE7726E1F1397C900B32B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAE772701F1397C900B32B89 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DAE772721F1397C900B32B89 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DAE772751F1397CA00B32B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAE772771F1397CA00B32B89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAE7727A1F1397CA00B32B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA33F2181F17893B00F8882B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DA33F2221F178C5400F8882B /* ZybooItem.swift */,
+				DA33F2241F178DE200F8882B /* Session.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DA33F2191F17894400F8882B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		DAE772621F1397C800B32B89 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +121,16 @@
 		DAE7726D1F1397C900B32B89 /* Zyboo */ = {
 			isa = PBXGroup;
 			children = (
+				DA33F2191F17894400F8882B /* Protocols */,
+				DA33F2181F17893B00F8882B /* Classes */,
 				DAE7726E1F1397C900B32B89 /* AppDelegate.swift */,
-				DAE772701F1397C900B32B89 /* FirstViewController.swift */,
-				DAE772721F1397C900B32B89 /* SecondViewController.swift */,
 				DAE772741F1397CA00B32B89 /* Main.storyboard */,
 				DAE772771F1397CA00B32B89 /* Assets.xcassets */,
 				DAE772791F1397CA00B32B89 /* LaunchScreen.storyboard */,
 				DAE7727C1F1397CA00B32B89 /* Info.plist */,
+				DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */,
+				DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */,
+				DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -265,9 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE772731F1397C900B32B89 /* SecondViewController.swift in Sources */,
+				DA33F2251F178DE200F8882B /* Session.swift in Sources */,
+				DA33F2231F178C5400F8882B /* ZybooItem.swift in Sources */,
 				DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */,
-				DAE772711F1397C900B32B89 /* FirstViewController.swift in Sources */,
+				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
+				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
+				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +546,7 @@
 				DAE772971F1397CA00B32B89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAE772981F1397CA00B32B89 /* Build configuration list for PBXNativeTarget "ZybooTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +555,7 @@
 				DAE7729A1F1397CA00B32B89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAE7729B1F1397CA00B32B89 /* Build configuration list for PBXNativeTarget "ZybooUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +564,7 @@
 				DAE7729D1F1397CA00B32B89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
