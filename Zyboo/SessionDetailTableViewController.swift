@@ -20,6 +20,41 @@ class SessionDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        sessionItems.removeAll()
+        
+        let beer = ZybooItem()
+        beer.itemName = "Beer"
+        beer.itemCount = 0
+        beer.itemID = 1
+        beer.unitCost = 15.00
+        
+        sessionItems.append(beer)
+        
+        let wine = ZybooItem()
+        wine.itemName = "Wine"
+        wine.itemCount = 0
+        wine.itemID = 2
+        wine.unitCost = 10.00
+        
+        sessionItems.append(wine)
+        
+        let spirits = ZybooItem()
+        spirits.itemName = "Spirits"
+        spirits.itemCount = 0
+        spirits.itemID = 3
+        spirits.unitCost = 19.00
+        
+        sessionItems.append(spirits)
+        
+        let mixer = ZybooItem()
+        mixer.itemName = "Mixer"
+        mixer.itemCount = 0
+        mixer.itemID = 4
+        mixer.unitCost = 5.00
+        
+        sessionItems.append(mixer)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,11 +75,16 @@ class SessionDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
 
-        var sessionItem = ZybooItem()
-        sessionItem = sessionItems[indexPath.row]
+        //var sessionItem = ZybooItem()
+        //sessionItem = sessionItems[indexPath.row]
         // need to set up a custom cell and set it's values here
+        var currentItem = ZybooItem()
+        currentItem = sessionItems[indexPath.row]
+        cell.cellItemObj = currentItem
+        cell.itemDescription.text = currentItem.itemName
+        cell.itemCount.text = String(currentItem.itemCount)
 
         return cell
     }
