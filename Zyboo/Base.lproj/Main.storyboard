@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="1887" y="0.0"/>
         </scene>
-        <!--Session Detail Table View Controller-->
+        <!--Total: $0.00-->
         <scene sceneID="S5F-gH-v0L">
             <objects>
                 <tableViewController id="3X1-fQ-uud" customClass="SessionDetailTableViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ZybooItem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-gq-WMK">
-                                            <rect key="frame" x="8" y="12" width="197" height="21"/>
+                                            <rect key="frame" x="17" y="12" width="188" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -117,6 +117,7 @@
                             <outlet property="delegate" destination="3X1-fQ-uud" id="beg-kQ-heS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Total: $0.00" id="97b-Sl-9b3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-Xz-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
