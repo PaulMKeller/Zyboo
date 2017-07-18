@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SessionDetailTableViewController: UITableViewController {
+class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPassBackDelegate {
     
+    @IBOutlet weak var sessionNavItem: UINavigationItem!
     var sessionItems = [ZybooItem]()
+    var runningTotal: Double = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +89,12 @@ class SessionDetailTableViewController: UITableViewController {
         cell.itemCount.text = String(currentItem.itemCount)
 
         return cell
+    }
+    
+    func passTotalDataBack(startingTotal: Double, newTotal: Double) {
+        
+        runningTotal = 0.0
+        sessionNavItem.title = "Total: $"
     }
 
     /*

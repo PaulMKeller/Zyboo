@@ -13,6 +13,7 @@
 		DA33F2251F178DE200F8882B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2241F178DE200F8882B /* Session.swift */; };
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
 		DA80923E1F19D5A200DCA889 /* ZybooItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */; };
+		DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */; };
 		DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE7726E1F1397C900B32B89 /* AppDelegate.swift */; };
 		DAE772761F1397CA00B32B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE772741F1397CA00B32B89 /* Main.storyboard */; };
 		DAE772781F1397CA00B32B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE772771F1397CA00B32B89 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		DA33F2241F178DE200F8882B /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
 		DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZybooItemTableViewCell.swift; sourceTree = "<group>"; };
+		DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooItemTotal.swift; sourceTree = "<group>"; };
 		DAE7726B1F1397C900B32B89 /* Zyboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zyboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE7726E1F1397C900B32B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE772751F1397CA00B32B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		DA33F2191F17894400F8882B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */,
 				DA33F2251F178DE200F8882B /* Session.swift in Sources */,
 				DA33F2231F178C5400F8882B /* ZybooItem.swift in Sources */,
 				DA80923E1F19D5A200DCA889 /* ZybooItemTableViewCell.swift in Sources */,

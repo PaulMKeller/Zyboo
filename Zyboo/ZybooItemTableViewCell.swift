@@ -16,8 +16,12 @@ class ZybooItemTableViewCell: UITableViewCell {
     @IBAction func stepperTapped(_ sender: UIStepper) {
         itemCount.text = String(Int32(sender.value))
         cellItemObj.itemCount = Int32(sender.value)
+        
+        
     }
     var cellItemObj = ZybooItem()
+    var startingTotal: Double = 0.0
+    var newTotal: Double = 0.0
     
     
     override func awakeFromNib() {
