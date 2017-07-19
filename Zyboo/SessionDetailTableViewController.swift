@@ -12,7 +12,11 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var sessionItems = [ZybooItem]()
-    var runningTotal: Double = 0.0
+    var runningTotal: Double = 0.00
+
+    @IBAction func saveTapped(_ sender: Any) {
+        // Do the Save
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         beer.itemName = "Beer"
         beer.itemCount = 0
         beer.itemID = 1
-        beer.unitCost = 15.00
+        beer.unitCost = 1.00
         
         sessionItems.append(beer)
         
@@ -37,7 +41,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         wine.itemName = "Wine"
         wine.itemCount = 0
         wine.itemID = 2
-        wine.unitCost = 10.00
+        wine.unitCost = 2.00
         
         sessionItems.append(wine)
         
@@ -45,7 +49,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         spirits.itemName = "Spirits"
         spirits.itemCount = 0
         spirits.itemID = 3
-        spirits.unitCost = 19.00
+        spirits.unitCost = 3.00
         
         sessionItems.append(spirits)
         
@@ -53,9 +57,33 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         mixer.itemName = "Mixer"
         mixer.itemCount = 0
         mixer.itemID = 4
-        mixer.unitCost = 5.00
+        mixer.unitCost = 4.00
         
         sessionItems.append(mixer)
+        
+        let smallBites = ZybooItem()
+        smallBites.itemName = "Small Food"
+        smallBites.itemCount = 0
+        smallBites.itemID = 5
+        smallBites.unitCost = 5.00
+        
+        sessionItems.append(smallBites)
+        
+        let medBites = ZybooItem()
+        medBites.itemName = "Medium Food"
+        medBites.itemCount = 0
+        medBites.itemID = 6
+        medBites.unitCost = 6.00
+        
+        sessionItems.append(medBites)
+        
+        let lrgBites = ZybooItem()
+        lrgBites.itemName = "Large Food"
+        lrgBites.itemCount = 0
+        lrgBites.itemID = 7
+        lrgBites.unitCost = 7.00
+        
+        sessionItems.append(lrgBites)
         
     }
 
@@ -87,14 +115,30 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         cell.cellItemObj = currentItem
         cell.itemDescription.text = currentItem.itemName
         cell.itemCount.text = String(currentItem.itemCount)
+        cell.delegate = self
 
         return cell
     }
     
-    func passTotalDataBack(startingTotal: Double, newTotal: Double) {
+    func passItemDataBack(cellZybooItem: ZybooItem) {
         
-        runningTotal = 0.0
-        sessionNavItem.title = "Total: $"
+        if let i = sessionItems.index(where: { $0.itemID == cellZybooItem.itemID }) {
+            sessionItems.remove(at: i)
+            sessionItems.insert(cellZybooItem, at: i)
+            
+            calculateRunningTotal()
+        }
+    }
+    
+    func calculateRunningTotal(){
+        
+        runningTotal = 0.00
+        
+        for sessionItem: ZybooItem in sessionItems {
+            runningTotal = runningTotal + (Double(sessionItem.itemCount) * sessionItem.unitCost)
+        }
+        
+        sessionNavItem.title = "Total: $" + String(runningTotal)
     }
 
     /*

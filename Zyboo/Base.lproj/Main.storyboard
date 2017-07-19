@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +21,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="05d-zW-0zn" kind="relationship" relationship="viewControllers" id="pgb-ay-1rZ"/>
+                        <segue destination="7Df-fj-EQc" kind="relationship" relationship="viewControllers" id="Wac-NU-7Jl"/>
+                        <segue destination="k1f-yt-HjK" kind="relationship" relationship="viewControllers" id="okU-CP-XCJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -40,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BpL-xp-Qre" id="gfP-Y8-DU4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -66,6 +68,39 @@
             </objects>
             <point key="canvasLocation" x="1887" y="0.0"/>
         </scene>
+        <!--Happy Hour Map View Controller-->
+        <scene sceneID="C0u-PN-TzL">
+            <objects>
+                <viewController id="cDn-VH-uaQ" customClass="HappyHourMapViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sFb-e5-Ae7"/>
+                        <viewControllerLayoutGuide type="bottom" id="xya-00-sSe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zp3-mB-cMa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Mw-ARe">
+                                <rect key="frame" x="53" y="224" width="268" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">This content is under development.
+
+It will blow your mind...
+
+Be patient lah!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZpS-qO-QIA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dh-Wu-jGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885.5999999999999" y="698.5007496251875"/>
+        </scene>
         <!--Total: $0.00-->
         <scene sceneID="S5F-gH-v0L">
             <objects>
@@ -79,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbw-Iv-mog" id="wek-VD-Isq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ZybooItem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-gq-WMK">
@@ -117,7 +152,13 @@
                             <outlet property="delegate" destination="3X1-fQ-uud" id="beg-kQ-heS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Total: $0.00" id="97b-Sl-9b3"/>
+                    <navigationItem key="navigationItem" title="Total: $0.00" id="97b-Sl-9b3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="080-3n-zap">
+                            <connections>
+                                <action selector="saveTapped:" destination="3X1-fQ-uud" id="jxt-Bg-dRx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="sessionNavItem" destination="97b-Sl-9b3" id="2Ti-se-NOX"/>
                     </connections>
@@ -130,7 +171,7 @@
         <scene sceneID="UR4-Bu-eVB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="05d-zW-0zn" customClass="TrackerNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Zyboo Tracker" id="9rK-5r-X7K"/>
+                    <tabBarItem key="tabBarItem" title="Zyboo Tracker" image="Beer.png" selectedImage="Beer_Selected.png" id="9rK-5r-X7K"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9M-sf-CjJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -145,7 +186,80 @@
             </objects>
             <point key="canvasLocation" x="1033" y="0.0"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="Egh-JO-k3x">
+            <objects>
+                <tableViewController id="YJQ-kh-IOh" customClass="SettingsTableViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qq9-WA-L18">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="bYV-Xa-E3h">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYV-Xa-E3h" id="6fw-9l-jkG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YJQ-kh-IOh" id="hhZ-H3-m1y"/>
+                            <outlet property="delegate" destination="YJQ-kh-IOh" id="oW7-2n-xcv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Qr9-vv-ri9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T11-Tq-s25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="1387"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="O1X-TH-1Ai">
+            <objects>
+                <navigationController id="k1f-yt-HjK" customClass="SettingsNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings.png" selectedImage="Settings_Selected.png" id="lMZ-x6-Q37"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ir0-fZ-YoL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YJQ-kh-IOh" kind="relationship" relationship="rootViewController" id="pLY-0g-CQX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YM3-B5-Rji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="623" y="1387"/>
+        </scene>
+        <!--Happy Hour Tracker-->
+        <scene sceneID="TCK-BK-Emu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Df-fj-EQc" customClass="HappyHourNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Happy Hour Tracker" image="Map.png" selectedImage="Map_Selected.png" id="XLO-wl-xnm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQE-zj-YtA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cDn-VH-uaQ" kind="relationship" relationship="rootViewController" id="3WP-2z-gZ0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXg-S7-3vv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="699"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Beer.png" width="25" height="25"/>
+        <image name="Beer_Selected.png" width="25" height="25"/>
+        <image name="Map.png" width="25" height="25"/>
+        <image name="Map_Selected.png" width="25" height="25"/>
+        <image name="Settings.png" width="25" height="25"/>
+        <image name="Settings_Selected.png" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="D2p-MH-e6y"/>
     </inferredMetricsTieBreakers>

@@ -14,6 +14,49 @@
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
 		DA80923E1F19D5A200DCA889 /* ZybooItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */; };
 		DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */; };
+		DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */; };
+		DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */; };
+		DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45C1F1FA0920091EB17 /* SettingsNavViewController.swift */; };
+		DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45E1F1FA0B10091EB17 /* SettingsTableViewController.swift */; };
+		DAD5B4911F1FA6750091EB17 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B46B1F1FA6740091EB17 /* Icon-App-20x20@1x.png */; };
+		DAD5B4921F1FA6750091EB17 /* Icon-App-20x20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B46C1F1FA6740091EB17 /* Icon-App-20x20@2x.png */; };
+		DAD5B4931F1FA6750091EB17 /* Icon-App-20x20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B46D1F1FA6740091EB17 /* Icon-App-20x20@3x.png */; };
+		DAD5B4941F1FA6750091EB17 /* Icon-App-29x29@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B46E1F1FA6740091EB17 /* Icon-App-29x29@1x.png */; };
+		DAD5B4951F1FA6750091EB17 /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B46F1F1FA6740091EB17 /* Icon-App-29x29@2x.png */; };
+		DAD5B4961F1FA6750091EB17 /* Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4701F1FA6740091EB17 /* Icon-App-29x29@3x.png */; };
+		DAD5B4971F1FA6750091EB17 /* Icon-App-40x40@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4711F1FA6740091EB17 /* Icon-App-40x40@1x.png */; };
+		DAD5B4981F1FA6750091EB17 /* Icon-App-40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4721F1FA6740091EB17 /* Icon-App-40x40@2x.png */; };
+		DAD5B4991F1FA6750091EB17 /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4731F1FA6740091EB17 /* Icon-App-40x40@3x.png */; };
+		DAD5B49A1F1FA6750091EB17 /* Icon-App-57x57@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4741F1FA6740091EB17 /* Icon-App-57x57@1x.png */; };
+		DAD5B49B1F1FA6750091EB17 /* Icon-App-57x57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4751F1FA6750091EB17 /* Icon-App-57x57@2x.png */; };
+		DAD5B49C1F1FA6750091EB17 /* Icon-App-60x60@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4761F1FA6750091EB17 /* Icon-App-60x60@1x.png */; };
+		DAD5B49D1F1FA6750091EB17 /* Icon-App-60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4771F1FA6750091EB17 /* Icon-App-60x60@2x.png */; };
+		DAD5B49E1F1FA6750091EB17 /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4781F1FA6750091EB17 /* Icon-App-60x60@3x.png */; };
+		DAD5B49F1F1FA6750091EB17 /* Icon-App-72x72@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4791F1FA6750091EB17 /* Icon-App-72x72@1x.png */; };
+		DAD5B4A01F1FA6750091EB17 /* Icon-App-72x72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47A1F1FA6750091EB17 /* Icon-App-72x72@2x.png */; };
+		DAD5B4A11F1FA6750091EB17 /* Icon-App-76x76@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47B1F1FA6750091EB17 /* Icon-App-76x76@1x.png */; };
+		DAD5B4A21F1FA6750091EB17 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47C1F1FA6750091EB17 /* Icon-App-76x76@2x.png */; };
+		DAD5B4A31F1FA6750091EB17 /* Icon-App-76x76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47D1F1FA6750091EB17 /* Icon-App-76x76@3x.png */; };
+		DAD5B4A41F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47E1F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png */; };
+		DAD5B4A51F1FA6750091EB17 /* Icon-Small-50x50@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B47F1F1FA6750091EB17 /* Icon-Small-50x50@1x.png */; };
+		DAD5B4A61F1FA6750091EB17 /* Icon-Small-50x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4801F1FA6750091EB17 /* Icon-Small-50x50@2x.png */; };
+		DAD5B4A71F1FA6750091EB17 /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4811F1FA6750091EB17 /* iTunesArtwork@1x.png */; };
+		DAD5B4A81F1FA6750091EB17 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4821F1FA6750091EB17 /* iTunesArtwork@2x.png */; };
+		DAD5B4A91F1FA6750091EB17 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4831F1FA6750091EB17 /* iTunesArtwork@3x.png */; };
+		DAD5B4AC1F1FA6750091EB17 /* Icon-24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4881F1FA6750091EB17 /* Icon-24@2x.png */; };
+		DAD5B4AD1F1FA6750091EB17 /* Icon-27.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4891F1FA6750091EB17 /* Icon-27.5@2x.png */; };
+		DAD5B4AE1F1FA6750091EB17 /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48A1F1FA6750091EB17 /* Icon-29@2x.png */; };
+		DAD5B4AF1F1FA6750091EB17 /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48B1F1FA6750091EB17 /* Icon-29@3x.png */; };
+		DAD5B4B01F1FA6750091EB17 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48C1F1FA6750091EB17 /* Icon-40@2x.png */; };
+		DAD5B4B11F1FA6750091EB17 /* Icon-44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48D1F1FA6750091EB17 /* Icon-44@2x.png */; };
+		DAD5B4B21F1FA6750091EB17 /* Icon-86@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48E1F1FA6750091EB17 /* Icon-86@2x.png */; };
+		DAD5B4B31F1FA6750091EB17 /* Icon-98@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B48F1F1FA6750091EB17 /* Icon-98@2x.png */; };
+		DAD5B4C71F1FAD340091EB17 /* Beer_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C11F1FAD340091EB17 /* Beer_Selected.png */; };
+		DAD5B4C81F1FAD340091EB17 /* Beer.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C21F1FAD340091EB17 /* Beer.png */; };
+		DAD5B4C91F1FAD340091EB17 /* Map_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C31F1FAD340091EB17 /* Map_Selected.png */; };
+		DAD5B4CA1F1FAD340091EB17 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C41F1FAD340091EB17 /* Map.png */; };
+		DAD5B4CB1F1FAD340091EB17 /* Settings_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C51F1FAD340091EB17 /* Settings_Selected.png */; };
+		DAD5B4CC1F1FAD340091EB17 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD5B4C61F1FAD340091EB17 /* Settings.png */; };
 		DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE7726E1F1397C900B32B89 /* AppDelegate.swift */; };
 		DAE772761F1397CA00B32B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAE772741F1397CA00B32B89 /* Main.storyboard */; };
 		DAE772781F1397CA00B32B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE772771F1397CA00B32B89 /* Assets.xcassets */; };
@@ -47,6 +90,49 @@
 		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
 		DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZybooItemTableViewCell.swift; sourceTree = "<group>"; };
 		DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooItemTotal.swift; sourceTree = "<group>"; };
+		DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourNavViewController.swift; sourceTree = "<group>"; };
+		DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourMapViewController.swift; sourceTree = "<group>"; };
+		DAD5B45C1F1FA0920091EB17 /* SettingsNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavViewController.swift; sourceTree = "<group>"; };
+		DAD5B45E1F1FA0B10091EB17 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		DAD5B46B1F1FA6740091EB17 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
+		DAD5B46C1F1FA6740091EB17 /* Icon-App-20x20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@2x.png"; sourceTree = "<group>"; };
+		DAD5B46D1F1FA6740091EB17 /* Icon-App-20x20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@3x.png"; sourceTree = "<group>"; };
+		DAD5B46E1F1FA6740091EB17 /* Icon-App-29x29@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@1x.png"; sourceTree = "<group>"; };
+		DAD5B46F1F1FA6740091EB17 /* Icon-App-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@2x.png"; sourceTree = "<group>"; };
+		DAD5B4701F1FA6740091EB17 /* Icon-App-29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@3x.png"; sourceTree = "<group>"; };
+		DAD5B4711F1FA6740091EB17 /* Icon-App-40x40@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@1x.png"; sourceTree = "<group>"; };
+		DAD5B4721F1FA6740091EB17 /* Icon-App-40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@2x.png"; sourceTree = "<group>"; };
+		DAD5B4731F1FA6740091EB17 /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
+		DAD5B4741F1FA6740091EB17 /* Icon-App-57x57@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-57x57@1x.png"; sourceTree = "<group>"; };
+		DAD5B4751F1FA6750091EB17 /* Icon-App-57x57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-57x57@2x.png"; sourceTree = "<group>"; };
+		DAD5B4761F1FA6750091EB17 /* Icon-App-60x60@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@1x.png"; sourceTree = "<group>"; };
+		DAD5B4771F1FA6750091EB17 /* Icon-App-60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@2x.png"; sourceTree = "<group>"; };
+		DAD5B4781F1FA6750091EB17 /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
+		DAD5B4791F1FA6750091EB17 /* Icon-App-72x72@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-72x72@1x.png"; sourceTree = "<group>"; };
+		DAD5B47A1F1FA6750091EB17 /* Icon-App-72x72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-72x72@2x.png"; sourceTree = "<group>"; };
+		DAD5B47B1F1FA6750091EB17 /* Icon-App-76x76@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@1x.png"; sourceTree = "<group>"; };
+		DAD5B47C1F1FA6750091EB17 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
+		DAD5B47D1F1FA6750091EB17 /* Icon-App-76x76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@3x.png"; sourceTree = "<group>"; };
+		DAD5B47E1F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
+		DAD5B47F1F1FA6750091EB17 /* Icon-Small-50x50@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50x50@1x.png"; sourceTree = "<group>"; };
+		DAD5B4801F1FA6750091EB17 /* Icon-Small-50x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50x50@2x.png"; sourceTree = "<group>"; };
+		DAD5B4811F1FA6750091EB17 /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
+		DAD5B4821F1FA6750091EB17 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		DAD5B4831F1FA6750091EB17 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
+		DAD5B4881F1FA6750091EB17 /* Icon-24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-24@2x.png"; sourceTree = "<group>"; };
+		DAD5B4891F1FA6750091EB17 /* Icon-27.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-27.5@2x.png"; sourceTree = "<group>"; };
+		DAD5B48A1F1FA6750091EB17 /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
+		DAD5B48B1F1FA6750091EB17 /* Icon-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@3x.png"; sourceTree = "<group>"; };
+		DAD5B48C1F1FA6750091EB17 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		DAD5B48D1F1FA6750091EB17 /* Icon-44@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-44@2x.png"; sourceTree = "<group>"; };
+		DAD5B48E1F1FA6750091EB17 /* Icon-86@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-86@2x.png"; sourceTree = "<group>"; };
+		DAD5B48F1F1FA6750091EB17 /* Icon-98@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-98@2x.png"; sourceTree = "<group>"; };
+		DAD5B4C11F1FAD340091EB17 /* Beer_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beer_Selected.png; sourceTree = "<group>"; };
+		DAD5B4C21F1FAD340091EB17 /* Beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beer.png; sourceTree = "<group>"; };
+		DAD5B4C31F1FAD340091EB17 /* Map_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map_Selected.png; sourceTree = "<group>"; };
+		DAD5B4C41F1FAD340091EB17 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
+		DAD5B4C51F1FAD340091EB17 /* Settings_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_Selected.png; sourceTree = "<group>"; };
+		DAD5B4C61F1FAD340091EB17 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		DAE7726B1F1397C900B32B89 /* Zyboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zyboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE7726E1F1397C900B32B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAE772751F1397CA00B32B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +190,100 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		DAD5B4601F1FA0FB0091EB17 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4B41F1FAB4E0091EB17 /* Icons */,
+				DAD5B4671F1FA6740091EB17 /* ZybooImages */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		DAD5B4671F1FA6740091EB17 /* ZybooImages */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4681F1FA6740091EB17 /* ios */,
+				DAD5B4851F1FA6750091EB17 /* watchkit */,
+			);
+			path = ZybooImages;
+			sourceTree = "<group>";
+		};
+		DAD5B4681F1FA6740091EB17 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4691F1FA6740091EB17 /* AppIcon.appiconset */,
+				DAD5B4811F1FA6750091EB17 /* iTunesArtwork@1x.png */,
+				DAD5B4821F1FA6750091EB17 /* iTunesArtwork@2x.png */,
+				DAD5B4831F1FA6750091EB17 /* iTunesArtwork@3x.png */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		DAD5B4691F1FA6740091EB17 /* AppIcon.appiconset */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B46B1F1FA6740091EB17 /* Icon-App-20x20@1x.png */,
+				DAD5B46C1F1FA6740091EB17 /* Icon-App-20x20@2x.png */,
+				DAD5B46D1F1FA6740091EB17 /* Icon-App-20x20@3x.png */,
+				DAD5B46E1F1FA6740091EB17 /* Icon-App-29x29@1x.png */,
+				DAD5B46F1F1FA6740091EB17 /* Icon-App-29x29@2x.png */,
+				DAD5B4701F1FA6740091EB17 /* Icon-App-29x29@3x.png */,
+				DAD5B4711F1FA6740091EB17 /* Icon-App-40x40@1x.png */,
+				DAD5B4721F1FA6740091EB17 /* Icon-App-40x40@2x.png */,
+				DAD5B4731F1FA6740091EB17 /* Icon-App-40x40@3x.png */,
+				DAD5B4741F1FA6740091EB17 /* Icon-App-57x57@1x.png */,
+				DAD5B4751F1FA6750091EB17 /* Icon-App-57x57@2x.png */,
+				DAD5B4761F1FA6750091EB17 /* Icon-App-60x60@1x.png */,
+				DAD5B4771F1FA6750091EB17 /* Icon-App-60x60@2x.png */,
+				DAD5B4781F1FA6750091EB17 /* Icon-App-60x60@3x.png */,
+				DAD5B4791F1FA6750091EB17 /* Icon-App-72x72@1x.png */,
+				DAD5B47A1F1FA6750091EB17 /* Icon-App-72x72@2x.png */,
+				DAD5B47B1F1FA6750091EB17 /* Icon-App-76x76@1x.png */,
+				DAD5B47C1F1FA6750091EB17 /* Icon-App-76x76@2x.png */,
+				DAD5B47D1F1FA6750091EB17 /* Icon-App-76x76@3x.png */,
+				DAD5B47E1F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png */,
+				DAD5B47F1F1FA6750091EB17 /* Icon-Small-50x50@1x.png */,
+				DAD5B4801F1FA6750091EB17 /* Icon-Small-50x50@2x.png */,
+			);
+			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		DAD5B4851F1FA6750091EB17 /* watchkit */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4861F1FA6750091EB17 /* AppIcon.appiconset */,
+			);
+			path = watchkit;
+			sourceTree = "<group>";
+		};
+		DAD5B4861F1FA6750091EB17 /* AppIcon.appiconset */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4881F1FA6750091EB17 /* Icon-24@2x.png */,
+				DAD5B4891F1FA6750091EB17 /* Icon-27.5@2x.png */,
+				DAD5B48A1F1FA6750091EB17 /* Icon-29@2x.png */,
+				DAD5B48B1F1FA6750091EB17 /* Icon-29@3x.png */,
+				DAD5B48C1F1FA6750091EB17 /* Icon-40@2x.png */,
+				DAD5B48D1F1FA6750091EB17 /* Icon-44@2x.png */,
+				DAD5B48E1F1FA6750091EB17 /* Icon-86@2x.png */,
+				DAD5B48F1F1FA6750091EB17 /* Icon-98@2x.png */,
+			);
+			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		DAD5B4B41F1FAB4E0091EB17 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5B4C11F1FAD340091EB17 /* Beer_Selected.png */,
+				DAD5B4C21F1FAD340091EB17 /* Beer.png */,
+				DAD5B4C31F1FAD340091EB17 /* Map_Selected.png */,
+				DAD5B4C41F1FAD340091EB17 /* Map.png */,
+				DAD5B4C51F1FAD340091EB17 /* Settings_Selected.png */,
+				DAD5B4C61F1FAD340091EB17 /* Settings.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		DAE772621F1397C800B32B89 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +307,7 @@
 		DAE7726D1F1397C900B32B89 /* Zyboo */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5B4601F1FA0FB0091EB17 /* Images */,
 				DA33F2191F17894400F8882B /* Protocols */,
 				DA33F2181F17893B00F8882B /* Classes */,
 				DAE7726E1F1397C900B32B89 /* AppDelegate.swift */,
@@ -137,6 +318,10 @@
 				DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */,
 				DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */,
 				DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */,
+				DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */,
+				DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */,
+				DAD5B45C1F1FA0920091EB17 /* SettingsNavViewController.swift */,
+				DAD5B45E1F1FA0B10091EB17 /* SettingsTableViewController.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -269,9 +454,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD5B4C71F1FAD340091EB17 /* Beer_Selected.png in Resources */,
+				DAD5B49F1F1FA6750091EB17 /* Icon-App-72x72@1x.png in Resources */,
+				DAD5B4AE1F1FA6750091EB17 /* Icon-29@2x.png in Resources */,
 				DAE7727B1F1397CA00B32B89 /* LaunchScreen.storyboard in Resources */,
+				DAD5B4CC1F1FAD340091EB17 /* Settings.png in Resources */,
+				DAD5B4A11F1FA6750091EB17 /* Icon-App-76x76@1x.png in Resources */,
+				DAD5B4B01F1FA6750091EB17 /* Icon-40@2x.png in Resources */,
+				DAD5B4CA1F1FAD340091EB17 /* Map.png in Resources */,
 				DAE772781F1397CA00B32B89 /* Assets.xcassets in Resources */,
+				DAD5B49B1F1FA6750091EB17 /* Icon-App-57x57@2x.png in Resources */,
+				DAD5B4A91F1FA6750091EB17 /* iTunesArtwork@3x.png in Resources */,
+				DAD5B4C91F1FAD340091EB17 /* Map_Selected.png in Resources */,
+				DAD5B4991F1FA6750091EB17 /* Icon-App-40x40@3x.png in Resources */,
+				DAD5B4931F1FA6750091EB17 /* Icon-App-20x20@3x.png in Resources */,
+				DAD5B49D1F1FA6750091EB17 /* Icon-App-60x60@2x.png in Resources */,
+				DAD5B4AC1F1FA6750091EB17 /* Icon-24@2x.png in Resources */,
+				DAD5B4941F1FA6750091EB17 /* Icon-App-29x29@1x.png in Resources */,
+				DAD5B4921F1FA6750091EB17 /* Icon-App-20x20@2x.png in Resources */,
+				DAD5B4971F1FA6750091EB17 /* Icon-App-40x40@1x.png in Resources */,
+				DAD5B4C81F1FAD340091EB17 /* Beer.png in Resources */,
+				DAD5B49E1F1FA6750091EB17 /* Icon-App-60x60@3x.png in Resources */,
+				DAD5B4AD1F1FA6750091EB17 /* Icon-27.5@2x.png in Resources */,
+				DAD5B4981F1FA6750091EB17 /* Icon-App-40x40@2x.png in Resources */,
+				DAD5B4CB1F1FAD340091EB17 /* Settings_Selected.png in Resources */,
+				DAD5B4A01F1FA6750091EB17 /* Icon-App-72x72@2x.png in Resources */,
+				DAD5B49C1F1FA6750091EB17 /* Icon-App-60x60@1x.png in Resources */,
+				DAD5B4A31F1FA6750091EB17 /* Icon-App-76x76@3x.png in Resources */,
+				DAD5B4961F1FA6750091EB17 /* Icon-App-29x29@3x.png in Resources */,
+				DAD5B4A21F1FA6750091EB17 /* Icon-App-76x76@2x.png in Resources */,
+				DAD5B4A61F1FA6750091EB17 /* Icon-Small-50x50@2x.png in Resources */,
 				DAE772761F1397CA00B32B89 /* Main.storyboard in Resources */,
+				DAD5B4B31F1FA6750091EB17 /* Icon-98@2x.png in Resources */,
+				DAD5B4A51F1FA6750091EB17 /* Icon-Small-50x50@1x.png in Resources */,
+				DAD5B4911F1FA6750091EB17 /* Icon-App-20x20@1x.png in Resources */,
+				DAD5B4A71F1FA6750091EB17 /* iTunesArtwork@1x.png in Resources */,
+				DAD5B4B11F1FA6750091EB17 /* Icon-44@2x.png in Resources */,
+				DAD5B4B21F1FA6750091EB17 /* Icon-86@2x.png in Resources */,
+				DAD5B4A81F1FA6750091EB17 /* iTunesArtwork@2x.png in Resources */,
+				DAD5B4AF1F1FA6750091EB17 /* Icon-29@3x.png in Resources */,
+				DAD5B4951F1FA6750091EB17 /* Icon-App-29x29@2x.png in Resources */,
+				DAD5B4A41F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				DAD5B49A1F1FA6750091EB17 /* Icon-App-57x57@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,9 +522,13 @@
 			files = (
 				DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */,
 				DA33F2251F178DE200F8882B /* Session.swift in Sources */,
+				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,
+				DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */,
 				DA33F2231F178C5400F8882B /* ZybooItem.swift in Sources */,
 				DA80923E1F19D5A200DCA889 /* ZybooItemTableViewCell.swift in Sources */,
 				DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */,
+				DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */,
+				DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
 				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
 				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
@@ -455,6 +683,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -468,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

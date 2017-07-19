@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ZybooItemTotalPassBackDelegate: class {
-    func passTotalDataBack(startingTotal: Double, newTotal: Double)
+    func passItemDataBack(cellZybooItem: ZybooItem)
 }
