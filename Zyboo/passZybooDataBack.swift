@@ -11,3 +11,7 @@ import Foundation
 protocol ZybooItemTotalPassBackDelegate: class {
     func passItemDataBack(cellZybooItem: ZybooItem)
 }
+
+protocol ZybooSessionPassBackDelegate: class {
+    func passSessionDataBack(sessionObj: Session)
+}

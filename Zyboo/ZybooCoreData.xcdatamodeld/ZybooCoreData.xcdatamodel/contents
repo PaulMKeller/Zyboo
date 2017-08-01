@@ -18,9 +18,16 @@
         <attribute name="itemQuantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="itemUnitPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="ZybooItemData" representedClassName="ZybooItemData" syncable="YES" codeGenerationType="class">
+        <attribute name="itemCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="SessionItem" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="SessionData" positionX="-54" positionY="18" width="128" height="105"/>
         <element name="Location" positionX="-36" positionY="45" width="128" height="105"/>
+        <element name="SessionData" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="SessionItem" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="ZybooItemData" positionX="-45" positionY="45" width="128" height="105"/>
     </elements>
 </model>

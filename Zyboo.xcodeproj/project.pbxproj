@@ -13,7 +13,7 @@
 		DA33F2251F178DE200F8882B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2241F178DE200F8882B /* Session.swift */; };
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
 		DA80923E1F19D5A200DCA889 /* ZybooItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */; };
-		DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */; };
+		DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */; };
 		DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */; };
 		DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */; };
 		DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45C1F1FA0920091EB17 /* SettingsNavViewController.swift */; };
@@ -92,7 +92,7 @@
 		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
 		DA540F2D1F2EC438003115BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DA80923D1F19D5A200DCA889 /* ZybooItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZybooItemTableViewCell.swift; sourceTree = "<group>"; };
-		DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooItemTotal.swift; sourceTree = "<group>"; };
+		DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooDataBack.swift; sourceTree = "<group>"; };
 		DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourNavViewController.swift; sourceTree = "<group>"; };
 		DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourMapViewController.swift; sourceTree = "<group>"; };
 		DAD5B45C1F1FA0920091EB17 /* SettingsNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		DA33F2191F17894400F8882B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DAB1CDD91F1E282300E94DE0 /* passZybooItemTotal.swift */,
+				DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -543,7 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB1CDDA1F1E282300E94DE0 /* passZybooItemTotal.swift in Sources */,
+				DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */,
 				DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */,
 				DA33F2251F178DE200F8882B /* Session.swift in Sources */,
 				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,

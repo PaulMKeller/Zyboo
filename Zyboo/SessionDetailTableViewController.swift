@@ -85,6 +85,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
         sessionItems.append(lrgBites)
         
+        calculateRunningTotal()
+        
     }
 
     override func didReceiveMemoryWarning() {
