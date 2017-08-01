@@ -92,14 +92,16 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        createZybooItemsArray()
+        
         let nextScene = segue.destination as! SessionDetailTableViewController
-        if segue.identifier == "SessionSegue" {
+        if segue.identifier == "sessionSegue" {
             // Need to update itemCounts and UnitCosts of zybooItemObjects array
             // Send through to Session Details
+            nextScene.sessionItems = zybooItemObjects
         }
         else if segue.identifier == "addSessionSegue" {
-            
-            createZybooItemsArray()
             nextScene.sessionItems = zybooItemObjects
          }
     }
@@ -132,7 +134,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         zybooItemObjects.removeAll()
         
         var i = 0
-        while i <= zybooItems.count {
+        while i <= zybooItems.count - 1 {
             let item = zybooItems[i]
             let zybooItem = ZybooItem()
             
