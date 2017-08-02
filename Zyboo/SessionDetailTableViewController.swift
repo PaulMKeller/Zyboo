@@ -13,9 +13,10 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var sessionItems = [ZybooItem]()
     var runningTotal: Double = 0.00
+    var newSession: Bool = false
 
     @IBAction func saveTapped(_ sender: Any) {
-        // Do the Save
+        saveData()
     }
 
     override func viewDidLoad() {
@@ -26,66 +27,6 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        /*
-        sessionItems.removeAll()
-        
-        let beer = ZybooItem()
-        beer.itemName = "Beer"
-        beer.itemCount = 0
-        beer.itemID = 1
-        beer.unitCost = 1.00
-        
-        sessionItems.append(beer)
-        
-        let wine = ZybooItem()
-        wine.itemName = "Wine"
-        wine.itemCount = 0
-        wine.itemID = 2
-        wine.unitCost = 2.00
-        
-        sessionItems.append(wine)
-        
-        let spirits = ZybooItem()
-        spirits.itemName = "Spirits"
-        spirits.itemCount = 0
-        spirits.itemID = 3
-        spirits.unitCost = 3.00
-        
-        sessionItems.append(spirits)
-        
-        let mixer = ZybooItem()
-        mixer.itemName = "Mixer"
-        mixer.itemCount = 0
-        mixer.itemID = 4
-        mixer.unitCost = 4.00
-        
-        sessionItems.append(mixer)
-        
-        let smallBites = ZybooItem()
-        smallBites.itemName = "Small Food"
-        smallBites.itemCount = 0
-        smallBites.itemID = 5
-        smallBites.unitCost = 5.00
-        
-        sessionItems.append(smallBites)
-        
-        let medBites = ZybooItem()
-        medBites.itemName = "Medium Food"
-        medBites.itemCount = 0
-        medBites.itemID = 6
-        medBites.unitCost = 6.00
-        
-        sessionItems.append(medBites)
-        
-        let lrgBites = ZybooItem()
-        lrgBites.itemName = "Large Food"
-        lrgBites.itemCount = 0
-        lrgBites.itemID = 7
-        lrgBites.unitCost = 7.00
-        
-        sessionItems.append(lrgBites)
-        */
         
         calculateRunningTotal()
         
@@ -134,7 +75,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         }
     }
     
-    func calculateRunningTotal(){
+    func calculateRunningTotal() {
         
         runningTotal = 0.00
         
@@ -143,6 +84,16 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         }
         
         sessionNavItem.title = "Total: $" + String(runningTotal)
+    }
+    
+    func saveData() {
+        if newSession {
+            //Create a new session
+            //Save it
+            //Save the session items to it
+        } else {
+            //Update the session data in the current session
+        }
     }
 
     /*

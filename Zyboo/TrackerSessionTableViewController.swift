@@ -95,13 +95,15 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         
         createZybooItemsArray()
         
-        let nextScene = segue.destination as! SessionDetailTableViewController
         if segue.identifier == "sessionSegue" {
             // Need to update itemCounts and UnitCosts of zybooItemObjects array
             // Send through to Session Details
+            let nextScene = segue.destination as! SessionDetailTableViewController
             nextScene.sessionItems = zybooItemObjects
+            nextScene.newSession = false
         }
         else if segue.identifier == "addSessionSegue" {
+            let nextScene = segue.destination as! SessionViewController
             nextScene.sessionItems = zybooItemObjects
          }
     }
