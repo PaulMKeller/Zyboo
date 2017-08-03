@@ -11,7 +11,9 @@ import CoreData
 
 class TrackerSessionTableViewController: UITableViewController, ZybooSessionPassBackDelegate {
     
-    var sessionData = [Session]()
+    var sessionItems = [Session]()
+    var sessionData: [NSManagedObject] = []
+    
     var zybooItems: [NSManagedObject] = []
     var zybooItemObjects = [ZybooItem]()
     
@@ -44,7 +46,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sessionData.count
+        return sessionItems.count
     }
 
     
@@ -52,8 +54,13 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath)
 
         var thisSession = Session()
-        thisSession = sessionData[indexPath.row]
-        cell.textLabel?.text = thisSession.locationName + " (" + thisSession.sessionDate + ")"
+        thisSession = sessionItems[indexPath.row]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        cell.textLabel?.text = thisSession.locationName + " (" + String(describing: dateFormatter.string(from: thisSession.sessionDate)) + ")"
 
         return cell
     }
@@ -73,13 +80,38 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //If there is none then set up blank arrays
         //Code defensively
         
-        let newSession1 = Session(sessionID: 1, locationName: "Harry's", sessionDate: "01/01/2017", sessionTotal: 0.00)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
-        sessionData.append(newSession1)
+        let managedContext = appDelegate.persistentContainer.viewContext
         
-        let newSession2 = Session(sessionID: 2, locationName: "The Shelf Side", sessionDate: "01/08/2017", sessionTotal: 0.00)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionData")
+        do {
+            sessionData = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
         
-        sessionData.append(newSession2)
+        if sessionData.count != 0 {
+            sessionItems.removeAll()
+            
+            var i = 0
+            while i <= sessionData.count - 1 {
+                let item = sessionData[i]
+                let sessionHistory = Session()
+                
+                sessionHistory.locationName = item.value(forKey: "locationName") as! String
+                sessionHistory.sessionDate = item.value(forKey: "sessionDate") as! Date
+                sessionHistory.sessionID = item.value(forKey: "sessionID") as! Int64
+                sessionHistory.sessionTotal = 0.0
+                //sessionHistory.sessionItems = ????
+                
+                sessionItems.append(sessionHistory)
+                
+                i = i + 1
+            }
+        }
     }
     
     func passSessionDataBack(sessionObj: Session) {
@@ -105,6 +137,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         else if segue.identifier == "addSessionSegue" {
             let nextScene = segue.destination as! SessionViewController
             nextScene.sessionItems = zybooItemObjects
+            nextScene.newSessionID = Int32(sessionItems.count)
          }
     }
     

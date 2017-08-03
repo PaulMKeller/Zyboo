@@ -25,7 +25,8 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     
     var sessionObj = Session()
     var sessionItems = [ZybooItem]()
-    var locations: [NSManagedObject] = []
+    var sessions: [NSManagedObject] = []
+    var newSessionID: Int32 = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,35 +51,40 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Location",
+        let entity = NSEntityDescription.entity(forEntityName: "SessionData",
                                                 in: managedContext)!
         
         let newSessionItem = NSManagedObject(entity: entity,
                                            insertInto: managedContext)
         
-        //Need to set a LocationID somehow
+        newSessionItem.setValue(newSessionID, forKeyPath: "sessionID")
         newSessionItem.setValue(sessionVenue, forKeyPath: "locationName")
         //Set default values for long and lat for now
+        //Geo locate at a later date
+        newSessionItem.setValue(1.277076, forKeyPath: "locationLatitude")
+        newSessionItem.setValue(103.846075, forKeyPath: "locationLongitude")
+        //newSessionItem.setValue(sessionItems, forKey: "sessionItems")
+        newSessionItem.setValue(datePicker.date, forKey: "sessionDate")
         
         do {
             try managedContext.save()
-            locations.append(newSessionItem)
+            sessions.append(newSessionItem)
+            self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        //Now save the sessions data with the new location data
     }
     
 
-    /*
+    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let nextScene = segue.destination as! SessionDetailTableViewController
+        nextScene.sessionItems = sessionItems
+        nextScene.newSession = true
     }
-    */
 
 }
