@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPassBackDelegate {
     
@@ -91,12 +92,50 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
         //SAVE THE ITEM DETAILS AND FIX THE NEW SESSION SEGUE PROBLEM
         
+        /*
         if newSession {
             //Create a new session
             //Save it
             //Save the session items to it
         } else {
             //Update the session data in the current session
+        }
+        */
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
+        fetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(self.sessionID))
+        
+        var sessionData: [NSManagedObject] = []
+        
+        do {
+            sessionData = try managedContext.fetch(fetchRequest)
+            
+            if sessionData.count != 0{
+                
+                //Loop the sessionItems
+                for sessionItem in sessionData {
+                    //filter the session items to match the item in the array to
+                    //the current managed object item
+                    
+                    /* This isn't right yet...
+                    for item in sessionItems {
+                        sessionItem.setValue(item.itemID, forKeyPath: "itemID")
+                        sessionItem.setValue(item.itemName, forKeyPath: "itemName")
+                        sessionItem.setValue(item.itemCount, forKeyPath: "itemCount")
+                        sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                    }
+                    */
+                    
+                    try managedContext.save()
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
 
