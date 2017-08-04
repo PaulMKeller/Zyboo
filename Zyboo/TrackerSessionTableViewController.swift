@@ -17,8 +17,10 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     var zybooItems: [NSManagedObject] = []
     var zybooItemObjects = [ZybooItem]()
     
+    var currentSessionID: Int32 = 0
+    
     @IBAction func addTapped(_ sender: Any) {
-        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue")
+        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", sessionID: 0)
     }
     
     override func viewDidLoad() {
@@ -71,7 +73,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //Display the data in the table
         
         //performSegue(withIdentifier: "sessionSegue", sender: self)
-        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue")
+        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", sessionID: Int32(indexPath.row))
     }
     
     func loadData(){
@@ -119,7 +121,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         // Add it to the array, add it to the TableView
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String) {
+    func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32) {
+        self.currentSessionID = sessionID
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
@@ -133,6 +136,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
             let nextScene = segue.destination as! SessionDetailTableViewController
             nextScene.sessionItems = zybooItemObjects
             nextScene.newSession = false
+            nextScene.sessionID = self.currentSessionID
         }
         else if segue.identifier == "addSessionSegue" {
             let nextScene = segue.destination as! SessionViewController

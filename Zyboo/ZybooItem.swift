@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ZybooItem {
+class ZybooItem : NSObject {
     var itemID: Int32 = 0
     var itemName: String = ""
     var itemCount: Int32 = 0
     var unitCost: Double = 0.0
     
-    init(){
+    override init(){
     }
     
     init(itemID: Int32, itemName: String, itemCount: Int32, unitCost: Double){
@@ -23,4 +23,8 @@ class ZybooItem {
         self.itemCount = itemCount
         self.unitCost = unitCost
     }
+    
+    required init(coder aDecoder: NSCoder) {    }
+    
+    func encode(with _aCoder: NSCoder) {   }
 }

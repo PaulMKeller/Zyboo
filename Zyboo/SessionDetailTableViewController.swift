@@ -14,6 +14,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     var sessionItems = [ZybooItem]()
     var runningTotal: Double = 0.00
     var newSession: Bool = false
+    var sessionID: Int32 = 0
 
     @IBAction func saveTapped(_ sender: Any) {
         saveData()
@@ -87,6 +88,9 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     }
     
     func saveData() {
+        
+        //SAVE THE ITEM DETAILS AND FIX THE NEW SESSION SEGUE PROBLEM
+        
         if newSession {
             //Create a new session
             //Save it

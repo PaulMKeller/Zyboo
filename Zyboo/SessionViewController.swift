@@ -54,26 +54,49 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         let entity = NSEntityDescription.entity(forEntityName: "SessionData",
                                                 in: managedContext)!
         
-        let newSessionItem = NSManagedObject(entity: entity,
+        let newSessionData = NSManagedObject(entity: entity,
                                            insertInto: managedContext)
         
-        newSessionItem.setValue(newSessionID, forKeyPath: "sessionID")
-        newSessionItem.setValue(sessionVenue, forKeyPath: "locationName")
+        newSessionData.setValue(newSessionID, forKeyPath: "sessionID")
+        newSessionData.setValue(sessionVenue, forKeyPath: "locationName")
         //Set default values for long and lat for now
         //Geo locate at a later date
-        newSessionItem.setValue(1.277076, forKeyPath: "locationLatitude")
-        newSessionItem.setValue(103.846075, forKeyPath: "locationLongitude")
-        //newSessionItem.setValue(sessionItems, forKey: "sessionItems")
-        newSessionItem.setValue(datePicker.date, forKey: "sessionDate")
+        newSessionData.setValue(1.277076, forKeyPath: "locationLatitude")
+        newSessionData.setValue(103.846075, forKeyPath: "locationLongitude")
+        //newSessionData.setValue(sessionItems, forKey: "sessionItems")
+        newSessionData.setValue(datePicker.date, forKey: "sessionDate")
         
         do {
             try managedContext.save()
-            sessions.append(newSessionItem)
-            self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+            sessions.append(newSessionData)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-    }
+        
+        let entityItem = NSEntityDescription.entity(forEntityName: "SessionItem",
+                                                in: managedContext)!
+        
+        for item in sessionItems {
+            let newSessionItem = NSManagedObject(entity: entityItem,
+                                                 insertInto: managedContext)
+            newSessionItem.setValue(newSessionID, forKeyPath: "sessionID")
+            newSessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
+            newSessionItem.setValue(item.itemName, forKeyPath: "itemName")
+            newSessionItem.setValue(item.itemID, forKeyPath: "itemID")
+            newSessionItem.setValue(item.unitCost, forKeyPath: "itemUnitPrice")
+            
+            do {
+                try managedContext.save()
+                //sessions.append(newSessionData)
+                
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        
+        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+        
+}
     
 
     
@@ -84,6 +107,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // Pass the selected object to the new view controller.
         let nextScene = segue.destination as! SessionDetailTableViewController
         nextScene.sessionItems = sessionItems
+        nextScene.sessionID = newSessionID
         nextScene.newSession = true
     }
 

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Session {
+class Session : NSObject {
     var sessionID: Int64 = 0
     var locationName: String = ""
     var sessionDate = Date()
     var sessionTotal: Double = 0.00
     var sessionItems = [ZybooItem]()
     
-    init(){}
+    override init(){}
     init(sessionID: Int64, locationName: String, sessionDate: Date, sessionTotal: Double, sessionItems: [ZybooItem]) {
         self.sessionID = sessionID
         self.locationName = locationName
@@ -23,4 +23,8 @@ class Session {
         self.sessionTotal = sessionTotal
         self.sessionItems = sessionItems
     }
+    
+    required init(coder aDecoder: NSCoder) {    }
+    
+    func encode(with _aCoder: NSCoder) {   }
 }
