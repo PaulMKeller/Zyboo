@@ -91,21 +91,21 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     func saveData() {
         
         //SAVE THE ITEM DETAILS AND FIX THE NEW SESSION SEGUE PROBLEM
-        
-        /*
-        if newSession {
-            //Create a new session
-            //Save it
-            //Save the session items to it
-        } else {
-            //Update the session data in the current session
-        }
-        */
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
+        
+        /*
+         if newSession {
+         //Create a new session
+         //Save it
+         //Save the session items to it
+         } else {
+         //Update the session data in the current session
+         }
+         */
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
         fetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(self.sessionID))
@@ -116,21 +116,19 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
             sessionData = try managedContext.fetch(fetchRequest)
             
             if sessionData.count != 0{
-                
                 //Loop the sessionItems
                 for sessionItem in sessionData {
                     //filter the session items to match the item in the array to
                     //the current managed object item
-                    
-                    /* This isn't right yet...
                     for item in sessionItems {
-                        sessionItem.setValue(item.itemID, forKeyPath: "itemID")
-                        sessionItem.setValue(item.itemName, forKeyPath: "itemName")
-                        sessionItem.setValue(item.itemCount, forKeyPath: "itemCount")
-                        sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                        if sessionItem.value(forKey: "itemID") as? Int32 == item.itemID {
+                            sessionItem.setValue(item.itemID, forKeyPath: "itemID")
+                            sessionItem.setValue(item.itemName, forKeyPath: "itemName")
+                            sessionItem.setValue(item.itemCount, forKeyPath: "itemCount")
+                            sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                        }
                     }
-                    */
-                    
+
                     try managedContext.save()
                 }
             }
