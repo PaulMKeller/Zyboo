@@ -18,9 +18,10 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     var zybooItemObjects = [ZybooItem]()
     
     var currentSessionID: Int32 = 0
+    var currentSession = Session()
     
     @IBAction func addTapped(_ sender: Any) {
-        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", sessionID: 0)
+        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", sessionID: 0, currentSession: currentSession)
     }
     
     override func viewDidLoad() {
@@ -32,6 +33,10 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView!.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +78,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //Display the data in the table
         
         //performSegue(withIdentifier: "sessionSegue", sender: self)
-        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", sessionID: Int32(indexPath.row))
+        currentSession = sessionItems[indexPath.row]
+        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", sessionID: Int32(indexPath.row), currentSession: currentSession)
     }
     
     func loadData(){
@@ -121,8 +127,9 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         // Add it to the array, add it to the TableView
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32) {
+    func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32, currentSession: Session) {
         self.currentSessionID = sessionID
+        self.currentSession = currentSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
@@ -137,11 +144,13 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
             nextScene.sessionItems = zybooItemObjects
             nextScene.newSession = false
             nextScene.sessionID = self.currentSessionID
+            nextScene.currentSession = self.currentSession
         }
         else if segue.identifier == "addSessionSegue" {
             let nextScene = segue.destination as! SessionViewController
             nextScene.sessionItems = zybooItemObjects
             nextScene.newSessionID = Int32(sessionItems.count)
+            nextScene.sessionObj = self.currentSession //Need to ensure the new session is being passed thru
          }
     }
     

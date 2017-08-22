@@ -16,6 +16,9 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     var runningTotal: Double = 0.00
     var newSession: Bool = false
     var sessionID: Int32 = 0
+    var currentSession = Session() //CREATE AND PASS BACK A SESSION OBJECT TO SAVE THE SESSION
+    
+    weak var delegate: ZybooSessionPassBackDelegate?
 
     @IBAction func saveTapped(_ sender: Any) {
         saveData()
@@ -122,14 +125,16 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
                     //the current managed object item
                     for item in sessionItems {
                         if sessionItem.value(forKey: "itemID") as? Int32 == item.itemID {
-                            sessionItem.setValue(item.itemID, forKeyPath: "itemID")
-                            sessionItem.setValue(item.itemName, forKeyPath: "itemName")
-                            sessionItem.setValue(item.itemCount, forKeyPath: "itemCount")
-                            sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                            //sessionItem.setValue(item.itemID, forKeyPath: "itemID")
+                            //sessionItem.setValue(item.itemName, forKeyPath: "itemName")
+                            //sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                            sessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
                         }
                     }
-
+                    
                     try managedContext.save()
+                    
+                    self.delegate?.passSessionDataBack(sessionObj: <#T##Session#>)
                 }
             }
         } catch let error as NSError {
