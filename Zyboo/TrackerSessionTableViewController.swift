@@ -112,8 +112,29 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
                 sessionHistory.locationName = item.value(forKey: "locationName") as! String
                 sessionHistory.sessionDate = item.value(forKey: "sessionDate") as! Date
                 sessionHistory.sessionID = item.value(forKey: "sessionID") as! Int64
-                sessionHistory.sessionTotal = 0.0
-                //sessionHistory.sessionItems = ????
+                
+                let sessionItemsFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
+                sessionItemsFetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(sessionHistory.sessionID))
+                var sessionItemsFetched: [NSManagedObject] = []
+                
+                do {
+                    sessionItemsFetched = try managedContext.fetch(sessionItemsFetchRequest)
+                    
+                    //sessionHistory.sessionTotal = sessionItemsFetched[0].value(forKey: "")
+                    for thisSessionItem in sessionItemsFetched {
+                        let newZybooItem = ZybooItem()
+                        newZybooItem.itemID = Int32(thisSessionItem.value(forKey: "itemID") as! Int64)
+                        newZybooItem.itemName = thisSessionItem.value(forKey: "itemName") as! String
+                        newZybooItem.itemCount = thisSessionItem.value(forKey: "itemQuantity") as! Int32
+                        newZybooItem.unitCost = thisSessionItem.value(forKey: "itemUnitPrice") as! Double
+                        
+                        sessionHistory.sessionItems.append(newZybooItem)
+                    }
+                    
+                    self.currentSession = sessionHistory
+                } catch let error as NSError {
+                    print("Could not fetch. \(error), \(error.userInfo)")
+                }
                 
                 sessionItems.append(sessionHistory)
                 
@@ -125,6 +146,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     func passSessionDataBack(sessionObj: Session) {
         //Do some stuff with the Session object passed back
         // Add it to the array, add it to the TableView
+        self.currentSession = sessionObj
+        self.tableView?.reloadData()
     }
     
     func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32, currentSession: Session) {

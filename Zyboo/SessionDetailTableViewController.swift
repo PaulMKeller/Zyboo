@@ -32,7 +32,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+
         calculateRunningTotal()
         
     }
@@ -61,7 +61,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         //sessionItem = sessionItems[indexPath.row]
         // need to set up a custom cell and set it's values here
         var currentItem = ZybooItem()
-        currentItem = sessionItems[indexPath.row]
+        //currentItem = sessionItems[indexPath.row]
+        currentItem = self.currentSession.sessionItems[indexPath.row]
         cell.cellItemObj = currentItem
         cell.itemDescription.text = currentItem.itemName
         cell.itemCount.text = String(currentItem.itemCount)
@@ -100,16 +101,6 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        /*
-         if newSession {
-         //Create a new session
-         //Save it
-         //Save the session items to it
-         } else {
-         //Update the session data in the current session
-         }
-         */
-        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
         fetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(self.sessionID))
         
@@ -125,16 +116,18 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
                     //the current managed object item
                     for item in sessionItems {
                         if sessionItem.value(forKey: "itemID") as? Int32 == item.itemID {
-                            //sessionItem.setValue(item.itemID, forKeyPath: "itemID")
-                            //sessionItem.setValue(item.itemName, forKeyPath: "itemName")
-                            //sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                            sessionItem.setValue(item.itemID, forKeyPath: "itemID")
+                            sessionItem.setValue(item.itemName, forKeyPath: "itemName")
+                            sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
                             sessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
                         }
                     }
                     
                     try managedContext.save()
                     
-                    self.delegate?.passSessionDataBack(sessionObj: <#T##Session#>)
+                    self.currentSession.sessionItems = self.sessionItems
+                    
+                    self.delegate?.passSessionDataBack(sessionObj: self.currentSession)
                 }
             }
         } catch let error as NSError {
