@@ -87,8 +87,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
             
             do {
                 try managedContext.save()
-                //sessions.append(newSessionData)
-                
+                //sessions.append(newSessionData) // DO I NEED TO APPEND THE SESSION OBJECT SOMEWHERE?
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
@@ -109,6 +108,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         nextScene.sessionItems = sessionItems
         nextScene.sessionID = newSessionID
         nextScene.newSession = true
+        nextScene.currentSession = self.sessionObj //THIS SHOULD ALREADY HAVE THE SESSION ITEMS ADDED TO IT FROM THE PASS THRU FROM TrackerSessionViewController
     }
 
 }

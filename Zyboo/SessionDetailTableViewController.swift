@@ -118,7 +118,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
                         if sessionItem.value(forKey: "itemID") as? Int32 == item.itemID {
                             sessionItem.setValue(item.itemID, forKeyPath: "itemID")
                             sessionItem.setValue(item.itemName, forKeyPath: "itemName")
-                            sessionItem.setValue(item.unitCost, forKeyPath: "unitCost")
+                            sessionItem.setValue(item.unitCost, forKeyPath: "itemUnitPrice")
                             sessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
                         }
                     }

@@ -151,15 +151,16 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32, currentSession: Session) {
+        createZybooItemsArray()
+        
         self.currentSessionID = sessionID
         self.currentSession = currentSession
+        self.currentSession.sessionItems = self.zybooItemObjects
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        createZybooItemsArray()
-        
+
         if segue.identifier == "sessionSegue" {
             // Need to update itemCounts and UnitCosts of zybooItemObjects array
             // Send through to Session Details
@@ -167,12 +168,14 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
             nextScene.sessionItems = zybooItemObjects
             nextScene.newSession = false
             nextScene.sessionID = self.currentSessionID
+            //self.currentSession.sessionItems = zybooItemObjects
             nextScene.currentSession = self.currentSession
         }
         else if segue.identifier == "addSessionSegue" {
             let nextScene = segue.destination as! SessionViewController
             nextScene.sessionItems = zybooItemObjects
             nextScene.newSessionID = Int32(sessionItems.count)
+            //self.currentSession.sessionItems = zybooItemObjects
             nextScene.sessionObj = self.currentSession //Need to ensure the new session is being passed thru
          }
     }
