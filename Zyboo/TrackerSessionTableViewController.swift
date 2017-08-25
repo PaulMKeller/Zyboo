@@ -11,17 +11,19 @@ import CoreData
 
 class TrackerSessionTableViewController: UITableViewController, ZybooSessionPassBackDelegate {
     
-    var sessionItems = [Session]()
-    var sessionData: [NSManagedObject] = []
     
-    var zybooItems: [NSManagedObject] = []
-    var zybooItemObjects = [ZybooItem]()
+    var sessionObjs: [NSManagedObject] = []
+    var sessionsAll = [Session]()
     
-    var currentSessionID: Int32 = 0
-    var currentSession = Session()
+    var zybooItemObjs: [NSManagedObject] = []
+    var zybooItems = [ZybooItem]()
+    
+    var segueSession = Session()
     
     @IBAction func addTapped(_ sender: Any) {
-        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", sessionID: 0, currentSession: currentSession)
+        let newSession = Session()
+        newSession.sessionItems = zybooItems
+        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", currentSession: newSession)
     }
     
     override func viewDidLoad() {
@@ -53,15 +55,14 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sessionItems.count
+        return sessionsAll.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath)
 
         var thisSession = Session()
-        thisSession = sessionItems[indexPath.row]
+        thisSession = sessionsAll[indexPath.row]
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.none
@@ -73,20 +74,14 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //get the session data (stored locally, CoreData)
-        //pass it to the next view
-        //Display the data in the table
-        
-        //performSegue(withIdentifier: "sessionSegue", sender: self)
-        currentSession = sessionItems[indexPath.row]
-        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", sessionID: Int32(indexPath.row), currentSession: currentSession)
+        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", currentSession: sessionsAll[indexPath.row])
     }
     
     func loadData(){
         
-        //Get Saved Data
-        //If there is none then set up blank arrays
-        //Code defensively
+        if zybooItems.count == 0 {
+            createZybooItemsArray()
+        }
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -94,90 +89,46 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionData")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
         do {
-            sessionData = try managedContext.fetch(fetchRequest)
+            sessionObjs = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        if sessionData.count != 0 {
-            sessionItems.removeAll()
+        if sessionObjs.count != 0 {
+            sessionsAll.removeAll()
             
-            var i = 0
-            while i <= sessionData.count - 1 {
-                let item = sessionData[i]
-                let sessionHistory = Session()
-                
-                sessionHistory.locationName = item.value(forKey: "locationName") as! String
-                sessionHistory.sessionDate = item.value(forKey: "sessionDate") as! Date
-                sessionHistory.sessionID = item.value(forKey: "sessionID") as! Int64
-                
-                let sessionItemsFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
-                sessionItemsFetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(sessionHistory.sessionID))
-                var sessionItemsFetched: [NSManagedObject] = []
-                
-                do {
-                    sessionItemsFetched = try managedContext.fetch(sessionItemsFetchRequest)
-                    
-                    //sessionHistory.sessionTotal = sessionItemsFetched[0].value(forKey: "")
-                    for thisSessionItem in sessionItemsFetched {
-                        let newZybooItem = ZybooItem()
-                        newZybooItem.itemID = Int32(thisSessionItem.value(forKey: "itemID") as! Int64)
-                        newZybooItem.itemName = thisSessionItem.value(forKey: "itemName") as! String
-                        newZybooItem.itemCount = thisSessionItem.value(forKey: "itemQuantity") as! Int32
-                        newZybooItem.unitCost = thisSessionItem.value(forKey: "itemUnitPrice") as! Double
-                        
-                        sessionHistory.sessionItems.append(newZybooItem)
-                    }
-                    
-                    self.currentSession = sessionHistory
-                } catch let error as NSError {
-                    print("Could not fetch. \(error), \(error.userInfo)")
-                }
-                
-                sessionItems.append(sessionHistory)
-                
-                i = i + 1
+            for thisSession in sessionObjs {
+                let loadingSession = Session()
+                loadingSession.locationName = thisSession.value(forKey: "locationName") as! String
+                loadingSession.locationLongitude = thisSession.value(forKey: "locationLongitude") as! Double
+                loadingSession.locationLatitude = thisSession.value(forKey: "locationLatitude") as! Double
+                loadingSession.sessionDate = thisSession.value(forKey: "sessionDate") as! Date
+                loadingSession.sessionTotal = thisSession.value(forKey: "sessionTotal") as! Double
+                loadingSession.sessionItems = thisSession.value(forKey: "sessionItems") as! [ZybooItem]
+                sessionsAll.append(loadingSession)
             }
         }
     }
     
     func passSessionDataBack(sessionObj: Session) {
-        //Do some stuff with the Session object passed back
-        // Add it to the array, add it to the TableView
-        self.currentSession = sessionObj
-        self.tableView?.reloadData()
+        // When the table row is selected, log the index of the row
+        // When the object is passed back, replace the object in the sessionsAll 
+        //    array with this passed back session using that index value
+        
+        //self.currentSession = sessionObj
+        //self.tableView?.reloadData()
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String, sessionID: Int32, currentSession: Session) {
-        createZybooItemsArray()
-        
-        self.currentSessionID = sessionID
-        self.currentSession = currentSession
-        self.currentSession.sessionItems = self.zybooItemObjects
+    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session) {
+        self.segueSession = currentSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "sessionSegue" {
-            // Need to update itemCounts and UnitCosts of zybooItemObjects array
-            // Send through to Session Details
-            let nextScene = segue.destination as! SessionDetailTableViewController
-            nextScene.sessionItems = zybooItemObjects
-            nextScene.newSession = false
-            nextScene.sessionID = self.currentSessionID
-            //self.currentSession.sessionItems = zybooItemObjects
-            nextScene.currentSession = self.currentSession
-        }
-        else if segue.identifier == "addSessionSegue" {
-            let nextScene = segue.destination as! SessionViewController
-            nextScene.sessionItems = zybooItemObjects
-            nextScene.newSessionID = Int32(sessionItems.count)
-            //self.currentSession.sessionItems = zybooItemObjects
-            nextScene.sessionObj = self.currentSession //Need to ensure the new session is being passed thru
-         }
+        let nextScene = segue.destination as! SessionDetailTableViewController
+        nextScene.currentSession = self.segueSession
     }
     
     func createZybooItemsArray(){
@@ -190,109 +141,56 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ZybooItemData")
         do {
-            zybooItems = try managedContext.fetch(fetchRequest)
+            zybooItemObjs = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
-        if zybooItems.count == 0 {
-            save(itemID: 1, itemName: "Beer", itemCount: 0, unitCost: 1.00)
-            save(itemID: 2, itemName: "Wine", itemCount: 0, unitCost: 2.00)
-            save(itemID: 3, itemName: "Spirits", itemCount: 0, unitCost: 3.00)
-            save(itemID: 4, itemName: "Mixer", itemCount: 0, unitCost: 4.00)
-            save(itemID: 5, itemName: "Small Food", itemCount: 0, unitCost: 5.00)
-            save(itemID: 6, itemName: "Medium Food", itemCount: 0, unitCost: 6.00)
-            save(itemID: 7, itemName: "Large Food", itemCount: 0, unitCost: 7.00)
+        if zybooItemObjs.count == 0 {
+            saveZybooItem(itemName: "Beer", itemCount: 0, unitCost: 1.00)
+            saveZybooItem(itemName: "Wine", itemCount: 0, unitCost: 2.00)
+            saveZybooItem(itemName: "Spirits", itemCount: 0, unitCost: 3.00)
+            saveZybooItem(itemName: "Mixer", itemCount: 0, unitCost: 4.00)
+            saveZybooItem(itemName: "Small Food", itemCount: 0, unitCost: 5.00)
+            saveZybooItem(itemName: "Medium Food", itemCount: 0, unitCost: 6.00)
+            saveZybooItem(itemName: "Large Food", itemCount: 0, unitCost: 7.00)
         }
         
-        zybooItemObjects.removeAll()
+        zybooItems.removeAll()
         
-        var i = 0
-        while i <= zybooItems.count - 1 {
-            let item = zybooItems[i]
-            let zybooItem = ZybooItem()
+        for item in zybooItemObjs {
+            let thisItem = ZybooItem()
+            thisItem.itemName = item.value(forKey: "itemName") as! String
+            thisItem.itemCount = item.value(forKey: "itemCount") as! Int32
+            thisItem.unitCost = item.value(forKey: "unitCost") as! Double
             
-            zybooItem.itemID = item.value(forKey: "itemID") as! Int32
-            zybooItem.itemName = item.value(forKey: "itemName") as! String
-            zybooItem.itemCount = item.value(forKey: "itemCount") as! Int32
-            zybooItem.unitCost = item.value(forKey: "unitCost") as! Double
-            
-            zybooItemObjects.append(zybooItem)
-            
-            i = i + 1
+            zybooItems.append(thisItem)
         }
+        
     }
     
-    func save(itemID: Int32, itemName: String, itemCount: Int32, unitCost: Double) {
+    func saveZybooItem(itemName: String, itemCount: Int32, unitCost: Double) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "ZybooItemData",
+        let entity = NSEntityDescription.entity(forEntityName: "ZybooItemObj",
                                                 in: managedContext)!
         
         let newZybooItem = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
         
-        newZybooItem.setValue(itemID, forKeyPath: "itemID")
         newZybooItem.setValue(itemName, forKeyPath: "itemName")
         newZybooItem.setValue(itemCount, forKeyPath: "itemCount")
         newZybooItem.setValue(unitCost, forKeyPath: "unitCost")
+        zybooItemObjs.append(newZybooItem)
         
         do {
             try managedContext.save()
-            zybooItems.append(newZybooItem)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

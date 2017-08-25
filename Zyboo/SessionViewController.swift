@@ -23,6 +23,9 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
     }
     
+    @IBAction func viewItemsTapped(_ sender: Any) {
+    }
+    
     var sessionObj = Session()
     var sessionItems = [ZybooItem]()
     var sessions: [NSManagedObject] = []

@@ -9,7 +9,6 @@
 import Foundation
 
 class ZybooItem : NSObject {
-    var itemID: Int32 = 0
     var itemName: String = ""
     var itemCount: Int32 = 0
     var unitCost: Double = 0.0
@@ -17,8 +16,7 @@ class ZybooItem : NSObject {
     override init(){
     }
     
-    init(itemID: Int32, itemName: String, itemCount: Int32, unitCost: Double){
-        self.itemID = itemID
+    init(itemName: String, itemCount: Int32, unitCost: Double){
         self.itemName = itemName
         self.itemCount = itemCount
         self.unitCost = unitCost
