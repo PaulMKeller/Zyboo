@@ -12,11 +12,10 @@ import CoreData
 class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPassBackDelegate {
     
     @IBOutlet weak var sessionNavItem: UINavigationItem!
-    var sessionItems = [ZybooItem]()
     var runningTotal: Double = 0.00
     var newSession: Bool = false
-    var sessionID: Int32 = 0
-    var currentSession = Session() //CREATE AND PASS BACK A SESSION OBJECT TO SAVE THE SESSION
+    var currentSession = Session()
+    var currentSessionObj = NSManagedObject()
     
     weak var delegate: ZybooSessionPassBackDelegate?
 
@@ -51,17 +50,13 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sessionItems.count
+        return self.currentSession.sessionItems.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
 
-        //var sessionItem = ZybooItem()
-        //sessionItem = sessionItems[indexPath.row]
-        // need to set up a custom cell and set it's values here
         var currentItem = ZybooItem()
-        //currentItem = sessionItems[indexPath.row]
         currentItem = self.currentSession.sessionItems[indexPath.row]
         cell.cellItemObj = currentItem
         cell.itemDescription.text = currentItem.itemName
@@ -72,20 +67,14 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     }
     
     func passItemDataBack(cellZybooItem: ZybooItem) {
-        
-        if let i = sessionItems.index(where: { $0.itemID == cellZybooItem.itemID }) {
-            sessionItems.remove(at: i)
-            sessionItems.insert(cellZybooItem, at: i)
-            
-            calculateRunningTotal()
-        }
+        // I probably need to passback the Session object at this point
     }
     
     func calculateRunningTotal() {
         
         runningTotal = 0.00
         
-        for sessionItem: ZybooItem in sessionItems {
+        for sessionItem: ZybooItem in self.currentSession.sessionItems {
             runningTotal = runningTotal + (Double(sessionItem.itemCount) * sessionItem.unitCost)
         }
         
@@ -94,21 +83,14 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     
     func saveData() {
         
-        //SAVE THE ITEM DETAILS AND FIX THE NEW SESSION SEGUE PROBLEM
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionItem")
-        fetchRequest.predicate = NSPredicate(format: "sessionID = %@", String(self.sessionID))
-        
-        var sessionData: [NSManagedObject] = []
-        
         do {
-            sessionData = try managedContext.fetch(fetchRequest)
-            
+            /*
             if sessionData.count != 0{
                 //Loop the sessionItems
                 for sessionItem in sessionData {
@@ -129,7 +111,11 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
                     
                     self.delegate?.passSessionDataBack(sessionObj: self.currentSession)
                 }
-            }
+            } 
+            */
+            
+            
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

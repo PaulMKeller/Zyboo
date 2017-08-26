@@ -14,6 +14,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     
     @IBOutlet weak var venueTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet var sessionTotalLabel: UILabel!
     @IBAction func saveTapped(_ sender: Any) {
         
         if venueTextField.text == "" {
@@ -26,16 +27,15 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     @IBAction func viewItemsTapped(_ sender: Any) {
     }
     
-    var sessionObj = Session()
-    var sessionItems = [ZybooItem]()
-    var sessions: [NSManagedObject] = []
-    var newSessionID: Int32 = 0
+    var currentSession = Session()
+    var currentSessionObj = NSManagedObject()
+    var newSession: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        datePicker.date = NSDate() as Date
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,62 +43,62 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func loadData(){
+        if self.newSession {
+            datePicker.date = NSDate() as Date
+        } else {
+            venueTextField.text = self.currentSession.locationName
+            sessionTotalLabel.text = String(self.currentSession.sessionTotal)
+            datePicker.date = self.currentSession.sessionDate
+        }
+        
+    }
+    
     func passSessionDataBack(sessionObj: Session) {
-        //Pass the session back to the view controller.
+        // Pass the session back to the view controller.
+        // We eventually need to reflect the session in the TrackerSessionTableViewController
     }
     
     func saveData(sessionVenue: String, sessionDate: Date) {
+        // Update an existing CoreData SessionObj object
+        // or save a new CoreData SessionObj object
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "SessionData",
+        let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
                                                 in: managedContext)!
         
-        let newSessionData = NSManagedObject(entity: entity,
-                                           insertInto: managedContext)
-        
-        newSessionData.setValue(newSessionID, forKeyPath: "sessionID")
-        newSessionData.setValue(sessionVenue, forKeyPath: "locationName")
-        //Set default values for long and lat for now
-        //Geo locate at a later date
-        newSessionData.setValue(1.277076, forKeyPath: "locationLatitude")
-        newSessionData.setValue(103.846075, forKeyPath: "locationLongitude")
-        //newSessionData.setValue(sessionItems, forKey: "sessionItems")
-        newSessionData.setValue(datePicker.date, forKey: "sessionDate")
+        if newSession {
+            let newSessionData = NSManagedObject(entity: entity,
+                                                 insertInto: managedContext)
+            
+            newSessionData.setValue(self.venueTextField.text, forKeyPath: "locationName")
+            newSessionData.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+            newSessionData.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+            newSessionData.setValue(datePicker.date, forKey: "sessionDate")
+            newSessionData.setValue(sessionTotalLabel.text, forKey: "sessionTotal")
+            newSessionData.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
+        } else {
+            self.currentSessionObj.setValue(self.venueTextField.text, forKeyPath: "locationName")
+            self.currentSessionObj.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+            self.currentSessionObj.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+            self.currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
+            self.currentSessionObj.setValue(sessionTotalLabel.text, forKey: "sessionTotal")
+            self.currentSessionObj.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
+        }
         
         do {
             try managedContext.save()
-            sessions.append(newSessionData)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        let entityItem = NSEntityDescription.entity(forEntityName: "SessionItem",
-                                                in: managedContext)!
-        
-        for item in sessionItems {
-            let newSessionItem = NSManagedObject(entity: entityItem,
-                                                 insertInto: managedContext)
-            newSessionItem.setValue(newSessionID, forKeyPath: "sessionID")
-            newSessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
-            newSessionItem.setValue(item.itemName, forKeyPath: "itemName")
-            newSessionItem.setValue(item.itemID, forKeyPath: "itemID")
-            newSessionItem.setValue(item.unitCost, forKeyPath: "itemUnitPrice")
-            
-            do {
-                try managedContext.save()
-                //sessions.append(newSessionData) // DO I NEED TO APPEND THE SESSION OBJECT SOMEWHERE?
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        }
-        
         self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
         
-}
+    }
     
 
     
@@ -108,10 +108,8 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let nextScene = segue.destination as! SessionDetailTableViewController
-        nextScene.sessionItems = sessionItems
-        nextScene.sessionID = newSessionID
-        nextScene.newSession = true
-        nextScene.currentSession = self.sessionObj //THIS SHOULD ALREADY HAVE THE SESSION ITEMS ADDED TO IT FROM THE PASS THRU FROM TrackerSessionViewController
+        nextScene.newSession = self.newSession
+        nextScene.currentSession = self.currentSession
     }
 
 }

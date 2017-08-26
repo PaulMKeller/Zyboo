@@ -19,11 +19,13 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     var zybooItems = [ZybooItem]()
     
     var segueSession = Session()
+    var segueSessionObj = NSManagedObject()
+    var newSession: Bool = false
     
     @IBAction func addTapped(_ sender: Any) {
         let newSession = Session()
         newSession.sessionItems = zybooItems
-        prepareForSessionDetailSegue(segueIdentifier: "addSessionSegue", currentSession: newSession)
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, managedObjIndex: 0, newSession: true)
     }
     
     override func viewDidLoad() {
@@ -74,7 +76,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        prepareForSessionDetailSegue(segueIdentifier: "sessionSegue", currentSession: sessionsAll[indexPath.row])
+        
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], managedObjIndex: Int32(indexPath.row), newSession: false)
     }
     
     func loadData(){
@@ -121,13 +124,16 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //self.tableView?.reloadData()
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session) {
+    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, managedObjIndex: Int32, newSession: Bool) {
         self.segueSession = currentSession
+        //self.segueSessionObj = self.sessionObjs[managedObjIndex] // NOT SURE WHAT IS WRONG WITH THIS
+        self.newSession = newSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextScene = segue.destination as! SessionDetailTableViewController
+        let nextScene = segue.destination as! SessionViewController
+        nextScene.newSession = self.newSession
         nextScene.currentSession = self.segueSession
     }
     
