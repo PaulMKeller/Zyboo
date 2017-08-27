@@ -15,7 +15,6 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     var runningTotal: Double = 0.00
     var newSession: Bool = false
     var currentSession = Session()
-    var currentSessionObj = NSManagedObject()
     
     weak var delegate: ZybooSessionPassBackDelegate?
 
@@ -81,6 +80,42 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         sessionNavItem.title = "Total: $" + String(runningTotal)
     }
     
+    func saveData() {
+        // Update an existing CoreData SessionObj object
+        // or save a new CoreData SessionObj object
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Use a fetch request with predicate to retrieve the object
+        // If nothing it found, create a new one, else update the existing one.
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
+        // I probably should do this with ObjectID...
+        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", String(currentSession.locationName), String(describing: currentSession.sessionDate))
+        
+        do {
+            var sessionItemsFetched: [NSManagedObject] = []
+            sessionItemsFetched = try managedContext.fetch(fetchRequest)
+            
+            self.currentSession.sessionTotal = runningTotal
+
+            for thisSession in sessionItemsFetched {
+                thisSession.setValue(runningTotal, forKey: "sessionTotal")
+                thisSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
+            }
+            
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+        
+    }
+    
+    /*
     func saveData() {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -176,6 +211,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
             createAlert(successfulSave: false)
         }
     }
+    */
     
     func createAlert(successfulSave: Bool) {
         

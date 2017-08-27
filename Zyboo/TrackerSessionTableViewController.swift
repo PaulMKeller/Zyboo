@@ -25,7 +25,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     @IBAction func addTapped(_ sender: Any) {
         let newSession = Session()
         newSession.sessionItems = zybooItems
-        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, managedObjIndex: 0, newSession: true)
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, newSession: true)
     }
     
     override func viewDidLoad() {
@@ -77,7 +77,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], managedObjIndex: Int32(indexPath.row), newSession: false)
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], newSession: false)
     }
     
     func loadData(){
@@ -124,9 +124,9 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //self.tableView?.reloadData()
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, managedObjIndex: Int32, newSession: Bool) {
+    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, newSession: Bool) {
         self.segueSession = currentSession
-        self.segueSessionObj = self.sessionObjs[managedObjIndex] // I have to pass the NSManagedObject through but I don't know how yet
+        //self.segueSessionObj = self.sessionObjs[managedObjIndex] // I have to pass the NSManagedObject through but I don't know how yet
         self.newSession = newSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
@@ -135,7 +135,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         let nextScene = segue.destination as! SessionViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.segueSession
-        nextScene.currentSessionObj = self.segueSessionObj
+        //nextScene.currentSessionObj = self.segueSessionObj
     }
     
     func createZybooItemsArray(){
@@ -146,7 +146,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ZybooItemData")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ZybooItemObj")
         do {
             zybooItemObjs = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {

@@ -28,7 +28,6 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     }
     
     var currentSession = Session()
-    var currentSessionObj = NSManagedObject()
     var newSession: Bool = false
 
     override func viewDidLoad() {
@@ -59,6 +58,8 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // We eventually need to reflect the session in the TrackerSessionTableViewController
     }
     
+    
+    /*
     func saveData(sessionVenue: String, sessionDate: Date) {
         // Update an existing CoreData SessionObj object
         // or save a new CoreData SessionObj object
@@ -99,6 +100,65 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
         
     }
+     */
+    
+    func saveData(sessionVenue: String, sessionDate: Date) {
+        // Update an existing CoreData SessionObj object
+        // or save a new CoreData SessionObj object
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Use a fetch request with predicate to retrieve the object
+        // If nothing it found, create a new one, else update the existing one.
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
+        // I probably should do this with ObjectID...
+        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", currentSession.locationName, currentSession.sessionDate as CVarArg)
+        
+        do {
+            var sessionItemsFetched: [NSManagedObject] = []
+            sessionItemsFetched = try managedContext.fetch(fetchRequest)
+
+            self.currentSession.locationName = self.venueTextField.text!
+            self.currentSession.sessionDate = datePicker.date
+            self.currentSession.sessionTotal = Double(self.sessionTotalLabel.text!)!
+            //session items can't of changed at this point...
+            
+            if sessionItemsFetched.count == 0 && newSession == true {
+                //It's a new session
+                let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
+                                                        in: managedContext)!
+                
+                let newSession = NSManagedObject(entity: entity,
+                                                   insertInto: managedContext)
+                
+                newSession.setValue(self.venueTextField.text, forKeyPath: "locationName")
+                newSession.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+                newSession.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+                newSession.setValue(datePicker.date, forKey: "sessionDate")
+                newSession.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
+                newSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
+            } else {
+                for thisSession in sessionItemsFetched {
+                    thisSession.setValue(self.venueTextField.text, forKeyPath: "locationName")
+                    thisSession.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+                    thisSession.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+                    thisSession.setValue(datePicker.date, forKey: "sessionDate")
+                    thisSession.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
+                    thisSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
+                }
+            }
+        
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+        
+    }
     
 
     
@@ -110,7 +170,6 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         let nextScene = segue.destination as! SessionDetailTableViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.currentSession
-        nextScene.currentSessionObj = self.currentSessionObj
     }
 
 }
