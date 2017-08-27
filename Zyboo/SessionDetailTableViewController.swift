@@ -111,14 +111,90 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
                     
                     self.delegate?.passSessionDataBack(sessionObj: self.currentSession)
                 }
-            } 
+            }
+             
+             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+             return
+             }
+             
+             let managedContext = appDelegate.persistentContainer.viewContext
+             
+             let entity = NSEntityDescription.entity(forEntityName: "ZybooItemObj",
+             in: managedContext)!
+             
+             let newZybooItem = NSManagedObject(entity: entity,
+             insertInto: managedContext)
+             
+             newZybooItem.setValue(itemName, forKeyPath: "itemName")
+             newZybooItem.setValue(itemCount, forKeyPath: "itemCount")
+             newZybooItem.setValue(unitCost, forKeyPath: "unitCost")
+             zybooItemObjs.append(newZybooItem)
+             
+             do {
+             try managedContext.save()
+             } catch let error as NSError {
+             print("Could not save. \(error), \(error.userInfo)")
+             }
+
+             
             */
             
             
             
+            if self.newSession {
+                // Create a new NSManagedObject and Save it
+                let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
+                                                        in: managedContext)!
+                
+                let newSessionObj = NSManagedObject(entity: entity,
+                                                   insertInto: managedContext)
+                
+                newSessionObj.setValue(currentSession.locationName, forKey: "locationName")
+                newSessionObj.setValue(currentSession.locationLongitude, forKey: "locationLongitude")
+                newSessionObj.setValue(currentSession.locationLatitude, forKey: "locationLatitude")
+                newSessionObj.setValue(currentSession.sessionDate, forKey: "sessionDate")
+                newSessionObj.setValue(currentSession.sessionTotal, forKey: "sessionTotal")
+                newSessionObj.setValue(currentSession.sessionItems, forKey: "sessionItems")
+                currentSessionObj = newSessionObj
+                self.newSession = false
+            } else {
+                // Update the existing NSManagedObject and Save it
+                currentSessionObj.setValue(currentSession.locationName, forKey: "locationName")
+                currentSessionObj.setValue(currentSession.locationLongitude, forKey: "locationLongitude")
+                currentSessionObj.setValue(currentSession.locationLatitude, forKey: "locationLatitude")
+                currentSessionObj.setValue(currentSession.sessionDate, forKey: "sessionDate")
+                currentSessionObj.setValue(currentSession.sessionTotal, forKey: "sessionTotal")
+                currentSessionObj.setValue(currentSession.sessionItems, forKey: "sessionItems")
+            }
+            
+            try managedContext.save()
+            
+            createAlert(successfulSave: true)
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+            createAlert(successfulSave: false)
         }
+    }
+    
+    func createAlert(successfulSave: Bool) {
+        
+        let alertMessage: String
+        
+        if successfulSave {
+            alertMessage = "Data Saved"
+        } else {
+            alertMessage = "Data NOT Saved"
+        }
+        
+        // create the alert
+        let alert = UIAlertController(title: "Session Save", message: "\(alertMessage)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 
     /*

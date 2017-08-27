@@ -12,10 +12,10 @@ import CoreData
 class TrackerSessionTableViewController: UITableViewController, ZybooSessionPassBackDelegate {
     
     
-    var sessionObjs: [NSManagedObject] = []
+    var sessionObjs = [NSManagedObject]()
     var sessionsAll = [Session]()
     
-    var zybooItemObjs: [NSManagedObject] = []
+    var zybooItemObjs = [NSManagedObject]()
     var zybooItems = [ZybooItem]()
     
     var segueSession = Session()
@@ -126,7 +126,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     
     func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, managedObjIndex: Int32, newSession: Bool) {
         self.segueSession = currentSession
-        //self.segueSessionObj = self.sessionObjs[managedObjIndex] // NOT SURE WHAT IS WRONG WITH THIS
+        self.segueSessionObj = self.sessionObjs[managedObjIndex] // I have to pass the NSManagedObject through but I don't know how yet
         self.newSession = newSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
@@ -135,6 +135,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         let nextScene = segue.destination as! SessionViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.segueSession
+        nextScene.currentSessionObj = self.segueSessionObj
     }
     
     func createZybooItemsArray(){

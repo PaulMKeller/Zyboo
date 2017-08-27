@@ -110,6 +110,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         let nextScene = segue.destination as! SessionDetailTableViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.currentSession
+        nextScene.currentSessionObj = self.currentSessionObj
     }
 
 }
