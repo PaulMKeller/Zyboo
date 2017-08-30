@@ -15,6 +15,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     var runningTotal: Double = 0.00
     var newSession: Bool = false
     var currentSession = Session()
+    var currentSessionObj = NSManagedObject()
     
     weak var delegate: ZybooSessionPassBackDelegate?
 
@@ -30,6 +31,10 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // LOAD THE DATA, SAVE THE DATA, PASS ON THE DATA WHERE NECESSARY
+        
+        loadData()
 
         calculateRunningTotal()
         
@@ -78,6 +83,27 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         }
         
         sessionNavItem.title = "Total: $" + String(runningTotal)
+    }
+    
+    func loadData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Use a fetch request with predicate to retrieve the object
+        // If nothing it found, create a new one, else update the existing one.
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
+        // I probably should do this with ObjectID...
+        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", String(currentSession.locationName), String(describing: currentSession.sessionDate))
+        
+        do {
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
     }
     
     func saveData() {

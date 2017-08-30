@@ -15,8 +15,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     var sessionObjs = [NSManagedObject]()
     var sessionsAll = [Session]()
     
-    var zybooItemObjs = [NSManagedObject]()
-    var zybooItems = [ZybooItem]()
+    //var zybooItemObjs = [NSManagedObject]()
+    //var zybooItems = [ZybooItem]()
     
     var segueSession = Session()
     var segueSessionObj = NSManagedObject()
@@ -24,7 +24,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     
     @IBAction func addTapped(_ sender: Any) {
         let newSession = Session()
-        newSession.sessionItems = zybooItems
+        //newSession.sessionItems = zybooItems
         prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, newSession: true)
     }
     
@@ -76,15 +76,17 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        segueSessionObj = sessionObjs[indexPath.row]
         prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], newSession: false)
     }
     
     func loadData(){
         
+        /*
         if zybooItems.count == 0 {
             createZybooItemsArray()
         }
+        */
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -109,7 +111,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
                 loadingSession.locationLatitude = thisSession.value(forKey: "locationLatitude") as! Double
                 loadingSession.sessionDate = thisSession.value(forKey: "sessionDate") as! Date
                 loadingSession.sessionTotal = thisSession.value(forKey: "sessionTotal") as! Double
-                loadingSession.sessionItems = thisSession.value(forKey: "sessionItems") as! [ZybooItem]
+                //loadingSession.sessionItems = thisSession.value(forKey: "sessionItems") as! [ZybooItem]
                 sessionsAll.append(loadingSession)
             }
         }
@@ -135,9 +137,16 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         let nextScene = segue.destination as! SessionViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.segueSession
-        //nextScene.currentSessionObj = self.segueSessionObj
+        nextScene.currentSessionObj = self.segueSessionObj
     }
     
+    /* ITEMS SHOULD BE CREATED ON THE FLY BY THE USER 
+        THIS PRE-LOAD SHOULD NO LONGER BE NECESSARY
+     
+     
+     */
+    
+    /*
     func createZybooItemsArray(){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -200,4 +209,5 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    */
 }
