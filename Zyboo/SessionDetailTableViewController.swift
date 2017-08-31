@@ -34,7 +34,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
         // LOAD THE DATA, SAVE THE DATA, PASS ON THE DATA WHERE NECESSARY
         
-        loadData()
+        //loadData()
 
         calculateRunningTotal()
         
@@ -63,6 +63,12 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         var currentItem = ZybooItem()
         currentItem = self.currentSession.sessionItems[indexPath.row]
         cell.cellItemObj = currentItem
+        
+        // SET THE NSManaged OBJECT to the cell class for later use!
+        //var currentDataObj = [Any]()
+        //currentDataObj = currentSessionObj.value(forKey: "zybooItems")
+        
+        //cell.cellDataObj = currentDataObj.
         cell.itemDescription.text = currentItem.itemName
         cell.itemCount.text = String(currentItem.itemCount)
         cell.delegate = self
@@ -85,6 +91,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         sessionNavItem.title = "Total: $" + String(runningTotal)
     }
     
+    /*
     func loadData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -99,10 +106,16 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", String(currentSession.locationName), String(describing: currentSession.sessionDate))
         
         do {
-            
+            sessionObjs = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+    }
+    */
+    
+    func loadData() {
+        
         
     }
     

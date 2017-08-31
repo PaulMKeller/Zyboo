@@ -25,6 +25,8 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     }
     
     @IBAction func viewItemsTapped(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "addItemSegue", sender: self)
     }
     
     var currentSession = Session()
@@ -184,12 +186,30 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
             currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
             currentSessionObj.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
             
+            /* Don't need to sae these here they can't change here...
+            let zybooItemsSet = NSSet()
+            
+            for zybooItem in self.currentSession.sessionItems {
+                let entityZybooItemObj = NSEntityDescription.entity(forEntityName: "ZybooItemObj", in: managedContext)!
+                let newZybooItemObj = NSManagedObject(entity: entityZybooItemObj, insertInto: managedContext)
+                
+                newZybooItemObj.setValue(zybooItem.itemName, forKey: "itemName")
+                newZybooItemObj.setValue(zybooItem.itemCount, forKey: "itemCount")
+                newZybooItemObj.setValue(zybooItem.unitCost, forKey: "unitCost")
+                newZybooItemObj.setValue(zybooItem.favouriteItem, forKey: "favouriteItem")
+                
+                zybooItemsSet.adding(newZybooItemObj)
+            }
+            
+            currentSessionObj.setValue(NSSet(object: zybooItemsSet), forKey: "zybooItems")
+            */
+            
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
         
-        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+        //self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
         
     }
     
@@ -201,6 +221,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         let nextScene = segue.destination as! SessionDetailTableViewController
         nextScene.newSession = self.newSession
         nextScene.currentSession = self.currentSession
+        nextScene.currentSessionObj = self.currentSessionObj
     }
 
 }

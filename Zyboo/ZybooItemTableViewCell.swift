@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ZybooItemTableViewCell: UITableViewCell {
     
@@ -19,6 +20,7 @@ class ZybooItemTableViewCell: UITableViewCell {
         self.delegate?.passItemDataBack(cellZybooItem: cellItemObj)
     }
     var cellItemObj = ZybooItem()
+    var cellDataObj = NSManagedObject()
     weak var delegate: ZybooItemTotalPassBackDelegate?
     
     override func awakeFromNib() {
