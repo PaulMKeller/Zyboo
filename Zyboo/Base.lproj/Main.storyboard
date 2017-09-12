@@ -264,7 +264,7 @@ Be patient lah!</string>
             </objects>
             <point key="canvasLocation" x="3438" y="0.0"/>
         </scene>
-        <!--Session Item View Controller-->
+        <!--Session Item Details-->
         <scene sceneID="wgN-uw-yol">
             <objects>
                 <viewController id="ZhN-JS-kL7" customClass="SessionItemViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -304,14 +304,6 @@ Be patient lah!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmE-Mc-9wx">
-                                <rect key="frame" x="164" y="229" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveTapped:" destination="ZhN-JS-kL7" eventType="touchUpInside" id="ac7-fK-J0l"/>
-                                </connections>
-                            </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="3Yt-9B-TNt">
                                 <rect key="frame" x="210" y="180" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -322,6 +314,15 @@ Be patient lah!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Session Item Details" id="53T-O2-J7B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="25j-7p-k7Z">
+                            <connections>
+                                <action selector="saveTapped:" destination="ZhN-JS-kL7" id="Nxz-8c-RYA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="costStepper" destination="3Yt-9B-TNt" id="xGe-gO-bli"/>
                         <outlet property="sessionItemCost" destination="ZMS-gl-cEv" id="gHE-Js-khM"/>
@@ -368,14 +369,14 @@ Be patient lah!</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvF-AM-q0s">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="234-xV-RUZ">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>

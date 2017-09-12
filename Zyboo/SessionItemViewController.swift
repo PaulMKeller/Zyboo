@@ -21,7 +21,7 @@ class SessionItemViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
     }
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
 
