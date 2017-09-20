@@ -26,7 +26,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
     
     @IBAction func viewItemsTapped(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "addItemSegue", sender: self)
+        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
     }
     
     var currentSession = Session()

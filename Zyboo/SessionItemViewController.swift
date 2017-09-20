@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SessionItemViewController: UIViewController {
 
-    
+    var currentSession = Session()
+    var currentSessionObj = NSManagedObject()
     
     
     @IBOutlet weak var sessionItemNameText: UITextField!
@@ -20,6 +22,17 @@ class SessionItemViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        /*
+         Loop each Zyboo Item
+         Match is it to a currentSession SessionItem
+         Match that to a currentSessionObj item
+         Set the values of both
+         
+         save the new sessionItem if it is new or update it if it is existing.
+         
+         Pass it back to the previous view
+         */
+        
     }
        
     override func viewDidLoad() {
