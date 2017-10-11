@@ -61,8 +61,6 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // We eventually need to reflect the session in the TrackerSessionTableViewController
     }
     
-    
-    /*
     func saveData(sessionVenue: String, sessionDate: Date) {
         // Update an existing CoreData SessionObj object
         // or save a new CoreData SessionObj object
@@ -72,139 +70,39 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
-                                                in: managedContext)!
-        
-        if newSession {
-            let newSessionData = NSManagedObject(entity: entity,
-                                                 insertInto: managedContext)
-            
-            newSessionData.setValue(self.venueTextField.text, forKeyPath: "locationName")
-            newSessionData.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
-            newSessionData.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
-            newSessionData.setValue(datePicker.date, forKey: "sessionDate")
-            newSessionData.setValue(sessionTotalLabel.text, forKey: "sessionTotal")
-            newSessionData.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
-        } else {
-            self.currentSessionObj.setValue(self.venueTextField.text, forKeyPath: "locationName")
-            self.currentSessionObj.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
-            self.currentSessionObj.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
-            self.currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
-            self.currentSessionObj.setValue(sessionTotalLabel.text, forKey: "sessionTotal")
-            self.currentSessionObj.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
-        }
-        
         do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        
-        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
-        
-    }
-     */
-    
-    
-    /* VERSION 2...
-    func saveData(sessionVenue: String, sessionDate: Date) {
-        // Update an existing CoreData SessionObj object
-        // or save a new CoreData SessionObj object
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // Use a fetch request with predicate to retrieve the object
-        // If nothing it found, create a new one, else update the existing one.
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
-        // I probably should do this with ObjectID...
-        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", currentSession.locationName, currentSession.sessionDate as CVarArg)
-        
-        do {
-            var sessionItemsFetched: [NSManagedObject] = []
-            sessionItemsFetched = try managedContext.fetch(fetchRequest)
-
-            self.currentSession.locationName = self.venueTextField.text!
+            self.currentSession.locationName = venueTextField.text!
             self.currentSession.sessionDate = datePicker.date
-            self.currentSession.sessionTotal = Double(self.sessionTotalLabel.text!)!
-            //session items can't of changed at this point...
+            self.currentSession.sessionTotal = Double(sessionTotalLabel.text!)!
             
-            if sessionItemsFetched.count == 0 && newSession == true {
-                //It's a new session
-                let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
-                                                        in: managedContext)!
+            if self.newSession {
+                let entitySessionObj = NSEntityDescription.entity(forEntityName: "SessionObj", in: managedContext)
+                let newSessionObj = NSManagedObject(entity: entitySessionObj!, insertInto: managedContext)
                 
-                let newSession = NSManagedObject(entity: entity,
-                                                   insertInto: managedContext)
+                newSessionObj.setValue(venueTextField.text!, forKeyPath: "locationName")
+                newSessionObj.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+                newSessionObj.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+                newSessionObj.setValue(datePicker.date, forKey: "sessionDate")
+                newSessionObj.setValue(Double(sessionTotalLabel.text!), forKey: "sessionTotal")
+                currentSessionObj = newSessionObj
                 
-                newSession.setValue(self.venueTextField.text, forKeyPath: "locationName")
-                newSession.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
-                newSession.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
-                newSession.setValue(datePicker.date, forKey: "sessionDate")
-                newSession.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
-                //newSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
-            } else {
-                for thisSession in sessionItemsFetched {
-                    thisSession.setValue(self.venueTextField.text, forKeyPath: "locationName")
-                    thisSession.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
-                    thisSession.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
-                    thisSession.setValue(datePicker.date, forKey: "sessionDate")
-                    thisSession.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
-                    //thisSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
-                }
+                try managedContext.save()
+                _ = navigationController?.popViewController(animated: true)
             }
-        
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        
-        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
-        
-    }
-    */
-    
-    func saveData(sessionVenue: String, sessionDate: Date) {
-        // Update an existing CoreData SessionObj object
-        // or save a new CoreData SessionObj object
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        do {
-            self.currentSession.locationName = self.venueTextField.text!
-            self.currentSession.sessionDate = datePicker.date
-            self.currentSession.sessionTotal = Double(self.sessionTotalLabel.text!)!
-            
-            currentSessionObj.setValue(self.venueTextField.text, forKeyPath: "locationName")
-            currentSessionObj.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
-            currentSessionObj.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
-            currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
-            currentSessionObj.setValue(Double(self.sessionTotalLabel.text!), forKey: "sessionTotal")
-            
-            /* Don't need to sae these here they can't change here...
-            let zybooItemsSet = NSSet()
-            
-            for zybooItem in self.currentSession.sessionItems {
-                let entityZybooItemObj = NSEntityDescription.entity(forEntityName: "ZybooItemObj", in: managedContext)!
-                let newZybooItemObj = NSManagedObject(entity: entityZybooItemObj, insertInto: managedContext)
+            /*
+             else {
+                // I don't need to do this. Only save new sessions or delete.
+                // Don't allow sessions to be edited
+                currentSessionObj.setValue(venueTextField.text!, forKeyPath: "locationName")
+                currentSessionObj.setValue(1.277076, forKeyPath: "locationLatitude")       //Geo-locate the session later
+                currentSessionObj.setValue(103.846075, forKeyPath: "locationLongitude")    //Geo-locate the session later
+                currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
+                currentSessionObj.setValue(Double(sessionTotalLabel.text!), forKey: "sessionTotal")
                 
-                newZybooItemObj.setValue(zybooItem.itemName, forKey: "itemName")
-                newZybooItemObj.setValue(zybooItem.itemCount, forKey: "itemCount")
-                newZybooItemObj.setValue(zybooItem.unitCost, forKey: "unitCost")
-                newZybooItemObj.setValue(zybooItem.favouriteItem, forKey: "favouriteItem")
-                
-                zybooItemsSet.adding(newZybooItemObj)
+                try managedContext.save()
+ 
             }
-            
-            currentSessionObj.setValue(NSSet(object: zybooItemsSet), forKey: "zybooItems")
             */
-            
-            try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

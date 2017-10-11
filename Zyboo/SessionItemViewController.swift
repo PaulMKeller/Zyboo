@@ -17,6 +17,7 @@ class SessionItemViewController: UIViewController {
     
     @IBOutlet weak var sessionItemNameText: UITextField!
     @IBOutlet weak var sessionItemCost: UITextField!
+    @IBOutlet weak var sessionItemCostValue: UIStepper!
     @IBAction func costStepper(_ sender: UIStepper) {
         sessionItemCost.text = String(sender.value)
     }
@@ -32,7 +33,7 @@ class SessionItemViewController: UIViewController {
          
          Pass it back to the previous view
          */
-        
+        saveData()
     }
        
     override func viewDidLoad() {
@@ -44,6 +45,32 @@ class SessionItemViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func saveData(){
+        // Update an existing CoreData SessionObj object
+        // or save a new CoreData SessionObj object
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // Create ZybooItemObj
+        let entityZybooItemObj = NSEntityDescription.entity(forEntityName: "ZybooItemObj", in: managedContext)
+        let newZybooItemObj = NSManagedObject(entity: entityZybooItemObj!, insertInto: managedContext)
+        
+        // Populate ZybooItemObj
+        newZybooItemObj.setValue(sessionItemNameText.text, forKey: "itemName")
+        newZybooItemObj.setValue(0, forKey: "itemCount")
+        newZybooItemObj.setValue(sessionItemCostValue.value, forKey: "itemCost")
+        newZybooItemObj.setValue(false, forKey: "favouriteItem")
+        
+        let zybooObjs = currentSessionObj.mutableSetValue(forKey: "zybooItems")
+        zybooObjs.add(newZybooItemObj)
+        
+        //now seque back 
+        _ = navigationController?.popViewController(animated: true)
     }
     
 
