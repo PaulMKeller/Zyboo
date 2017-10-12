@@ -54,6 +54,10 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
             datePicker.date = self.currentSession.sessionDate
         }
         
+        venueTextField.isEnabled = self.newSession
+        sessionTotalLabel.isEnabled = self.newSession
+        datePicker.isEnabled = self.newSession
+        
     }
     
     func passSessionDataBack(sessionObj: Session) {

@@ -115,7 +115,9 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     */
     
     func loadData() {
-        
+        /*
+         Needs to loop through the relationships, create zybooItem objects, set up the array of objects
+         */
         
     }
     

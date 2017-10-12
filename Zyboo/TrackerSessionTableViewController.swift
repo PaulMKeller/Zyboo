@@ -21,7 +21,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     
     @IBAction func addTapped(_ sender: Any) {
         let newSession = Session()
-        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, newSession: true)
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: newSession, newSession: true, segueSessionObj: NSManagedObject())
     }
     
     override func viewDidLoad() {
@@ -72,8 +72,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        segueSessionObj = sessionObjs[indexPath.row]
-        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], newSession: false)
+        segueSessionObj = sessionsAll[indexPath.row].sessionObj
+        prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", currentSession: sessionsAll[indexPath.row], newSession: false, segueSessionObj: segueSessionObj)
     }
     
     func loadData(){
@@ -100,6 +100,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
                 loadingSession.locationLatitude = thisSession.value(forKey: "locationLatitude") as! Double
                 loadingSession.sessionDate = thisSession.value(forKey: "sessionDate") as! Date
                 loadingSession.sessionTotal = thisSession.value(forKey: "sessionTotal") as! Double
+                loadingSession.sessionObj = thisSession
                 sessionsAll.append(loadingSession)
             }
         }
@@ -116,11 +117,11 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         //TODO - LOAD THE TABLE VIEW CHANGES AGAIN WHEN A NEW SESSION IS ADDED
     }
     
-    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, newSession: Bool) {
+    func prepareForSessionDetailSegue(segueIdentifier: String, currentSession: Session, newSession: Bool, segueSessionObj: NSManagedObject) {
         self.segueSession = currentSession
         //I have to be able to pass through the current session object.
         //THIS IS THE NEXT IMMEDIATE TASK
-        self.segueSessionObj = self.sessionObjs[managedObjIndex] // I have to pass the NSManagedObject through but I don't know how yet
+        self.segueSessionObj = segueSessionObj
         self.newSession = newSession
         self.performSegue(withIdentifier: segueIdentifier, sender: self)
     }
