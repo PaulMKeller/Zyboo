@@ -61,7 +61,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="IcG-LW-JHk" kind="show" identifier="sessionDetailSegue" id="fm8-3f-pmy"/>
+                        <segue destination="IcG-LW-JHk" kind="show" identifier="newSessionSegue" id="fm8-3f-pmy"/>
+                        <segue destination="3X1-fQ-uud" kind="show" identifier="sessionDetailSegue" id="fQJ-cs-088"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLG-DQ-8kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,7 +107,7 @@ Be patient lah!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dh-Wu-jGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3438" y="758"/>
+            <point key="canvasLocation" x="1033" y="1457"/>
         </scene>
         <!--New Session-->
         <scene sceneID="uix-H0-Ims">
@@ -155,14 +156,6 @@ Be patient lah!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt7-Dr-i30">
-                                <rect key="frame" x="16" y="470" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View Session Items"/>
-                                <connections>
-                                    <action selector="viewItemsTapped:" destination="IcG-LW-JHk" eventType="touchUpInside" id="Q1I-39-3eg"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="u0U-iK-cd1">
                                 <rect key="frame" x="0.0" y="246" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -184,12 +177,11 @@ Be patient lah!</string>
                         <outlet property="datePicker" destination="u0U-iK-cd1" id="Of3-oh-35e"/>
                         <outlet property="sessionTotalLabel" destination="naz-Xz-UoJ" id="k1S-uG-2eK"/>
                         <outlet property="venueTextField" destination="H5p-y8-Agq" id="Fpz-ay-BUY"/>
-                        <segue destination="3X1-fQ-uud" kind="show" identifier="saveSessionSegue" id="RzV-4Z-ahX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHV-1c-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2629.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="2662" y="-322"/>
         </scene>
         <!--Total: $0.00-->
         <scene sceneID="S5F-gH-v0L">
@@ -262,7 +254,7 @@ Be patient lah!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-Xz-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3438" y="0.0"/>
+            <point key="canvasLocation" x="2662" y="390"/>
         </scene>
         <!--Session Item Details-->
         <scene sceneID="wgN-uw-yol">
@@ -332,7 +324,7 @@ Be patient lah!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQ2-xd-Hdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4293.6000000000004" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="3542" y="390"/>
         </scene>
         <!--Zyboo Tracker-->
         <scene sceneID="UR4-Bu-eVB">
@@ -432,7 +424,7 @@ Be patient lah!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXg-S7-3vv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2630" y="758"/>
+            <point key="canvasLocation" x="162" y="1457"/>
         </scene>
     </scenes>
     <resources>

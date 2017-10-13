@@ -11,9 +11,7 @@ import CoreData
 
 class SessionItemViewController: UIViewController {
 
-    var currentSession = Session()
     var currentSessionObj = NSManagedObject()
-    
     
     @IBOutlet weak var sessionItemNameText: UITextField!
     @IBOutlet weak var sessionItemCost: UITextField!
@@ -48,6 +46,7 @@ class SessionItemViewController: UIViewController {
     }
     
     func saveData(){
+        /*
         // Update an existing CoreData SessionObj object
         // or save a new CoreData SessionObj object
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -71,6 +70,7 @@ class SessionItemViewController: UIViewController {
         
         //now seque back 
         _ = navigationController?.popViewController(animated: true)
+        */
     }
     
 

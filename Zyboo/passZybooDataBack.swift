@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ZybooItemTotalPassBackDelegate: class {
-    func passItemDataBack(cellZybooItem: ZybooItem)
+    func passItemDataBack()
 }
 
 protocol ZybooSessionPassBackDelegate: class {
-    func passSessionDataBack(sessionObj: Session)
+    func passSessionDataBack(session: NSManagedObject)
 }

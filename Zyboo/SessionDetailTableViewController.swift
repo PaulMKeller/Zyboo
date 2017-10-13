@@ -14,8 +14,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var runningTotal: Double = 0.00
     var newSession: Bool = false
-    var currentSession = Session()
     var currentSessionObj = NSManagedObject()
+    var currentSessionItems = [NSManagedObject]()
     
     weak var delegate: ZybooSessionPassBackDelegate?
 
@@ -34,7 +34,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
         // LOAD THE DATA, SAVE THE DATA, PASS ON THE DATA WHERE NECESSARY
         
-        //loadData()
+        loadData()
 
         calculateRunningTotal()
         
@@ -54,41 +54,44 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.currentSession.sessionItems.count
+        //return self.currentSession.sessionItems.count
+        return currentSessionItems.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
 
-        var currentItem = ZybooItem()
+        /*
         currentItem = self.currentSession.sessionItems[indexPath.row]
         cell.cellItemObj = currentItem
-        
-        // SET THE NSManaged OBJECT to the cell class for later use!
-        //var currentDataObj = [Any]()
-        //currentDataObj = currentSessionObj.value(forKey: "zybooItems")
         
         //cell.cellDataObj = currentDataObj.
         cell.itemDescription.text = currentItem.itemName
         cell.itemCount.text = String(currentItem.itemCount)
-        cell.delegate = self
-
+        //cell.delegate = self
+        */
+        
         return cell
     }
     
-    func passItemDataBack(cellZybooItem: ZybooItem) {
+    func passItemDataBack() {
         // I probably need to passback the Session object at this point
     }
     
     func calculateRunningTotal() {
         
+        
         runningTotal = 0.00
         
+        /*
         for sessionItem: ZybooItem in self.currentSession.sessionItems {
             runningTotal = runningTotal + (Double(sessionItem.itemCount) * sessionItem.unitCost)
         }
+        */
         
         sessionNavItem.title = "Total: $" + String(runningTotal)
+        
     }
     
     /*
@@ -118,10 +121,12 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         /*
          Needs to loop through the relationships, create zybooItem objects, set up the array of objects
          */
+        //currentSessionItems = currentSessionObj.mutableSetValue(forKey: "zybooItems")
         
     }
     
     func saveData() {
+        /*
         // Update an existing CoreData SessionObj object
         // or save a new CoreData SessionObj object
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -153,7 +158,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         }
         
         self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
-        
+        */
     }
     
     /*
@@ -252,7 +257,6 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
             createAlert(successfulSave: false)
         }
     }
-    */
     
     func createAlert(successfulSave: Bool) {
         
@@ -273,7 +277,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-
+     */
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
