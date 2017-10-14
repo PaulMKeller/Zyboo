@@ -122,7 +122,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
          Needs to loop through the relationships, create zybooItem objects, set up the array of objects
          */
         //currentSessionItems = currentSessionObj.mutableSetValue(forKey: "zybooItems")
-        
+        //FUCK PASSING THE OBJECT THROUGH, JUST FETCH THE RECORD AND RELATIONSHIP RECORDS AGAIN.
+    
     }
     
     func saveData() {
