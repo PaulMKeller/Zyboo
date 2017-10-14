@@ -93,7 +93,7 @@ class SessionViewController: UIViewController, ZybooSessionPassBackDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let nextScene = segue.destination as! SessionDetailTableViewController
-        nextScene.newSession = self.newSession
+        //nextScene.newSession = self.newSession
         nextScene.currentSessionObj = self.currentSessionObj
     }
 

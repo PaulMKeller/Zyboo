@@ -13,6 +13,10 @@
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
 		DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA564061F5693160044434D /* SessionItemViewController.swift */; };
 		DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */; };
+		DAD4E6F11F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */; };
+		DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */; };
+		DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */; };
+		DAD4E6F41F92355100EE89E2 /* SessionObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6F01F92355100EE89E2 /* SessionObj+CoreDataProperties.swift */; };
 		DAD5121A1F90BF2D00749DAB /* ZybooItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD512191F90BF2D00749DAB /* ZybooItemTableViewCell.swift */; };
 		DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */; };
 		DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */; };
@@ -92,6 +96,10 @@
 		DA540F2D1F2EC438003115BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DAA564061F5693160044434D /* SessionItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionItemViewController.swift; sourceTree = "<group>"; };
 		DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooDataBack.swift; sourceTree = "<group>"; };
+		DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAD4E6F01F92355100EE89E2 /* SessionObj+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DAD512191F90BF2D00749DAB /* ZybooItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZybooItemTableViewCell.swift; sourceTree = "<group>"; };
 		DAD5B4581F1F9EED0091EB17 /* HappyHourNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourNavViewController.swift; sourceTree = "<group>"; };
 		DAD5B45A1F1F9F280091EB17 /* HappyHourMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappyHourMapViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +207,17 @@
 				DA540F2D1F2EC438003115BA /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAD4E6EC1F9234F200EE89E2 /* CoreDataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */,
+				DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */,
+				DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */,
+				DAD4E6F01F92355100EE89E2 /* SessionObj+CoreDataProperties.swift */,
+			);
+			name = CoreDataObjects;
 			sourceTree = "<group>";
 		};
 		DAD5B4601F1FA0FB0091EB17 /* Images */ = {
@@ -319,6 +338,7 @@
 		DAE7726D1F1397C900B32B89 /* Zyboo */ = {
 			isa = PBXGroup;
 			children = (
+				DAD4E6EC1F9234F200EE89E2 /* CoreDataObjects */,
 				DAEDC6EB1F2EC5AF001DC139 /* CoreData */,
 				DAD5B4601F1FA0FB0091EB17 /* Images */,
 				DA33F2191F17894400F8882B /* Protocols */,
@@ -543,8 +563,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD4E6F11F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift in Sources */,
 				DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */,
 				DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */,
+				DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */,
 				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,
 				DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */,
 				DA04EA1D1F316AB50051B04E /* SessionViewController.swift in Sources */,
@@ -553,6 +575,8 @@
 				DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */,
 				DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
+				DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */,
+				DAD4E6F41F92355100EE89E2 /* SessionObj+CoreDataProperties.swift in Sources */,
 				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
 				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
 				DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */,

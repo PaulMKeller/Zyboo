@@ -105,7 +105,6 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
             nextScene.currentSessionObj = self.segueSessionObj
         } else {
             let nextScene = segue.destination as! SessionDetailTableViewController
-            nextScene.newSession = self.newSession
             nextScene.currentSessionObj = self.segueSessionObj
         }
         

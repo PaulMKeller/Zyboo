@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -238,7 +238,7 @@ Be patient lah!</string>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="szz-JU-oWr">
                                 <connections>
-                                    <segue destination="ZhN-JS-kL7" kind="show" identifier="addItemSegue" id="DV3-m0-AmH"/>
+                                    <action selector="addTapped:" destination="3X1-fQ-uud" id="jUc-o5-TyN"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="save" id="080-3n-zap">
@@ -250,6 +250,7 @@ Be patient lah!</string>
                     </navigationItem>
                     <connections>
                         <outlet property="sessionNavItem" destination="97b-Sl-9b3" id="2Ti-se-NOX"/>
+                        <segue destination="ZhN-JS-kL7" kind="show" identifier="addItemSegue" id="7RO-9t-ina"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-Xz-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,7 +301,7 @@ Be patient lah!</string>
                                 <rect key="frame" x="210" y="180" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="costStepper:" destination="ZhN-JS-kL7" eventType="valueChanged" id="rOl-Ib-Auc"/>
+                                    <action selector="costStepperTapped:" destination="ZhN-JS-kL7" eventType="valueChanged" id="Gac-K0-J3e"/>
                                 </connections>
                             </stepper>
                         </subviews>
@@ -316,9 +317,8 @@ Be patient lah!</string>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="costStepper" destination="3Yt-9B-TNt" id="xGe-gO-bli"/>
                         <outlet property="sessionItemCost" destination="ZMS-gl-cEv" id="gHE-Js-khM"/>
-                        <outlet property="sessionItemCostValue" destination="3Yt-9B-TNt" id="dX8-eP-f2X"/>
+                        <outlet property="sessionItemCostValue" destination="3Yt-9B-TNt" id="gOd-V6-olf"/>
                         <outlet property="sessionItemNameText" destination="0Pv-X1-YQJ" id="z1e-hr-RmS"/>
                     </connections>
                 </viewController>

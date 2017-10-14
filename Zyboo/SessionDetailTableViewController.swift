@@ -13,9 +13,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var runningTotal: Double = 0.00
-    var newSession: Bool = false
     var currentSessionObj = NSManagedObject()
-    var currentSessionItems = [NSManagedObject]()
     
     weak var delegate: ZybooSessionPassBackDelegate?
 
@@ -23,6 +21,10 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         saveData()
     }
 
+    @IBAction func addTapped(_ sender: Any) {
+        prepareForItemSegue(segueIdentifier: "addItemSegue", segueSessionObj: NSManagedObject())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,12 +33,8 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        // LOAD THE DATA, SAVE THE DATA, PASS ON THE DATA WHERE NECESSARY
-        
-        loadData()
 
-        calculateRunningTotal()
+        //calculateRunningTotal()
         
     }
 
@@ -54,23 +52,22 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return self.currentSession.sessionItems.count
-        return currentSessionItems.count
+        
+        let currentSessionItems = currentSessionObj as! SessionObj
+        return (currentSessionItems.zybooItems?.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
-
-        /*
-        currentItem = self.currentSession.sessionItems[indexPath.row]
-        cell.cellItemObj = currentItem
         
-        //cell.cellDataObj = currentDataObj.
-        cell.itemDescription.text = currentItem.itemName
-        cell.itemCount.text = String(currentItem.itemCount)
+        let currentSessionItems = currentSessionObj as! SessionObj
+        let sessionItem = currentSessionItems.zybooItems?[indexPath.row] as! ZybooItemObj
+        cell.itemDescription.text = sessionItem.itemName
+        cell.itemCount.text = String(sessionItem.itemCount)
+        cell.itemStepper.value = Double(sessionItem.itemCount)
+        cell.cellDataObj = sessionItem
         //cell.delegate = self
-        */
         
         return cell
     }
@@ -94,171 +91,24 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
     }
     
-    /*
-    func loadData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // Use a fetch request with predicate to retrieve the object
-        // If nothing it found, create a new one, else update the existing one.
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
-        // I probably should do this with ObjectID...
-        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", String(currentSession.locationName), String(describing: currentSession.sessionDate))
-        
-        do {
-            sessionObjs = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        
-    }
-    */
-    
-    func loadData() {
-        /*
-         Needs to loop through the relationships, create zybooItem objects, set up the array of objects
-         */
-        //currentSessionItems = currentSessionObj.mutableSetValue(forKey: "zybooItems")
-        //FUCK PASSING THE OBJECT THROUGH, JUST FETCH THE RECORD AND RELATIONSHIP RECORDS AGAIN.
-    
-    }
-    
     func saveData() {
-        /*
-        // Update an existing CoreData SessionObj object
-        // or save a new CoreData SessionObj object
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+    
+    }
+    
+    func prepareForItemSegue(segueIdentifier: String, segueSessionObj: NSManagedObject) {
+        self.currentSessionObj = segueSessionObj
+        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItemSegue" {
+            let nextScene = segue.destination as! SessionItemViewController
+            nextScene.currentSessionObj = self.currentSessionObj
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        // Use a fetch request with predicate to retrieve the object
-        // If nothing it found, create a new one, else update the existing one.
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
-        // I probably should do this with ObjectID...
-        fetchRequest.predicate = NSPredicate(format: "locationName = %@ AND sessionDate = %@", String(currentSession.locationName), String(describing: currentSession.sessionDate))
-        
-        do {
-            var sessionItemsFetched: [NSManagedObject] = []
-            sessionItemsFetched = try managedContext.fetch(fetchRequest)
-            
-            self.currentSession.sessionTotal = runningTotal
-
-            for thisSession in sessionItemsFetched {
-                thisSession.setValue(runningTotal, forKey: "sessionTotal")
-                thisSession.setValue(self.currentSession.sessionItems, forKey: "sessionItems")
-            }
-            
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-        
-        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
-        */
     }
     
     /*
-    func saveData() {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        do {
-            /*
-            if sessionData.count != 0{
-                //Loop the sessionItems
-                for sessionItem in sessionData {
-                    //filter the session items to match the item in the array to
-                    //the current managed object item
-                    for item in sessionItems {
-                        if sessionItem.value(forKey: "itemID") as? Int32 == item.itemID {
-                            sessionItem.setValue(item.itemID, forKeyPath: "itemID")
-                            sessionItem.setValue(item.itemName, forKeyPath: "itemName")
-                            sessionItem.setValue(item.unitCost, forKeyPath: "itemUnitPrice")
-                            sessionItem.setValue(item.itemCount, forKeyPath: "itemQuantity")
-                        }
-                    }
-                    
-                    try managedContext.save()
-                    
-                    self.currentSession.sessionItems = self.sessionItems
-                    
-                    self.delegate?.passSessionDataBack(sessionObj: self.currentSession)
-                }
-            }
-             
-             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-             return
-             }
-             
-             let managedContext = appDelegate.persistentContainer.viewContext
-             
-             let entity = NSEntityDescription.entity(forEntityName: "ZybooItemObj",
-             in: managedContext)!
-             
-             let newZybooItem = NSManagedObject(entity: entity,
-             insertInto: managedContext)
-             
-             newZybooItem.setValue(itemName, forKeyPath: "itemName")
-             newZybooItem.setValue(itemCount, forKeyPath: "itemCount")
-             newZybooItem.setValue(unitCost, forKeyPath: "unitCost")
-             zybooItemObjs.append(newZybooItem)
-             
-             do {
-             try managedContext.save()
-             } catch let error as NSError {
-             print("Could not save. \(error), \(error.userInfo)")
-             }
-
-             
-            */
-            
-            
-            
-            if self.newSession {
-                // Create a new NSManagedObject and Save it
-                let entity = NSEntityDescription.entity(forEntityName: "SessionObj",
-                                                        in: managedContext)!
-                
-                let newSessionObj = NSManagedObject(entity: entity,
-                                                   insertInto: managedContext)
-                
-                newSessionObj.setValue(currentSession.locationName, forKey: "locationName")
-                newSessionObj.setValue(currentSession.locationLongitude, forKey: "locationLongitude")
-                newSessionObj.setValue(currentSession.locationLatitude, forKey: "locationLatitude")
-                newSessionObj.setValue(currentSession.sessionDate, forKey: "sessionDate")
-                newSessionObj.setValue(currentSession.sessionTotal, forKey: "sessionTotal")
-                newSessionObj.setValue(currentSession.sessionItems, forKey: "sessionItems")
-                currentSessionObj = newSessionObj
-                self.newSession = false
-            } else {
-                // Update the existing NSManagedObject and Save it
-                currentSessionObj.setValue(currentSession.locationName, forKey: "locationName")
-                currentSessionObj.setValue(currentSession.locationLongitude, forKey: "locationLongitude")
-                currentSessionObj.setValue(currentSession.locationLatitude, forKey: "locationLatitude")
-                currentSessionObj.setValue(currentSession.sessionDate, forKey: "sessionDate")
-                currentSessionObj.setValue(currentSession.sessionTotal, forKey: "sessionTotal")
-                currentSessionObj.setValue(currentSession.sessionItems, forKey: "sessionItems")
-            }
-            
-            try managedContext.save()
-            
-            createAlert(successfulSave: true)
-            
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-            createAlert(successfulSave: false)
-        }
-    }
-    
     func createAlert(successfulSave: Bool) {
         
         let alertMessage: String
