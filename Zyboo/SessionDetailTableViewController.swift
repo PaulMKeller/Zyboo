@@ -22,7 +22,7 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     }
 
     @IBAction func addTapped(_ sender: Any) {
-        prepareForItemSegue(segueIdentifier: "addItemSegue", segueSessionObj: NSManagedObject())
+        prepareForItemSegue(segueIdentifier: "addItemSegue", segueSessionObj: currentSessionObj)
     }
     
     override func viewDidLoad() {
@@ -62,11 +62,18 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
         
         let currentSessionItems = currentSessionObj as! SessionObj
-        let sessionItem = currentSessionItems.zybooItems?[indexPath.row] as! ZybooItemObj
-        cell.itemDescription.text = sessionItem.itemName
-        cell.itemCount.text = String(sessionItem.itemCount)
-        cell.itemStepper.value = Double(sessionItem.itemCount)
-        cell.cellDataObj = sessionItem
+        let sessionItems = currentSessionItems.zybooItems
+        print(sessionItems!)
+        //let sessionItem = sessionItems?[indexPath.row] as! ZybooItemObj
+        let sessionItem = sessionItems?.object(at: indexPath.row)
+        print(sessionItem!)
+        let cunty = sessionItem as! ZybooItemObj
+        
+        
+        cell.itemDescription.text = cunty.itemName
+        cell.itemCount.text = String(cunty.itemCount)
+        cell.itemStepper.value = Double(cunty.itemCount)
+        cell.cellDataObj = cunty
         //cell.delegate = self
         
         return cell

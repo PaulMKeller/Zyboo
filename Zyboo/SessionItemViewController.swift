@@ -36,13 +36,6 @@ class SessionItemViewController: UIViewController {
     }
     
     func saveData(){
-        let newZybooItem = ZybooItemObj()
-        newZybooItem.setValue(sessionItemNameText.text, forKey: "itemName")
-        newZybooItem.setValue(0, forKey: "itemCount")
-        newZybooItem.setValue(sessionItemCostValue.value, forKey: "unitCost")
-        
-        let currentSessionItems = currentSessionObj as! SessionObj
-        currentSessionItems.zybooItems?.add(newZybooItem)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -51,10 +44,22 @@ class SessionItemViewController: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         do {
+            let entityZybooItemObj = NSEntityDescription.entity(forEntityName: "ZybooItemObj", in: managedContext)
+            let newZybooItem = NSManagedObject(entity: entityZybooItemObj!, insertInto: managedContext)
+            
+            newZybooItem.setValue(sessionItemNameText.text, forKey: "itemName")
+            newZybooItem.setValue(0, forKey: "itemCount")
+            newZybooItem.setValue(sessionItemCostValue.value, forKey: "unitCost")
+            
+            //I need to add the item to an mutable array and then 'SetValue' on the current session object.
+            //let thisSession = currentSessionObj as! SessionObj
+            //thisSession.zybooItems?.add(newZybooItem)
+            
+            (currentSessionObj as! SessionObj).addToZybooItems(newZybooItem as! ZybooItemObj)
+            print(currentSessionObj)
+            
             try managedContext.save()
             _ = navigationController?.popViewController(animated: true)
-            
-            // Do I need to pass back the updated currentSessionObj?
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
