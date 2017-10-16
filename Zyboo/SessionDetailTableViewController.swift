@@ -9,13 +9,11 @@
 import UIKit
 import CoreData
 
-class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPassBackDelegate {
+class SessionDetailTableViewController: UITableViewController, TriggerZybooItemSaveDelegate {
     
     @IBOutlet weak var sessionNavItem: UINavigationItem!
-    var runningTotal: Double = 0.00
+    var runningTotal: Double = 0
     var currentSessionObj = NSManagedObject()
-    
-    weak var delegate: ZybooSessionPassBackDelegate?
 
     @IBAction func saveTapped(_ sender: Any) {
         saveData()
@@ -42,19 +40,15 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
         let currentSessionItems = currentSessionObj as! SessionObj
         return (currentSessionItems.zybooItems?.count)!
     }
@@ -70,23 +64,48 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         cell.itemCount.text = String(sessionItem.itemCount)
         cell.itemStepper.value = Double(sessionItem.itemCount)
         cell.cellDataObj = sessionItem
-        //cell.delegate = self
+        cell.delegate = self
         
         return cell
     }
     
-    func passItemDataBack() {
-        // I probably need to passback the Session object at this point
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            do {
+                let currentSessionItems = currentSessionObj as! SessionObj
+                let sessionItem = currentSessionItems.zybooItems?.object(at: indexPath.row) as! ZybooItemObj
+                managedContext.delete(sessionItem)
+                currentSessionItems.zybooItems?.removeObject(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                try managedContext.save()
+                calculateRunningTotal()
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    func triggerItemSave() {
+        saveData()
     }
     
     func calculateRunningTotal() {
-        
-        
-        runningTotal = 0.00
+        runningTotal = 0
         
         let thisSession = self.currentSessionObj as! SessionObj
         let currentItems = thisSession.zybooItems!
-        
         
         for sessionItem in currentItems {
             let thisItem = sessionItem as! ZybooItemObj
@@ -94,12 +113,22 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
             runningTotal = runningTotal + (Double(thisItem.itemCount) * thisItem.unitCost)
         }
         
-        sessionNavItem.title = "Total: $" + String(runningTotal)
-        
+        sessionNavItem.title = "Total: $" + String(Int(runningTotal))
     }
     
     func saveData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try managedContext.save()
+            calculateRunningTotal()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func prepareForItemSegue(segueIdentifier: String, segueSessionObj: NSManagedObject) {
@@ -137,26 +166,6 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
     }
      */
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

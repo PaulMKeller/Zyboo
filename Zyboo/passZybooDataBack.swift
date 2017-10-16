@@ -9,10 +9,6 @@
 import Foundation
 import CoreData
 
-protocol ZybooItemTotalPassBackDelegate: class {
-    func passItemDataBack()
-}
-
-protocol ZybooSessionPassBackDelegate: class {
-    func passSessionDataBack(session: NSManagedObject)
+protocol TriggerZybooItemSaveDelegate: class {
+    func triggerItemSave()
 }

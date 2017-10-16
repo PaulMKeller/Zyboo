@@ -17,7 +17,7 @@ class SessionItemViewController: UIViewController {
     @IBOutlet weak var sessionItemCost: UITextField!
     @IBOutlet var sessionItemCostValue: UIStepper!
     @IBAction func costStepperTapped(_ sender: UIStepper) {
-        sessionItemCost.text = String(sender.value)
+        sessionItemCost.text = String(Int(sender.value))
     }
     
     @IBAction func saveTapped(_ sender: Any) {
@@ -26,13 +26,10 @@ class SessionItemViewController: UIViewController {
        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func saveData(){
@@ -48,16 +45,10 @@ class SessionItemViewController: UIViewController {
             let newZybooItem = NSManagedObject(entity: entityZybooItemObj!, insertInto: managedContext)
             
             newZybooItem.setValue(sessionItemNameText.text, forKey: "itemName")
-            newZybooItem.setValue(0, forKey: "itemCount")
+            newZybooItem.setValue(1, forKey: "itemCount")
             newZybooItem.setValue(sessionItemCostValue.value, forKey: "unitCost")
-            
-            //I need to add the item to an mutable array and then 'SetValue' on the current session object.
-            //let thisSession = currentSessionObj as! SessionObj
-            //thisSession.zybooItems?.add(newZybooItem)
-            
             (currentSessionObj as! SessionObj).addToZybooItems(newZybooItem as! ZybooItemObj)
-            print(currentSessionObj)
-            
+
             try managedContext.save()
             _ = navigationController?.popViewController(animated: true)
         } catch let error as NSError {

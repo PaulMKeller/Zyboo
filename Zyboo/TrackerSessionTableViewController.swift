@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TrackerSessionTableViewController: UITableViewController, ZybooSessionPassBackDelegate {
+class TrackerSessionTableViewController: UITableViewController {
     
     
     var sessionObjs = [NSManagedObject]()
@@ -74,6 +74,27 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", newSession: false, segueSessionObj: sessionObjs[indexPath.row])
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            do {
+                managedContext.delete(sessionObjs[indexPath.row])
+                sessionObjs.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
     
     func loadData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -83,6 +104,8 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
+        let sort = NSSortDescriptor(key: "sessionDate", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
         do {
             sessionObjs.removeAll()
             sessionObjs = try managedContext.fetch(fetchRequest)
@@ -110,6 +133,7 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         
     }
     
+    /*
     func passSessionDataBack(session:NSManagedObject) {
         // When the table row is selected, log the index of the row
         // When the object is passed back, replace the object in the sessionsAll 
@@ -122,4 +146,5 @@ class TrackerSessionTableViewController: UITableViewController, ZybooSessionPass
         self.sessionObjs.append(session)
         self.tableView!.reloadData()
     }
+    */
 }

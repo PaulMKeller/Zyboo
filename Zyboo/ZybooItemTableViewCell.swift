@@ -11,16 +11,21 @@ import CoreData
 
 class ZybooItemTableViewCell: UITableViewCell {
     
+    var cellDataObj = NSManagedObject()
+    //weak var delegate: ZybooItemTotalPassBackDelegate?
+    weak var delegate: TriggerZybooItemSaveDelegate?
+    
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemCount: UILabel!
     @IBOutlet var itemStepper: UIStepper!
     @IBAction func stepperTapped(_ sender: UIStepper) {
         itemCount.text = String(Int32(sender.value))
-        //cellItemObj.itemCount = Int32(sender.value)
+        let thisZybooItem = cellDataObj as! ZybooItemObj
+        thisZybooItem.itemCount = Int32(sender.value)
+        
         //self.delegate?.passItemDataBack(cellZybooItem: cellItemObj)
+        self.delegate?.triggerItemSave()
     }
-    var cellDataObj = NSManagedObject()
-    //weak var delegate: ZybooItemTotalPassBackDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
