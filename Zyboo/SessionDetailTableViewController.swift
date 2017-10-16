@@ -62,18 +62,12 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         let cell = tableView.dequeueReusableCell(withIdentifier: "zybooItemCell", for: indexPath) as! ZybooItemTableViewCell
         
         let currentSessionItems = currentSessionObj as! SessionObj
-        let sessionItems = currentSessionItems.zybooItems
-        print(sessionItems!)
-        //let sessionItem = sessionItems?[indexPath.row] as! ZybooItemObj
-        let sessionItem = sessionItems?.object(at: indexPath.row)
-        print(sessionItem!)
-        let cunty = sessionItem as! ZybooItemObj
+        let sessionItem = currentSessionItems.zybooItems?.object(at: indexPath.row) as! ZybooItemObj
         
-        
-        cell.itemDescription.text = cunty.itemName
-        cell.itemCount.text = String(cunty.itemCount)
-        cell.itemStepper.value = Double(cunty.itemCount)
-        cell.cellDataObj = cunty
+        cell.itemDescription.text = sessionItem.itemName
+        cell.itemCount.text = String(sessionItem.itemCount)
+        cell.itemStepper.value = Double(sessionItem.itemCount)
+        cell.cellDataObj = sessionItem
         //cell.delegate = self
         
         return cell
