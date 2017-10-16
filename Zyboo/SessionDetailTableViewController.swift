@@ -33,9 +33,11 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-        //calculateRunningTotal()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView!.reloadData()
+        calculateRunningTotal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,18 +84,22 @@ class SessionDetailTableViewController: UITableViewController, ZybooItemTotalPas
         
         runningTotal = 0.00
         
-        /*
-        for sessionItem: ZybooItem in self.currentSession.sessionItems {
-            runningTotal = runningTotal + (Double(sessionItem.itemCount) * sessionItem.unitCost)
+        let thisSession = self.currentSessionObj as! SessionObj
+        let currentItems = thisSession.zybooItems!
+        
+        
+        for sessionItem in currentItems {
+            let thisItem = sessionItem as! ZybooItemObj
+            
+            runningTotal = runningTotal + (Double(thisItem.itemCount) * thisItem.unitCost)
         }
-        */
         
         sessionNavItem.title = "Total: $" + String(runningTotal)
         
     }
     
     func saveData() {
-    
+        
     }
     
     func prepareForItemSegue(segueIdentifier: String, segueSessionObj: NSManagedObject) {
