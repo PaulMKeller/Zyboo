@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 
 class TrackerSessionTableViewController: UITableViewController {
-    
-    
     var sessionObjs = [NSManagedObject]()
     var segueSessionObj = NSManagedObject()
     var newSession: Bool = false
@@ -64,6 +62,7 @@ class TrackerSessionTableViewController: UITableViewController {
         
         let locationName = thisSession.value(forKey: "locationName") as! String
         let sessionDate = dateFormatter.string(from: thisSession.value(forKey: "sessionDate") as! Date)
+        //let sessionTotal = AppDelegate.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj)
         
         cell.textLabel?.text = locationName + " (" + sessionDate + ")"
 

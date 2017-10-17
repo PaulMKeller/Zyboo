@@ -102,7 +102,8 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     }
     
     func calculateRunningTotal() {
-        runningTotal = 0
+        /*
+         runningTotal = 0
         
         let thisSession = self.currentSessionObj as! SessionObj
         let currentItems = thisSession.zybooItems!
@@ -114,6 +115,12 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         }
         
         sessionNavItem.title = "Total: $" + String(Int(runningTotal))
+         */
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        sessionNavItem.title = appDelegate.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
     }
     
     func saveData() {
