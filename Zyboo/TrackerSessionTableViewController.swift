@@ -104,7 +104,7 @@ class TrackerSessionTableViewController: UITableViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SessionObj")
-        let sort = NSSortDescriptor(key: "sessionDate", ascending: true)
+        let sort = NSSortDescriptor(key: "sessionDate", ascending: false)
         fetchRequest.sortDescriptors = [sort]
         do {
             sessionObjs.removeAll()
