@@ -105,7 +105,7 @@ Check app updates for this happy hour tracker availability.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dh-Wu-jGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="1457"/>
+            <point key="canvasLocation" x="935" y="1961"/>
         </scene>
         <!--New Session-->
         <scene sceneID="uix-H0-Ims">
@@ -367,10 +367,41 @@ Check app updates for this happy hour tracker availability.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Qr9-vv-ri9"/>
+                    <connections>
+                        <segue destination="xcA-mO-XrH" kind="show" identifier="chargesSegue" id="Ffy-9j-bLA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T11-Tq-s25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886" y="794"/>
+            <point key="canvasLocation" x="1886" y="1094"/>
+        </scene>
+        <!--Charges Table View Controller-->
+        <scene sceneID="1qL-2M-Uwo">
+            <objects>
+                <tableViewController id="xcA-mO-XrH" customClass="ChargesTableViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TLq-S1-FYb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="D3X-vI-asu">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D3X-vI-asu" id="zoD-Uw-mcR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xcA-mO-XrH" id="I9L-cd-GPm"/>
+                            <outlet property="delegate" destination="xcA-mO-XrH" id="8go-ZX-4PP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qx7-tm-gqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="1093"/>
         </scene>
         <!--Settings-->
         <scene sceneID="O1X-TH-1Ai">
@@ -386,7 +417,7 @@ Check app updates for this happy hour tracker availability.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM3-B5-Rji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="794"/>
+            <point key="canvasLocation" x="1033" y="1093"/>
         </scene>
         <!--Happy Hour Tracker-->
         <scene sceneID="TCK-BK-Emu">

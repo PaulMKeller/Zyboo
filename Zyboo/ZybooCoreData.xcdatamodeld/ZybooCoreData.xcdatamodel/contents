@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ServiceChargeObj" representedClassName="ServiceChargeObj" syncable="YES" codeGenerationType="class">
+        <attribute name="chargeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percentageCharge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="SessionObj" representedClassName="SessionObj" syncable="YES">
         <attribute name="locationName" attributeType="String" syncable="YES"/>
         <attribute name="sessionDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="zybooItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ZybooItemObj" inverseName="sessions" inverseEntity="ZybooItemObj" syncable="YES"/>
+    </entity>
+    <entity name="SettingObj" representedClassName="SettingObj" syncable="YES" codeGenerationType="class">
+        <attribute name="settingGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="settingKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="settingValue" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ZybooItemObj" representedClassName="ZybooItemObj" syncable="YES">
         <attribute name="itemCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,6 +22,8 @@
     </entity>
     <elements>
         <element name="SessionObj" positionX="-261" positionY="-405" width="128" height="88"/>
-        <element name="ZybooItemObj" positionX="-47" positionY="-220" width="128" height="103"/>
+        <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
+        <element name="SettingObj" positionX="-126" positionY="-351" width="128" height="90"/>
+        <element name="ServiceChargeObj" positionX="-117" positionY="-342" width="128" height="75"/>
     </elements>
 </model>
