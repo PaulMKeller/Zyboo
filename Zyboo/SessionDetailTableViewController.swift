@@ -60,7 +60,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         let currentSessionItems = currentSessionObj as! SessionObj
         let sessionItem = currentSessionItems.zybooItems?.object(at: indexPath.row) as! ZybooItemObj
         
-        cell.itemDescription.text = sessionItem.itemName
+        cell.itemDescription.text = sessionItem.itemName! + " (Unit Price: $" + String(Int(sessionItem.unitCost)) + ")"
         cell.itemCount.text = String(sessionItem.itemCount)
         cell.itemStepper.value = Double(sessionItem.itemCount)
         cell.cellDataObj = sessionItem
@@ -117,10 +117,8 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         sessionNavItem.title = "Total: $" + String(Int(runningTotal))
          */
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        sessionNavItem.title = appDelegate.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
+        let calc = calculationFunctions()
+        sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
     }
     
     func saveData() {

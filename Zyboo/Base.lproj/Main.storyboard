@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BpL-xp-Qre" id="gfP-Y8-DU4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -80,17 +81,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Mw-ARe">
-                                <rect key="frame" x="57.5" y="253.5" width="260" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="XTQ-hf-2Cw"/>
-                                    <constraint firstAttribute="height" constant="160" id="hAT-5v-lSr"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Mw-ARe">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <string key="text">This content is under development.
 
-It will blow your mind...
+Soon you will be able to see bars near you that have a happy hour and also track a course between bars to ensure you stay in happy hour heaven for all eternity.
 
-Be patient lah!</string>
+Check app updates for this happy hour tracker availability.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,8 +95,10 @@ Be patient lah!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="centerX" secondItem="Zp3-mB-cMa" secondAttribute="centerX" id="QFs-bf-gaZ"/>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="centerY" secondItem="Zp3-mB-cMa" secondAttribute="centerY" id="RTj-G7-gOc"/>
+                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="2ij-J8-QDr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ofR-Mw-ARe" secondAttribute="trailing" id="VwD-gS-1d2"/>
+                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="sFb-e5-Ae7" secondAttribute="bottom" id="grg-6R-eX9"/>
+                            <constraint firstItem="xya-00-sSe" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZpS-qO-QIA"/>
@@ -180,7 +179,7 @@ Be patient lah!</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbw-Iv-mog" id="wek-VD-Isq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ZybooItem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-gq-WMK">
@@ -317,7 +316,6 @@ Be patient lah!</string>
                     <tabBarItem key="tabBarItem" title="Zyboo Tracker" image="Beer.png" selectedImage="Beer_Selected.png" id="9rK-5r-X7K"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9M-sf-CjJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -329,7 +327,7 @@ Be patient lah!</string>
             </objects>
             <point key="canvasLocation" x="1033" y="0.0"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Settings-->
         <scene sceneID="Egh-JO-k3x">
             <objects>
                 <tableViewController id="YJQ-kh-IOh" customClass="SettingsTableViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -346,14 +344,14 @@ Be patient lah!</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvF-AM-q0s">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="234-xV-RUZ">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -368,7 +366,7 @@ Be patient lah!</string>
                             <outlet property="delegate" destination="YJQ-kh-IOh" id="oW7-2n-xcv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Qr9-vv-ri9"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Qr9-vv-ri9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T11-Tq-s25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,7 +378,6 @@ Be patient lah!</string>
                 <navigationController id="k1f-yt-HjK" customClass="SettingsNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings.png" selectedImage="Settings_Selected.png" id="lMZ-x6-Q37"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ir0-fZ-YoL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -398,7 +395,6 @@ Be patient lah!</string>
                     <tabBarItem key="tabBarItem" title="Happy Hour Tracker" image="Map.png" selectedImage="Map_Selected.png" id="XLO-wl-xnm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQE-zj-YtA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

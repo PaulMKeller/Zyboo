@@ -62,9 +62,9 @@ class TrackerSessionTableViewController: UITableViewController {
         
         let locationName = thisSession.value(forKey: "locationName") as! String
         let sessionDate = dateFormatter.string(from: thisSession.value(forKey: "sessionDate") as! Date)
-        //let sessionTotal = AppDelegate.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj)
+        let sessionTotalObj = calculationFunctions()
         
-        cell.textLabel?.text = locationName + " (" + sessionDate + ")"
+        cell.textLabel?.text = locationName  + " " + sessionTotalObj.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj) + " (" + sessionDate + ")"
 
         return cell
     }
