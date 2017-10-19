@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SettingsTableViewController: UITableViewController {
 
+    var settingObjs = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,9 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        initialDataSetUp()
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,17 +37,137 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return settingObjs.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
-
-        cell.textLabel?.text = "Under Construction..."
-        cell.detailTextLabel?.text = "Settings Will Be Available Soon"
+        let thisSetting = settingObjs[indexPath.row] as! SettingObj
+        
+        cell.textLabel?.text = thisSetting.settingName
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let thisSetting = settingObjs[indexPath.row] as! SettingObj
+        if thisSetting.settingName == "Additional Charges" {
+            prepareForSegue(segueIdentifier: "chargesSegue")
+        } else if thisSetting.settingName == "Currency" {
+            prepareForSegue(segueIdentifier: "currencySegue")
+        } else {
+            //Something has gone wrong
+        }
+    }
+    
+    func prepareForSegue(segueIdentifier: String) {
+        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chargesSegue" {
+            _ = segue.destination as! ChargesTableViewController
+        } else if segue.identifier == "chargesSegue" {
+            //let nextScene = segue.destination as! SessionDetailTableViewController
+        }
+        
+    }
+    
+    func loadData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SettingObj")
+        //let sort = NSSortDescriptor(key: "sessionDate", ascending: false)
+        //fetchRequest.sortDescriptors = [sort]
+        //fetchRequest.propertiesToGroupBy = ["sessionGroup"]
+        do {
+            settingObjs.removeAll()
+            settingObjs = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func initialDataSetUp() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SettingObj")
+            let settings = try managedContext.fetch(fetchRequest)
+            
+            if settings.count == 0 {
+                let entitySettingObj = NSEntityDescription.entity(forEntityName: "SettingObj", in: managedContext)
+                let newSettingObj = NSManagedObject(entity: entitySettingObj!, insertInto: managedContext)
+                
+                newSettingObj.setValue("General", forKeyPath: "settingGroup")
+                newSettingObj.setValue("Additional Charges", forKey: "settingName")
+                
+                let newSettingObj2 = NSManagedObject(entity: entitySettingObj!, insertInto: managedContext)
+                newSettingObj2.setValue("General", forKeyPath: "settingGroup")
+                newSettingObj2.setValue("Currency", forKey: "settingName")
+            }
+            
+            let serviceChargeFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
+            let serviceCharges = try managedContext.fetch(serviceChargeFetchRequest)
+            
+            if serviceCharges.count == 0 {
+                let entityServiceChargeObj = NSEntityDescription.entity(forEntityName: "ServiceChargeObj", in: managedContext)
+                let newServiceChargeObj = NSManagedObject(entity: entityServiceChargeObj!, insertInto: managedContext)
+                newServiceChargeObj.setValue("Service Charge %", forKey: "chargeName")
+                newServiceChargeObj.setValue(10, forKey: "percentageCharge")
+                newServiceChargeObj.setValue(true, forKey: "isOn")
+                newServiceChargeObj.setValue(1, forKey: "applicationOrder")
+                
+                let newServiceChargeObj2 = NSManagedObject(entity: entityServiceChargeObj!, insertInto: managedContext)
+                newServiceChargeObj2.setValue("Sales Tax %", forKey: "chargeName")
+                newServiceChargeObj2.setValue(7, forKey: "percentageCharge")
+                newServiceChargeObj2.setValue(true, forKey: "isOn")
+                newServiceChargeObj2.setValue(2, forKey: "applicationOrder")
+            }
+            
+            let currencyFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CurrencyObj")
+            let currencies = try managedContext.fetch(currencyFetchRequest)
+            
+            if currencies.count == 0 {
+                let entityCurrencyObj = NSEntityDescription.entity(forEntityName: "CurrencyObj", in: managedContext)
+                let newCurrencyObj = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
+                
+                newCurrencyObj.setValue("Singapore Dollars", forKeyPath: "currencyName")
+                newCurrencyObj.setValue("$", forKey: "currencySymbol")
+                newCurrencyObj.setValue("SGD", forKey: "currencyInitials")
+                
+                let newCurrencyObj2 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
+                
+                newCurrencyObj2.setValue("US Dollars", forKeyPath: "currencyName")
+                newCurrencyObj2.setValue("$", forKey: "currencySymbol")
+                newCurrencyObj2.setValue("USD", forKey: "currencyInitials")
+                
+                let newCurrencyObj3 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
+                
+                newCurrencyObj3.setValue("Euros", forKeyPath: "currencyName")
+                newCurrencyObj3.setValue("€", forKey: "currencySymbol")
+                newCurrencyObj3.setValue("EUR", forKey: "currencyInitials")
+                
+                let newCurrencyObj4 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
+                
+                newCurrencyObj4.setValue("British Pounds", forKeyPath: "currencyName")
+                newCurrencyObj4.setValue("£", forKey: "currencySymbol")
+                newCurrencyObj4.setValue("GBP", forKey: "currencyInitials")
+            }
+            
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 
     /*

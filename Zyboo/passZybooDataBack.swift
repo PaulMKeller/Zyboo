@@ -12,3 +12,7 @@ import CoreData
 protocol TriggerZybooItemSaveDelegate: class {
     func triggerItemSave()
 }
+
+protocol TriggerServiceChargeSaveDelegate: class {
+    func triggerServiceChargeSave()
+}

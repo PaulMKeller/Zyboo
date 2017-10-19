@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class ChargesTableViewController: UITableViewController {
+class ChargesTableViewController: UITableViewController, TriggerServiceChargeSaveDelegate {
 
+    var chargesObjs = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,7 @@ class ChargesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +32,63 @@ class ChargesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return chargesObjs.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingChargeTableViewCell", for: indexPath) as! SettingChargeTableViewCell
 
-        // Configure the cell...
-
+        let thisCharge = chargesObjs[indexPath.row] as! ServiceChargeObj
+        cell.settingName.text = thisCharge.chargeName
+        cell.settingValue.text = String(thisCharge.percentageCharge)
+        cell.valueStepper.value = Double(thisCharge.percentageCharge)
+        cell.settingApplied.isOn = thisCharge.isOn
+        cell.cellDataObj = thisCharge
+        cell.delegate = self
+        
         return cell
     }
-    */
+    
+    func loadData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
+        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        do {
+            chargesObjs.removeAll()
+            chargesObjs = try managedContext.fetch(fetchRequest)
+            print(chargesObjs)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func triggerServiceChargeSave() {
+        saveData()
+    }
+    
+    func saveData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -67,12 +110,10 @@ class ChargesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        // I need to change the application order if this row is moved.
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.

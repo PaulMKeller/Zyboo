@@ -71,6 +71,13 @@
 		DAE772911F1397CA00B32B89 /* ZybooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE772901F1397CA00B32B89 /* ZybooUITests.swift */; };
 		DAEDC6EA1F2EC486001DC139 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA540F2D1F2EC438003115BA /* CoreData.framework */; };
 		DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAEDC6EC1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld */; };
+		DAF3A52A1F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5241F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift */; };
+		DAF3A52B1F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5251F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift */; };
+		DAF3A52C1F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5261F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift */; };
+		DAF3A52D1F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5271F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift */; };
+		DAF3A52E1F98EAA600860E6A /* SettingObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5281F98EAA600860E6A /* SettingObj+CoreDataClass.swift */; };
+		DAF3A52F1F98EAA600860E6A /* SettingObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5291F98EAA600860E6A /* SettingObj+CoreDataProperties.swift */; };
+		DAF3A5311F98F5D200860E6A /* SettingChargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3A5301F98F5D200860E6A /* SettingChargeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +168,13 @@
 		DAE772901F1397CA00B32B89 /* ZybooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooUITests.swift; sourceTree = "<group>"; };
 		DAE772921F1397CA00B32B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEDC6ED1F2EC618001DC139 /* ZybooCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData.xcdatamodel; sourceTree = "<group>"; };
+		DAF3A5241F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAF3A5251F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DAF3A5261F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceChargeObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAF3A5271F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceChargeObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DAF3A5281F98EAA600860E6A /* SettingObj+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAF3A5291F98EAA600860E6A /* SettingObj+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DAF3A5301F98F5D200860E6A /* SettingChargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingChargeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +208,7 @@
 			children = (
 				DAD512191F90BF2D00749DAB /* ZybooItemTableViewCell.swift */,
 				DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */,
+				DAF3A5301F98F5D200860E6A /* SettingChargeTableViewCell.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -217,6 +232,12 @@
 		DAD4E6EC1F9234F200EE89E2 /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				DAF3A5241F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift */,
+				DAF3A5251F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift */,
+				DAF3A5261F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift */,
+				DAF3A5271F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift */,
+				DAF3A5281F98EAA600860E6A /* SettingObj+CoreDataClass.swift */,
+				DAF3A5291F98EAA600860E6A /* SettingObj+CoreDataProperties.swift */,
 				DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */,
 				DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */,
 				DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */,
@@ -576,18 +597,25 @@
 				DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */,
 				DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */,
 				DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */,
+				DAF3A52A1F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift in Sources */,
 				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,
+				DAF3A52D1F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift in Sources */,
 				DAD5B4591F1F9EED0091EB17 /* HappyHourNavViewController.swift in Sources */,
+				DAF3A52B1F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift in Sources */,
 				DA04EA1D1F316AB50051B04E /* SessionViewController.swift in Sources */,
+				DAF3A52C1F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift in Sources */,
 				DAD5121A1F90BF2D00749DAB /* ZybooItemTableViewCell.swift in Sources */,
 				DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */,
 				DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */,
+				DAF3A52E1F98EAA600860E6A /* SettingObj+CoreDataClass.swift in Sources */,
 				DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
 				DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */,
+				DAF3A52F1F98EAA600860E6A /* SettingObj+CoreDataProperties.swift in Sources */,
 				DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */,
 				DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */,
 				DAD4E6F41F92355100EE89E2 /* SessionObj+CoreDataProperties.swift in Sources */,
+				DAF3A5311F98F5D200860E6A /* SettingChargeTableViewCell.swift in Sources */,
 				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
 				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
 				DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */,
