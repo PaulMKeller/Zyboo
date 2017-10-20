@@ -11,6 +11,7 @@ import CoreData
 
 class TrackerSessionTableViewController: UITableViewController {
     var sessionObjs = [NSManagedObject]()
+    var serviceCharges = [NSManagedObject]()
     var segueSessionObj = NSManagedObject()
     var newSession: Bool = false
     
@@ -27,6 +28,7 @@ class TrackerSessionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //loadData()
+        loadServiceCharges()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +66,7 @@ class TrackerSessionTableViewController: UITableViewController {
         let sessionDate = dateFormatter.string(from: thisSession.value(forKey: "sessionDate") as! Date)
         let sessionTotalObj = calculationFunctions()
         
-        cell.textLabel?.text = locationName  + " " + sessionTotalObj.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj) + " (" + sessionDate + ")"
+        cell.textLabel?.text = locationName  + " " + sessionTotalObj.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj, serviceCharges: serviceCharges) + " (" + sessionDate + ")"
 
         return cell
     }
@@ -113,6 +115,23 @@ class TrackerSessionTableViewController: UITableViewController {
         }
     }
 
+    func loadServiceCharges(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
+        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        do {
+            serviceCharges.removeAll()
+            serviceCharges = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
     
     func prepareForSessionDetailSegue(segueIdentifier: String, newSession: Bool, segueSessionObj: NSManagedObject) {
         self.segueSessionObj = segueSessionObj

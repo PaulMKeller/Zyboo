@@ -81,8 +81,8 @@ class SettingsTableViewController: UITableViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SettingObj")
-        //let sort = NSSortDescriptor(key: "sessionDate", ascending: false)
-        //fetchRequest.sortDescriptors = [sort]
+        let sort = NSSortDescriptor(key: "settingName", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         //fetchRequest.propertiesToGroupBy = ["sessionGroup"]
         do {
             settingObjs.removeAll()

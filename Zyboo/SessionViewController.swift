@@ -15,23 +15,19 @@ class SessionViewController: UIViewController {
     
     @IBOutlet weak var venueTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var includeServiceCharges: UISwitch!
     @IBAction func saveTapped(_ sender: Any) {
-        
         if venueTextField.text == "" {
             return
         }
-        
         saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
     }
     
-    @IBAction func viewItemsTapped(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "saveSessionSegue", sender: self)
+    @IBAction func serviceChargesSwitched(_ sender: Any) {
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         loadData()
     }
 
@@ -45,11 +41,11 @@ class SessionViewController: UIViewController {
         } else {
             venueTextField.text = currentSessionObj.value(forKey: "locationName") as? String
             datePicker.date = currentSessionObj.value(forKey: "sessionDate") as! Date
+            includeServiceCharges.isOn = currentSessionObj.value(forKey: "applyServiceCharge") as! Bool
         }
-        
         venueTextField.isEnabled = self.newSession
         datePicker.isEnabled = self.newSession
-        
+        includeServiceCharges.isEnabled = self.newSession
     }
     
     func saveData(sessionVenue: String, sessionDate: Date) {
@@ -66,6 +62,7 @@ class SessionViewController: UIViewController {
                 
                 newSessionObj.setValue(venueTextField.text!, forKeyPath: "locationName")
                 newSessionObj.setValue(datePicker.date, forKey: "sessionDate")
+                newSessionObj.setValue(includeServiceCharges.isOn, forKey: "applyServiceCharge")
                 currentSessionObj = newSessionObj
                 
                 try managedContext.save()

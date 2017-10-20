@@ -18,6 +18,7 @@ extension SessionObj {
 
     @NSManaged public var locationName: String?
     @NSManaged public var sessionDate: NSDate?
+    @NSManaged public var applyServiceCharge: Bool
     @NSManaged public var zybooItems: NSMutableArray?
 
 }

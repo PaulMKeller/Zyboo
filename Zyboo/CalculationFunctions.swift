@@ -7,21 +7,33 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 class calculationFunctions {
     init() {}
-    func calculateRunningTotal (thisSessionObj: SessionObj) -> String {
-        var runningTotal:Double = 0
+    func calculateRunningTotal (thisSessionObj: SessionObj, serviceCharges: [NSManagedObject]) -> String {
+        var runningTotal:Decimal = 0
         
-        let thisSession = thisSessionObj
-        let currentItems = thisSession.zybooItems!
+        let currentItems = thisSessionObj.zybooItems!
         
         for sessionItem in currentItems {
             let thisItem = sessionItem as! ZybooItemObj
             
-            runningTotal = runningTotal + (Double(thisItem.itemCount) * thisItem.unitCost)
+            runningTotal = runningTotal + (Decimal(thisItem.itemCount) * Decimal(thisItem.unitCost))
         }
         
-        return "Total: $" + String(Int(runningTotal))
+        if thisSessionObj.value(forKey: "applyServiceCharge") as! Bool {
+            for charge in serviceCharges {
+                let thisCharge = charge as! ServiceChargeObj
+                let chargeTotal = runningTotal * Decimal(thisCharge.percentageCharge / 100)
+                print(thisCharge.percentageCharge)
+                print(Decimal(thisCharge.percentageCharge / 100))
+                print(chargeTotal)
+                runningTotal = runningTotal + chargeTotal
+            }
+        }
+        
+        return "Total: $" + String(runningTotal)
     }
 }

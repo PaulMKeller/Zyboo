@@ -14,6 +14,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var runningTotal: Double = 0
     var currentSessionObj = NSManagedObject()
+    var serviceCharges = [NSManagedObject]()
 
     @IBAction func saveTapped(_ sender: Any) {
         saveData()
@@ -31,6 +32,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadServiceCharges()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,23 +104,26 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     }
     
     func calculateRunningTotal() {
-        /*
-         runningTotal = 0
-        
-        let thisSession = self.currentSessionObj as! SessionObj
-        let currentItems = thisSession.zybooItems!
-        
-        for sessionItem in currentItems {
-            let thisItem = sessionItem as! ZybooItemObj
-            
-            runningTotal = runningTotal + (Double(thisItem.itemCount) * thisItem.unitCost)
+        let calc = calculationFunctions()
+        sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj, serviceCharges: self.serviceCharges)
+    }
+    
+    func loadServiceCharges(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
         }
         
-        sessionNavItem.title = "Total: $" + String(Int(runningTotal))
-         */
+        let managedContext = appDelegate.persistentContainer.viewContext
         
-        let calc = calculationFunctions()
-        sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
+        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        do {
+            serviceCharges.removeAll()
+            serviceCharges = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
     func saveData() {
