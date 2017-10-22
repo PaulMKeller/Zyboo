@@ -14,6 +14,7 @@ class TrackerSessionTableViewController: UITableViewController {
     var serviceCharges = [NSManagedObject]()
     var segueSessionObj = NSManagedObject()
     var newSession: Bool = false
+    var calc = calculationFunctions()
     
     @IBAction func addTapped(_ sender: Any) {
         prepareForSessionDetailSegue(segueIdentifier: "newSessionSegue", newSession: true, segueSessionObj: NSManagedObject())
@@ -28,11 +29,11 @@ class TrackerSessionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //loadData()
-        loadServiceCharges()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         loadData()
+        calc.loadData()
         self.tableView!.reloadData()
     }
 
@@ -64,9 +65,8 @@ class TrackerSessionTableViewController: UITableViewController {
         
         let locationName = thisSession.value(forKey: "locationName") as! String
         let sessionDate = dateFormatter.string(from: thisSession.value(forKey: "sessionDate") as! Date)
-        let sessionTotalObj = calculationFunctions()
         
-        cell.textLabel?.text = locationName  + " " + sessionTotalObj.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj, serviceCharges: serviceCharges) + " (" + sessionDate + ")"
+        cell.textLabel?.text = locationName  + " " + calc.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj) + " (" + sessionDate + ")"
 
         return cell
     }
@@ -114,24 +114,6 @@ class TrackerSessionTableViewController: UITableViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-
-    func loadServiceCharges(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
-        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        do {
-            serviceCharges.removeAll()
-            serviceCharges = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-    }
     
     func prepareForSessionDetailSegue(segueIdentifier: String, newSession: Bool, segueSessionObj: NSManagedObject) {
         self.segueSessionObj = segueSessionObj
@@ -148,21 +130,5 @@ class TrackerSessionTableViewController: UITableViewController {
             let nextScene = segue.destination as! SessionDetailTableViewController
             nextScene.currentSessionObj = self.segueSessionObj
         }
-        
     }
-    
-    /*
-    func passSessionDataBack(session:NSManagedObject) {
-        // When the table row is selected, log the index of the row
-        // When the object is passed back, replace the object in the sessionsAll 
-        //    array with this passed back session using that index value
-        
-        //self.currentSession = sessionObj
-        //self.tableView?.reloadData()
-        
-        //TODO - LOAD THE TABLE VIEW CHANGES AGAIN WHEN A NEW SESSION IS ADDED
-        self.sessionObjs.append(session)
-        self.tableView!.reloadData()
-    }
-    */
 }

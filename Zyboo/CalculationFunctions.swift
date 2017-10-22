@@ -11,9 +11,44 @@ import CoreData
 import UIKit
 
 class calculationFunctions {
-    init() {}
-    func calculateRunningTotal (thisSessionObj: SessionObj, serviceCharges: [NSManagedObject]) -> String {
-        var runningTotal:Decimal = 0
+    
+    var serviceCharges = [NSManagedObject]()
+    var currencies = [NSManagedObject]()
+    
+    init() {
+        loadData()
+    }
+    
+    func loadData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
+        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        do {
+            serviceCharges.removeAll()
+            serviceCharges = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        let fetchRequestCurrency = NSFetchRequest<NSManagedObject>(entityName: "CurrencyObj")
+        let sortCurrency = NSSortDescriptor(key: "currencyName", ascending: true)
+        fetchRequestCurrency.sortDescriptors = [sortCurrency]
+        do {
+            currencies.removeAll()
+            currencies = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func calculateRunningTotal (thisSessionObj: SessionObj) -> String {
+        var runningTotal:Decimal = 0.00
         
         let currentItems = thisSessionObj.zybooItems!
         
@@ -24,16 +59,25 @@ class calculationFunctions {
         }
         
         if thisSessionObj.value(forKey: "applyServiceCharge") as! Bool {
-            for charge in serviceCharges {
+            for charge in self.serviceCharges {
                 let thisCharge = charge as! ServiceChargeObj
-                let chargeTotal = runningTotal * Decimal(thisCharge.percentageCharge / 100)
-                print(thisCharge.percentageCharge)
-                print(Decimal(thisCharge.percentageCharge / 100))
-                print(chargeTotal)
-                runningTotal = runningTotal + chargeTotal
+                if thisCharge.isOn {
+                    let chargeTotal:Decimal = runningTotal * (Decimal(thisCharge.percentageCharge) / Decimal(100.00))
+                    runningTotal = runningTotal + chargeTotal
+                }
             }
         }
         
-        return "Total: $" + String(runningTotal)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        let formattedAmount = formatter.string(from: runningTotal as NSNumber)!
+        
+        return "Total: $" + String(describing: formattedAmount)
+    }
+    
+    func currencySymbolSetting() -> String {
+        
+        return "$"
     }
 }

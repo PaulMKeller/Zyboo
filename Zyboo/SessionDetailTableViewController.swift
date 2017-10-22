@@ -14,7 +14,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     @IBOutlet weak var sessionNavItem: UINavigationItem!
     var runningTotal: Double = 0
     var currentSessionObj = NSManagedObject()
-    var serviceCharges = [NSManagedObject]()
+    var calc = calculationFunctions()
 
     @IBAction func saveTapped(_ sender: Any) {
         saveData()
@@ -32,11 +32,12 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        loadServiceCharges()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.tableView!.reloadData()
+        calc.loadData()
         calculateRunningTotal()
     }
 
@@ -61,8 +62,13 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         
         let currentSessionItems = currentSessionObj as! SessionObj
         let sessionItem = currentSessionItems.zybooItems?.object(at: indexPath.row) as! ZybooItemObj
+        var applyCharges:String = ""
         
-        cell.itemDescription.text = sessionItem.itemName! + " (Unit Price: $" + String(Int(sessionItem.unitCost)) + ")"
+        if  currentSessionItems.applyServiceCharge {
+            applyCharges = " plus charges"
+        }
+        
+        cell.itemDescription.text = sessionItem.itemName! + " ($" + String(Int(sessionItem.unitCost)) + applyCharges + ")"
         cell.itemCount.text = String(sessionItem.itemCount)
         cell.itemStepper.value = Double(sessionItem.itemCount)
         cell.cellDataObj = sessionItem
@@ -104,26 +110,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     }
     
     func calculateRunningTotal() {
-        let calc = calculationFunctions()
-        sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj, serviceCharges: self.serviceCharges)
-    }
-    
-    func loadServiceCharges(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
-        let sort = NSSortDescriptor(key: "applicationOrder", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        do {
-            serviceCharges.removeAll()
-            serviceCharges = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
     }
     
     func saveData() {

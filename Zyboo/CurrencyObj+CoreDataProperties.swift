@@ -20,5 +20,6 @@ extension CurrencyObj {
     @NSManaged public var currencyName: String?
     @NSManaged public var currencySymbol: String?
     @NSManaged public var currencyInitials: String?
+    @NSManaged public var isOn: Bool
 
 }

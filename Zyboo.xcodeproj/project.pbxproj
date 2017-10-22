@@ -11,6 +11,7 @@
 		DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */; };
 		DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */; };
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
+		DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */; };
 		DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA564061F5693160044434D /* SessionItemViewController.swift */; };
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
@@ -103,6 +104,8 @@
 		DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerNavViewController.swift; sourceTree = "<group>"; };
 		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
 		DA540F2D1F2EC438003115BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChargeViewController.swift; sourceTree = "<group>"; };
+		DA9EDBC31F9C4EDC00862220 /* coming-soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coming-soon.png"; path = "Zyboo/coming-soon.png"; sourceTree = SOURCE_ROOT; };
 		DAA564061F5693160044434D /* SessionItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionItemViewController.swift; sourceTree = "<group>"; };
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +232,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA9EDBC21F9C4EC000862220 /* ScreenImages */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EDBC31F9C4EDC00862220 /* coming-soon.png */,
+			);
+			path = ScreenImages;
+			sourceTree = "<group>";
+		};
 		DAD4E6EC1F9234F200EE89E2 /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +260,7 @@
 		DAD5B4601F1FA0FB0091EB17 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EDBC21F9C4EC000862220 /* ScreenImages */,
 				DAD5B4B41F1FAB4E0091EB17 /* Icons */,
 				DAD5B4671F1FA6740091EB17 /* ZybooImages */,
 			);
@@ -384,6 +396,7 @@
 				DA04EA1C1F316AB50051B04E /* SessionViewController.swift */,
 				DAA564061F5693160044434D /* SessionItemViewController.swift */,
 				DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */,
+				DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -609,6 +622,7 @@
 				DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */,
 				DAF3A52E1F98EAA600860E6A /* SettingObj+CoreDataClass.swift in Sources */,
 				DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */,
+				DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
 				DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */,
 				DAF3A52F1F98EAA600860E6A /* SettingObj+CoreDataProperties.swift in Sources */,

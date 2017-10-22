@@ -81,7 +81,7 @@ class SettingsTableViewController: UITableViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SettingObj")
-        let sort = NSSortDescriptor(key: "settingName", ascending: false)
+        let sort = NSSortDescriptor(key: "settingName", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         //fetchRequest.propertiesToGroupBy = ["sessionGroup"]
         do {
@@ -111,9 +111,11 @@ class SettingsTableViewController: UITableViewController {
                 newSettingObj.setValue("General", forKeyPath: "settingGroup")
                 newSettingObj.setValue("Additional Charges", forKey: "settingName")
                 
+                /*
                 let newSettingObj2 = NSManagedObject(entity: entitySettingObj!, insertInto: managedContext)
                 newSettingObj2.setValue("General", forKeyPath: "settingGroup")
                 newSettingObj2.setValue("Currency", forKey: "settingName")
+                 */
             }
             
             let serviceChargeFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
@@ -144,24 +146,28 @@ class SettingsTableViewController: UITableViewController {
                 newCurrencyObj.setValue("Singapore Dollars", forKeyPath: "currencyName")
                 newCurrencyObj.setValue("$", forKey: "currencySymbol")
                 newCurrencyObj.setValue("SGD", forKey: "currencyInitials")
+                newCurrencyObj.setValue(true, forKey: "isOn")
                 
                 let newCurrencyObj2 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
                 
                 newCurrencyObj2.setValue("US Dollars", forKeyPath: "currencyName")
                 newCurrencyObj2.setValue("$", forKey: "currencySymbol")
                 newCurrencyObj2.setValue("USD", forKey: "currencyInitials")
+                newCurrencyObj.setValue(false, forKey: "isOn")
                 
                 let newCurrencyObj3 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
                 
                 newCurrencyObj3.setValue("Euros", forKeyPath: "currencyName")
                 newCurrencyObj3.setValue("€", forKey: "currencySymbol")
                 newCurrencyObj3.setValue("EUR", forKey: "currencyInitials")
+                newCurrencyObj.setValue(false, forKey: "isOn")
                 
                 let newCurrencyObj4 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
                 
                 newCurrencyObj4.setValue("British Pounds", forKeyPath: "currencyName")
                 newCurrencyObj4.setValue("£", forKey: "currencySymbol")
                 newCurrencyObj4.setValue("GBP", forKey: "currencyInitials")
+                newCurrencyObj.setValue(false, forKey: "isOn")
             }
             
             try managedContext.save()
@@ -178,17 +184,16 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        }
+        /*else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }*/
     }
-    */
 
     /*
     // Override to support rearranging the table view.
