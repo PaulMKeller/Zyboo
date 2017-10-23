@@ -5,8 +5,9 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -314,6 +315,7 @@ Check app updates for this happy hour tracker availability.</string>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Session Item Details" id="53T-O2-J7B">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="R7T-0U-bxM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="25j-7p-k7Z">
                             <connections>
                                 <action selector="saveTapped:" destination="ZhN-JS-kL7" id="Nxz-8c-RYA"/>
@@ -450,7 +452,18 @@ Check app updates for this happy hour tracker availability.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Additional Charges" id="8BG-xQ-tc3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q8r-1p-b5S"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="q8r-1p-b5S">
+                                <connections>
+                                    <action selector="addTapped:" destination="xcA-mO-XrH" id="sNd-WD-pgI"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="EZN-uX-IDt">
+                                <connections>
+                                    <action selector="editTapped:" destination="xcA-mO-XrH" id="v7J-f2-fMz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="YV4-4P-vgF" kind="show" identifier="addNewCharge" id="tvE-8u-UG2"/>
@@ -460,7 +473,7 @@ Check app updates for this happy hour tracker availability.</string>
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="1092.5037481259371"/>
         </scene>
-        <!--New Charge View Controller-->
+        <!--Charge-->
         <scene sceneID="0ZH-Q8-o4t">
             <objects>
                 <viewController id="YV4-4P-vgF" customClass="NewChargeViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -510,6 +523,9 @@ Check app updates for this happy hour tracker availability.</string>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="S9C-ZH-uzT">
                                 <rect key="frame" x="66" y="208" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="YV4-4P-vgF" eventType="valueChanged" id="uGg-O4-vLw"/>
+                                </connections>
                             </stepper>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVO-Hg-MBh">
                                 <rect key="frame" x="158" y="251" width="49" height="31"/>
@@ -518,6 +534,19 @@ Check app updates for this happy hour tracker availability.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Charge" id="52U-An-ee2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="J8r-Cb-2pf">
+                            <connections>
+                                <action selector="saveTapped:" destination="YV4-4P-vgF" id="nA3-jw-eso"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chargeName" destination="KWv-TI-E6J" id="JXj-d1-IMz"/>
+                        <outlet property="percentageValue" destination="afU-YS-dqj" id="66F-De-MFO"/>
+                        <outlet property="stepperValue" destination="S9C-ZH-uzT" id="Flm-tl-Xtq"/>
+                        <outlet property="switchValue" destination="YVO-Hg-MBh" id="Nv5-HV-Gdo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulS-8k-34k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
