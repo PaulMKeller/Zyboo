@@ -72,12 +72,31 @@ class calculationFunctions {
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
         let formattedAmount = formatter.string(from: runningTotal as NSNumber)!
-        
-        return "Total: $" + String(describing: formattedAmount)
+        return "Total: " + currencySymbolSetting() + String(describing: formattedAmount)
     }
     
     func currencySymbolSetting() -> String {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return "$"
+        }
         
-        return "$"
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequestCurrency = NSFetchRequest<NSManagedObject>(entityName: "CurrencyObj")
+        fetchRequestCurrency.predicate = NSPredicate(format: "isOn == true")
+        do {
+            var selectedCurrency = [NSManagedObject]()
+            selectedCurrency.removeAll()
+            selectedCurrency = try managedContext.fetch(fetchRequestCurrency)
+            if selectedCurrency.count != 0 {
+                let thisCurrency = selectedCurrency[0] as! CurrencyObj
+                return thisCurrency.currencySymbol!
+            } else {
+                return "$"
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return "$"
+        }
     }
 }

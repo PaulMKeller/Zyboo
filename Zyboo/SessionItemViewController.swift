@@ -12,7 +12,9 @@ import CoreData
 class SessionItemViewController: UIViewController {
 
     var currentSessionObj = NSManagedObject()
+    var calc = calculationFunctions()
     
+    @IBOutlet weak var sessionItemCurrency: UILabel!
     @IBOutlet weak var sessionItemNameText: UITextField!
     @IBOutlet weak var sessionItemCost: UITextField!
     @IBOutlet var sessionItemCostValue: UIStepper!
@@ -26,6 +28,7 @@ class SessionItemViewController: UIViewController {
        
     override func viewDidLoad() {
         super.viewDidLoad()
+        sessionItemCurrency.text = calc.currencySymbolSetting()
     }
 
     override func didReceiveMemoryWarning() {

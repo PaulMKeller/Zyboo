@@ -326,6 +326,7 @@ Check app updates for this happy hour tracker availability.</string>
                     <connections>
                         <outlet property="sessionItemCost" destination="ZMS-gl-cEv" id="gHE-Js-khM"/>
                         <outlet property="sessionItemCostValue" destination="3Yt-9B-TNt" id="gOd-V6-olf"/>
+                        <outlet property="sessionItemCurrency" destination="DRJ-8n-OSD" id="Bzl-Te-PDW"/>
                         <outlet property="sessionItemNameText" destination="0Pv-X1-YQJ" id="z1e-hr-RmS"/>
                     </connections>
                 </viewController>
@@ -386,6 +387,7 @@ Check app updates for this happy hour tracker availability.</string>
                     <navigationItem key="navigationItem" title="Settings" id="Qr9-vv-ri9"/>
                     <connections>
                         <segue destination="xcA-mO-XrH" kind="show" identifier="chargesSegue" id="Ffy-9j-bLA"/>
+                        <segue destination="RtX-2d-X2y" kind="show" identifier="currencySegue" id="zeS-W6-qqt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T11-Tq-s25" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,6 +475,38 @@ Check app updates for this happy hour tracker availability.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx7-tm-gqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="1092.5037481259371"/>
+        </scene>
+        <!--Currency View Controller-->
+        <scene sceneID="aOR-fc-MlM">
+            <objects>
+                <viewController id="RtX-2d-X2y" customClass="CurrencyViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I5u-i0-MGB"/>
+                        <viewControllerLayoutGuide type="bottom" id="9KI-b5-mqv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="198-Ff-FoH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXo-G0-NZH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eXo-G0-NZH" firstAttribute="top" secondItem="I5u-i0-MGB" secondAttribute="bottom" id="2hp-ZW-YPG"/>
+                            <constraint firstItem="eXo-G0-NZH" firstAttribute="leading" secondItem="198-Ff-FoH" secondAttribute="leading" id="AeL-G6-Gsy"/>
+                            <constraint firstAttribute="trailing" secondItem="eXo-G0-NZH" secondAttribute="trailing" id="hBo-xF-qWE"/>
+                            <constraint firstItem="9KI-b5-mqv" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currencyPicker" destination="eXo-G0-NZH" id="dRY-Jo-ZC4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lca-di-Bfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="1807"/>
         </scene>
         <!--Charge-->
         <scene sceneID="0ZH-Q8-o4t">

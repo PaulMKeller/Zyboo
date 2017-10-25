@@ -111,11 +111,9 @@ class SettingsTableViewController: UITableViewController {
                 newSettingObj.setValue("General", forKeyPath: "settingGroup")
                 newSettingObj.setValue("Additional Charges", forKey: "settingName")
                 
-                /*
                 let newSettingObj2 = NSManagedObject(entity: entitySettingObj!, insertInto: managedContext)
                 newSettingObj2.setValue("General", forKeyPath: "settingGroup")
                 newSettingObj2.setValue("Currency", forKey: "settingName")
-                 */
             }
             
             let serviceChargeFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ServiceChargeObj")
@@ -153,21 +151,21 @@ class SettingsTableViewController: UITableViewController {
                 newCurrencyObj2.setValue("US Dollars", forKeyPath: "currencyName")
                 newCurrencyObj2.setValue("$", forKey: "currencySymbol")
                 newCurrencyObj2.setValue("USD", forKey: "currencyInitials")
-                newCurrencyObj.setValue(false, forKey: "isOn")
+                newCurrencyObj2.setValue(false, forKey: "isOn")
                 
                 let newCurrencyObj3 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
                 
                 newCurrencyObj3.setValue("Euros", forKeyPath: "currencyName")
                 newCurrencyObj3.setValue("€", forKey: "currencySymbol")
                 newCurrencyObj3.setValue("EUR", forKey: "currencyInitials")
-                newCurrencyObj.setValue(false, forKey: "isOn")
+                newCurrencyObj3.setValue(false, forKey: "isOn")
                 
                 let newCurrencyObj4 = NSManagedObject(entity: entityCurrencyObj!, insertInto: managedContext)
                 
                 newCurrencyObj4.setValue("British Pounds", forKeyPath: "currencyName")
                 newCurrencyObj4.setValue("£", forKey: "currencySymbol")
                 newCurrencyObj4.setValue("GBP", forKey: "currencyInitials")
-                newCurrencyObj.setValue(false, forKey: "isOn")
+                newCurrencyObj4.setValue(false, forKey: "isOn")
             }
             
             try managedContext.save()
