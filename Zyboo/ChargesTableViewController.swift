@@ -13,6 +13,7 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
 
     var chargesObjs = [NSManagedObject]()
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBAction func addTapped(_ sender: Any) {
         prepareForSegue(segueIdentifier: "addNewCharge")
     }
@@ -20,10 +21,11 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
         if self.tableView!.isEditing {
             self.setEditing(false, animated: true)
-            self.editButtonItem.title = "Edit"
+            self.editButton.title = "Edit"
+            reorderCharges(tableView: tableView)
         } else {
             self.setEditing(true, animated: true)
-            self.editButtonItem.title = "Done"
+            self.editButton.title = "Done"
         }
     }
     
@@ -42,13 +44,21 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
         loadData()
         self.tableView!.reloadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.tableView!.isEditing {
+            self.setEditing(false, animated: true)
+            self.editButton.title = "Edit"
+            reorderCharges(tableView: tableView)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view functions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -72,6 +82,37 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        //Move the row please...
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            do {
+                let currentCharge = chargesObjs[indexPath.row] as! ServiceChargeObj
+                managedContext.delete(currentCharge)
+                chargesObjs.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                try managedContext.save()
+                reorderCharges(tableView: tableView)
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
     func loadData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -85,7 +126,6 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
         do {
             chargesObjs.removeAll()
             chargesObjs = try managedContext.fetch(fetchRequest)
-            print(chargesObjs)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -120,56 +160,13 @@ class ChargesTableViewController: UITableViewController, TriggerServiceChargeSav
             nextScene.applicationOrder = newCount
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-     */
-    
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        // I need to change the application order if this row is moved.
-        reorderCharges(tableView: tableView)
-    }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            
-            let managedContext = appDelegate.persistentContainer.viewContext
-            do {
-                let currentCharge = chargesObjs[indexPath.row] as! ServiceChargeObj
-                managedContext.delete(currentCharge)
-                chargesObjs.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                try managedContext.save()
-                reorderCharges(tableView: tableView)
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-        }
-    }
-    
-    
     
     func reorderCharges(tableView: UITableView) {
         for cell in tableView.visibleCells as! [SettingChargeTableViewCell] {
             //do someting with the cell here.
-            let cellDataObj = cell.cellDataObj
             let indexRow:Int = tableView.indexPath(for: cell)!.row
             let index:Int16 = Int16(indexRow)
-            cellDataObj.setValue(index, forKey: "applicationOrder")
+            cell.cellDataObj.setValue(index, forKey: "applicationOrder")
         }
         saveData()
     }

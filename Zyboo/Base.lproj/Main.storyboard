@@ -458,7 +458,7 @@ Check app updates for this happy hour tracker availability.</string>
                                     <action selector="addTapped:" destination="xcA-mO-XrH" id="sNd-WD-pgI"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="EZN-uX-IDt">
+                            <barButtonItem title="Edit" id="EZN-uX-IDt">
                                 <connections>
                                     <action selector="editTapped:" destination="xcA-mO-XrH" id="v7J-f2-fMz"/>
                                 </connections>
@@ -466,6 +466,7 @@ Check app updates for this happy hour tracker availability.</string>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="EZN-uX-IDt" id="UFu-Ia-Ifh"/>
                         <segue destination="YV4-4P-vgF" kind="show" identifier="addNewCharge" id="tvE-8u-UG2"/>
                     </connections>
                 </tableViewController>
