@@ -105,6 +105,10 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         }
     }
     
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
     func triggerItemSave() {
         saveData()
     }
