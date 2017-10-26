@@ -23,11 +23,22 @@ class SessionItemViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        saveData()
+        if sessionItemCostValue.value == 0 {
+            let alert = UIAlertController(title: "Unit Cost Error", message: "Unit cost must be greater than 0", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else if sessionItemNameText.text == "" {
+            let alert = UIAlertController(title: "Item Name Error", message: "The item must have a name.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            saveData()
+        }
     }
        
     override func viewDidLoad() {
         super.viewDidLoad()
+        //sessionItemNameText.autocapitalizationType = UITextAutocapitalizationType.words
         sessionItemCurrency.text = calc.currencySymbolSetting()
     }
 

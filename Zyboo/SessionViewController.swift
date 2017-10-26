@@ -18,9 +18,12 @@ class SessionViewController: UIViewController {
     @IBOutlet weak var includeServiceCharges: UISwitch!
     @IBAction func saveTapped(_ sender: Any) {
         if venueTextField.text == "" {
-            return
+            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
         }
-        saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
     }
     
     @IBAction func serviceChargesSwitched(_ sender: Any) {

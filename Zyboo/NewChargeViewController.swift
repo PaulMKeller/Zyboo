@@ -25,6 +25,10 @@ class NewChargeViewController: UIViewController {
     @IBAction func saveTapped(_ sender: Any) {
         if chargeName.text != "" && stepperValue.value != 0 {
             saveData()
+        } else {
+            let alert = UIAlertController(title: "Empty Charge Name", message: "Charge Name cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -32,6 +36,7 @@ class NewChargeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //chargeName.autocapitalizationType = UITextAutocapitalizationType.words
     }
 
     override func didReceiveMemoryWarning() {
