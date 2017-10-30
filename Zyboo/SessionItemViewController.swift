@@ -33,7 +33,11 @@ class SessionItemViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else if Double(sessionItemCost.text!) != sessionItemCostValue.value {
-            sessionItemCostValue.value = Double(sessionItemCost.text!)!
+            if sessionItemCost.text == "" {
+                sessionItemCost.text = String(sessionItemCostValue.value)
+            } else {
+                sessionItemCostValue.value = Double(sessionItemCost.text!)!
+            }
             saveData()
         } else {
             saveData()

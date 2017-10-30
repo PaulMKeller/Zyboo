@@ -71,6 +71,8 @@ class calculationFunctions {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        //formatter.numberStyle = NumberFormatter.Style.currency sets everything to pounds
         let formattedAmount = formatter.string(from: runningTotal as NSNumber)!
         return "Total: " + currencySymbolSetting() + String(describing: formattedAmount)
     }
