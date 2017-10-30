@@ -65,7 +65,7 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         var applyCharges:String = ""
         
         if  currentSessionItems.applyServiceCharge {
-            applyCharges = " plus charges"
+            applyCharges = calc.serviceChargeCount()
         }
         
         cell.itemDescription.text = sessionItem.itemName! + " (" + calc.currencySymbolSetting() + String(Int(sessionItem.unitCost)) + applyCharges + ")"

@@ -19,6 +19,7 @@ class SessionItemViewController: UIViewController {
     @IBOutlet weak var sessionItemCost: UITextField!
     @IBOutlet var sessionItemCostValue: UIStepper!
     @IBAction func costStepperTapped(_ sender: UIStepper) {
+        self.sessionItemCost.resignFirstResponder()
         sessionItemCost.text = String(Int(sender.value))
     }
     
@@ -31,6 +32,9 @@ class SessionItemViewController: UIViewController {
             let alert = UIAlertController(title: "Item Name Error", message: "The item must have a name.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        } else if Double(sessionItemCost.text!) != sessionItemCostValue.value {
+            sessionItemCostValue.value = Double(sessionItemCost.text!)!
+            saveData()
         } else {
             saveData()
         }

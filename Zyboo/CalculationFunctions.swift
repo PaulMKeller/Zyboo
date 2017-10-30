@@ -99,4 +99,15 @@ class calculationFunctions {
             return "$"
         }
     }
+    
+    func serviceChargeCount() -> String {
+        let charges = serviceCharges as! [ServiceChargeObj]
+        var chargeText: String = ""
+        for charge in charges {
+            if charge.isOn {
+                chargeText = chargeText + "+"
+            }
+        }
+        return chargeText
+    }
 }
