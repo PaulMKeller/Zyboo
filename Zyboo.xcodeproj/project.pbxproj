@@ -95,14 +95,6 @@
 		DAF46E851FA738B600213A6C /* Default640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = DAF46E771FA738B600213A6C /* Default640x960.png */; };
 		DAF46E861FA738B600213A6C /* Default750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = DAF46E781FA738B600213A6C /* Default750x1334.png */; };
 		DAF46E871FA738B600213A6C /* Default768x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = DAF46E791FA738B600213A6C /* Default768x1024.png */; };
-		DAF46E901FA7589800213A6C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E881FA7589600213A6C /* FBSDKMessengerShareKit.framework */; };
-		DAF46E911FA7589800213A6C /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E891FA7589700213A6C /* AccountKit.framework */; };
-		DAF46E921FA7589800213A6C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8A1FA7589700213A6C /* FBSDKShareKit.framework */; };
-		DAF46E931FA7589800213A6C /* FBNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8B1FA7589700213A6C /* FBNotifications.framework */; };
-		DAF46E941FA7589800213A6C /* FBSDKPlacesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8C1FA7589700213A6C /* FBSDKPlacesKit.framework */; };
-		DAF46E951FA7589800213A6C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8D1FA7589700213A6C /* FBSDKLoginKit.framework */; };
-		DAF46E961FA7589800213A6C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8E1FA7589800213A6C /* Bolts.framework */; };
-		DAF46E971FA7589800213A6C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF46E8F1FA7589800213A6C /* FBSDKCoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,14 +209,6 @@
 		DAF46E771FA738B600213A6C /* Default640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default640x960.png; sourceTree = "<group>"; };
 		DAF46E781FA738B600213A6C /* Default750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default750x1334.png; sourceTree = "<group>"; };
 		DAF46E791FA738B600213A6C /* Default768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default768x1024.png; sourceTree = "<group>"; };
-		DAF46E881FA7589600213A6C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
-		DAF46E891FA7589700213A6C /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/AccountKit.framework"; sourceTree = "<group>"; };
-		DAF46E8A1FA7589700213A6C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		DAF46E8B1FA7589700213A6C /* FBNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBNotifications.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBNotifications.framework"; sourceTree = "<group>"; };
-		DAF46E8C1FA7589700213A6C /* FBSDKPlacesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKPlacesKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBSDKPlacesKit.framework"; sourceTree = "<group>"; };
-		DAF46E8D1FA7589700213A6C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		DAF46E8E1FA7589800213A6C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/Bolts.framework"; sourceTree = "<group>"; };
-		DAF46E8F1FA7589800213A6C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../iosFrameworks/FacebookSDKs-iOS-4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,15 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF46E941FA7589800213A6C /* FBSDKPlacesKit.framework in Frameworks */,
-				DAF46E921FA7589800213A6C /* FBSDKShareKit.framework in Frameworks */,
-				DAF46E911FA7589800213A6C /* AccountKit.framework in Frameworks */,
-				DAF46E901FA7589800213A6C /* FBSDKMessengerShareKit.framework in Frameworks */,
-				DAF46E951FA7589800213A6C /* FBSDKLoginKit.framework in Frameworks */,
 				DAEDC6EA1F2EC486001DC139 /* CoreData.framework in Frameworks */,
-				DAF46E931FA7589800213A6C /* FBNotifications.framework in Frameworks */,
-				DAF46E971FA7589800213A6C /* FBSDKCoreKit.framework in Frameworks */,
-				DAF46E961FA7589800213A6C /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,14 +258,6 @@
 		DA540F2C1F2EC438003115BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DAF46E891FA7589700213A6C /* AccountKit.framework */,
-				DAF46E8E1FA7589800213A6C /* Bolts.framework */,
-				DAF46E8B1FA7589700213A6C /* FBNotifications.framework */,
-				DAF46E8F1FA7589800213A6C /* FBSDKCoreKit.framework */,
-				DAF46E8D1FA7589700213A6C /* FBSDKLoginKit.framework */,
-				DAF46E881FA7589600213A6C /* FBSDKMessengerShareKit.framework */,
-				DAF46E8C1FA7589700213A6C /* FBSDKPlacesKit.framework */,
-				DAF46E8A1FA7589700213A6C /* FBSDKShareKit.framework */,
 				DA540F2D1F2EC438003115BA /* CoreData.framework */,
 			);
 			name = Frameworks;
@@ -583,7 +551,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6CGSY8527L;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					DAE772801F1397CA00B32B89 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -899,11 +867,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
-				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.Zyboo;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed2ef714-c2c9-47af-af3d-2ba068412134";
+				PROVISIONING_PROFILE_SPECIFIER = "Zyboo App Store Distribution";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -914,11 +886,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
-				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.Zyboo;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed2ef714-c2c9-47af-af3d-2ba068412134";
+				PROVISIONING_PROFILE_SPECIFIER = "Zyboo App Store Distribution";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
