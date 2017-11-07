@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class SessionViewController: UIViewController {
     var currentSessionObj = NSManagedObject()
     var newSession: Bool = false
     
+    @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var venueTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var includeServiceCharges: UISwitch!
@@ -27,6 +29,9 @@ class SessionViewController: UIViewController {
     }
     
     @IBAction func serviceChargesSwitched(_ sender: Any) {
+    }
+    
+    @IBAction func addMapRefTapped(_ sender: Any) {
     }
     
     override func viewDidLoad() {
