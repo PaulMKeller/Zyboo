@@ -13,6 +13,8 @@ import MapKit
 class SessionViewController: UIViewController {
     var currentSessionObj = NSManagedObject()
     var newSession: Bool = false
+    var longitude: Double = 0.0
+    var latitude: Double = 0.0
     
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var venueTextField: UITextField!

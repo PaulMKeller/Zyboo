@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -75,8 +75,8 @@
             <objects>
                 <viewController id="cDn-VH-uaQ" customClass="HappyHourMapViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sFb-e5-Ae7"/>
-                        <viewControllerLayoutGuide type="bottom" id="xya-00-sSe"/>
+                        <viewControllerLayoutGuide type="top" id="SXE-Dg-5Fa"/>
+                        <viewControllerLayoutGuide type="bottom" id="vgT-Oy-qc4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zp3-mB-cMa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -101,12 +101,12 @@ Check app updates for this happy hour tracker availability.</string>
                         <constraints>
                             <constraint firstItem="ofR-Mw-ARe" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="2ij-J8-QDr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S5M-W3-vOu" secondAttribute="trailing" id="7de-kH-vyG"/>
-                            <constraint firstItem="S5M-W3-vOu" firstAttribute="top" secondItem="sFb-e5-Ae7" secondAttribute="bottom" id="GOM-iH-Sg0"/>
+                            <constraint firstItem="S5M-W3-vOu" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="GOM-iH-Sg0"/>
                             <constraint firstItem="S5M-W3-vOu" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="GPL-bi-eLd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ofR-Mw-ARe" secondAttribute="trailing" id="VwD-gS-1d2"/>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="sFb-e5-Ae7" secondAttribute="bottom" id="grg-6R-eX9"/>
-                            <constraint firstItem="xya-00-sSe" firstAttribute="top" secondItem="S5M-W3-vOu" secondAttribute="bottom" id="ib1-28-mih"/>
-                            <constraint firstItem="xya-00-sSe" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
+                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="grg-6R-eX9"/>
+                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="S5M-W3-vOu" secondAttribute="bottom" id="ib1-28-mih"/>
+                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZpS-qO-QIA"/>
@@ -120,8 +120,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="IcG-LW-JHk" customClass="SessionViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9fo-XH-CF3"/>
-                        <viewControllerLayoutGuide type="bottom" id="idx-fp-EEn"/>
+                        <viewControllerLayoutGuide type="top" id="g8q-mS-ZgR"/>
+                        <viewControllerLayoutGuide type="bottom" id="VlW-Hk-WJX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VBd-bT-e3q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -149,11 +149,12 @@ Check app updates for this happy hour tracker availability.</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLo-gb-Zc7">
-                                <rect key="frame" x="157" y="155" width="131" height="30"/>
+                                <rect key="frame" x="157" y="155" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Map Location"/>
+                                <state key="normal" title="Add/View Map Location"/>
                                 <connections>
                                     <action selector="addMapRefTapped:" destination="IcG-LW-JHk" eventType="touchUpInside" id="x1f-Gb-VUH"/>
+                                    <segue destination="zJW-6c-Gbg" kind="show" id="Oie-vd-iFV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-eQ-Rf3">
@@ -207,31 +208,38 @@ Check app updates for this happy hour tracker availability.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHV-1c-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678" y="0.0"/>
+            <point key="canvasLocation" x="2677.5999999999999" y="-0.44977511244377816"/>
         </scene>
-        <!--View Controller-->
+        <!--Session Venue-->
         <scene sceneID="Raz-2N-fXc">
             <objects>
-                <viewController id="zJW-6c-Gbg" sceneMemberID="viewController">
+                <viewController id="zJW-6c-Gbg" customClass="SessionMapLocationViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rp2-32-yk4"/>
-                        <viewControllerLayoutGuide type="bottom" id="YKe-ix-HnT"/>
+                        <viewControllerLayoutGuide type="top" id="EvS-sl-Pp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="DBO-4S-W9L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8vi-Qi-gpK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hn-TS-0Ie">
-                                <rect key="frame" x="16" y="154" width="343" height="359"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Map selection screen needs to go here.  I also need to add a search and navigation to a from it, as well as details for the session.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QGH-QQ-8QY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DBO-4S-W9L" firstAttribute="top" secondItem="QGH-QQ-8QY" secondAttribute="bottom" id="HM2-my-DAP"/>
+                            <constraint firstItem="QGH-QQ-8QY" firstAttribute="leading" secondItem="8vi-Qi-gpK" secondAttribute="leading" id="ahN-pO-Yqn"/>
+                            <constraint firstItem="QGH-QQ-8QY" firstAttribute="top" secondItem="EvS-sl-Pp2" secondAttribute="bottom" id="d9c-hZ-3aw"/>
+                            <constraint firstAttribute="trailing" secondItem="QGH-QQ-8QY" secondAttribute="trailing" id="n8a-0l-gxu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Session Venue" id="XtZ-gQ-7V9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fb5-QZ-Qqy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="QGH-QQ-8QY" id="LEn-1m-xrr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knJ-wA-4WT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,8 +317,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="ZhN-JS-kL7" customClass="SessionItemViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XZd-Ka-G3z"/>
-                        <viewControllerLayoutGuide type="bottom" id="UmC-Zb-0OU"/>
+                        <viewControllerLayoutGuide type="top" id="K9P-zE-Hua"/>
+                        <viewControllerLayoutGuide type="bottom" id="1gJ-hh-Haa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DEl-eU-B2V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -417,7 +425,7 @@ Check app updates for this happy hour tracker availability.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvF-AM-q0s">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -529,8 +537,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="RtX-2d-X2y" customClass="CurrencyViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I5u-i0-MGB"/>
-                        <viewControllerLayoutGuide type="bottom" id="9KI-b5-mqv"/>
+                        <viewControllerLayoutGuide type="top" id="Kba-bk-Vq8"/>
+                        <viewControllerLayoutGuide type="bottom" id="MqM-te-mPw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="198-Ff-FoH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -542,10 +550,10 @@ Check app updates for this happy hour tracker availability.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eXo-G0-NZH" firstAttribute="top" secondItem="I5u-i0-MGB" secondAttribute="bottom" id="2hp-ZW-YPG"/>
+                            <constraint firstItem="eXo-G0-NZH" firstAttribute="top" secondItem="Kba-bk-Vq8" secondAttribute="bottom" id="2hp-ZW-YPG"/>
                             <constraint firstItem="eXo-G0-NZH" firstAttribute="leading" secondItem="198-Ff-FoH" secondAttribute="leading" id="AeL-G6-Gsy"/>
                             <constraint firstAttribute="trailing" secondItem="eXo-G0-NZH" secondAttribute="trailing" id="hBo-xF-qWE"/>
-                            <constraint firstItem="9KI-b5-mqv" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
+                            <constraint firstItem="MqM-te-mPw" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
                         </constraints>
                     </view>
                     <connections>
@@ -561,8 +569,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="YV4-4P-vgF" customClass="NewChargeViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hqd-ld-TDL"/>
-                        <viewControllerLayoutGuide type="bottom" id="btE-7O-oHt"/>
+                        <viewControllerLayoutGuide type="top" id="e3r-mR-uWz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eyz-CC-sxW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dBm-ye-4qa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
