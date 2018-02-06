@@ -154,7 +154,7 @@ Check app updates for this happy hour tracker availability.</string>
                                 <state key="normal" title="Add/View Map Location"/>
                                 <connections>
                                     <action selector="addMapRefTapped:" destination="IcG-LW-JHk" eventType="touchUpInside" id="x1f-Gb-VUH"/>
-                                    <segue destination="zJW-6c-Gbg" kind="show" id="Oie-vd-iFV"/>
+                                    <segue destination="zJW-6c-Gbg" kind="show" identifier="mapLocationSegue" id="Oie-vd-iFV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-eQ-Rf3">

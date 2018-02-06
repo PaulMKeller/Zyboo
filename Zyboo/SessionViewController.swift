@@ -84,10 +84,27 @@ class SessionViewController: UIViewController {
         }
     }
     
+    func prepareForSessionDetailSegue(segueIdentifier: String) {
+        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextScene = segue.destination as! SessionDetailTableViewController
-        nextScene.currentSessionObj = self.currentSessionObj
+        if segue.identifier == "mapLocationSegue" {
+            let nextScene = segue.destination as! SessionMapLocationViewController
+            nextScene.currentLatitude = self.latitude
+            nextScene.currentLongitude = self.longitude
+        } else if segue.identifier == "sessionDetailSegue" {
+            let nextScene = segue.destination as! SessionDetailTableViewController
+            nextScene.currentSessionObj = self.currentSessionObj
+        }
+    }
+    
+    // MARK: - Map Helper Methods
+    let regionRadius: CLLocationDistance = 1000 //1000 meters
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        locationMapView.setRegion(coordinateRegion, animated: true)
     }
 
 }
