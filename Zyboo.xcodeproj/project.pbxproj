@@ -19,6 +19,7 @@
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
 		DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */; };
+		DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC447E2202B0DC300C436C1 /* SessionLocation.swift */; };
 		DAD4E6F11F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */; };
 		DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */; };
 		DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */; };
@@ -130,6 +131,7 @@
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
 		DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooDataBack.swift; sourceTree = "<group>"; };
+		DAC447E2202B0DC300C436C1 /* SessionLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLocation.swift; sourceTree = "<group>"; };
 		DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionObj+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				DAD512191F90BF2D00749DAB /* ZybooItemTableViewCell.swift */,
 				DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */,
 				DAF3A5301F98F5D200860E6A /* SettingChargeTableViewCell.swift */,
+				DAC447E2202B0DC300C436C1 /* SessionLocation.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
 				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
 				DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */,
+				DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

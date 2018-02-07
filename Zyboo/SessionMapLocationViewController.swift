@@ -14,7 +14,15 @@ class SessionMapLocationViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     var currentLongitude: Double = 0.0
     var currentLatitude: Double = 0.0
+    var currentSessionName: String = ""
+    var currentAnnotation = SessionLocation(title: "",
+                                            locationName: "",
+                                            discipline: "",
+                                            coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
     
+    @IBAction func mapTap(_ sender: UILongPressGestureRecognizer) {
+        mapIsTapped(sender)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +42,7 @@ class SessionMapLocationViewController: UIViewController {
     }
     
     // MARK: - Map Helper Methods
-    let regionRadius: CLLocationDistance = 1000 //1000 meters
+    let regionRadius: CLLocationDistance = 200 //1000 meters
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -49,6 +57,17 @@ class SessionMapLocationViewController: UIViewController {
         }
     }
     
+    func mapIsTapped(_ sender: UILongPressGestureRecognizer) {
+        let location = sender.location(in: self.mapView)
+        let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
+        let annotation = SessionLocation(title: "currentSessionName", locationName: "currentSessionName", discipline: "", coordinate: locCoord)
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(annotation)
+        
+        self.currentAnnotation = annotation
+    }
+    
+    //Implement a pass back function to set the newly dropped pin so that it can be saved.
     
     /*
     // MARK: - Navigation

@@ -15,6 +15,7 @@ class SessionViewController: UIViewController {
     var newSession: Bool = false
     var longitude: Double = 0.0
     var latitude: Double = 0.0
+    var sessionLocation = SessionLocation(title: "", locationName: "", discipline: "", coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
     
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var venueTextField: UITextField!
@@ -48,10 +49,18 @@ class SessionViewController: UIViewController {
     func loadData(){
         if self.newSession {
             datePicker.date = NSDate() as Date
+            checkLocationAuthorizationStatus()
+            //Get the users current location and set the latitude
+            //and longitude
+            //centerMapOnLocation(location: create a location object)
         } else {
             venueTextField.text = currentSessionObj.value(forKey: "locationName") as? String
             datePicker.date = currentSessionObj.value(forKey: "sessionDate") as! Date
             includeServiceCharges.isOn = currentSessionObj.value(forKey: "applyServiceCharge") as! Bool
+            latitude = currentSessionObj.value(forKey: "latitude") as! Double
+            longitude = currentSessionObj.value(forKey: "longitude") as! Double
+            sessionLocation.title = venueTextField.text!
+            sessionLocation.locationName = venueTextField.text!
         }
         venueTextField.isEnabled = self.newSession
         datePicker.isEnabled = self.newSession
@@ -73,6 +82,8 @@ class SessionViewController: UIViewController {
                 newSessionObj.setValue(venueTextField.text!, forKeyPath: "locationName")
                 newSessionObj.setValue(datePicker.date, forKey: "sessionDate")
                 newSessionObj.setValue(includeServiceCharges.isOn, forKey: "applyServiceCharge")
+                newSessionObj.setValue(latitude, forKey: "latitude")
+                newSessionObj.setValue(longitude, forKey: "longitude")
                 currentSessionObj = newSessionObj
                 
                 try managedContext.save()
@@ -100,11 +111,22 @@ class SessionViewController: UIViewController {
         }
     }
     
+    //Implement a passback delegate to passback the newly set map location
+    
     // MARK: - Map Helper Methods
-    let regionRadius: CLLocationDistance = 1000 //1000 meters
+    let regionRadius: CLLocationDistance = 200 //200 meters
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         locationMapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    let locationManager = CLLocationManager()
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            //locationMapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 
 }

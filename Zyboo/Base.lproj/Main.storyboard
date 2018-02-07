@@ -224,6 +224,10 @@ Check app updates for this happy hour tracker availability.</string>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QGH-QQ-8QY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0GM-v8-nzZ" appends="YES" id="wXm-u3-toT"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,6 +246,11 @@ Check app updates for this happy hour tracker availability.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knJ-wA-4WT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="0GM-v8-nzZ">
+                    <connections>
+                        <action selector="mapTap:" destination="zJW-6c-Gbg" id="20r-PG-2dg"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3471.1999999999998" y="-423.23838080959524"/>
         </scene>
