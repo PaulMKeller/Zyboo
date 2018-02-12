@@ -16,3 +16,7 @@ protocol TriggerZybooItemSaveDelegate: class {
 protocol TriggerServiceChargeSaveDelegate: class {
     func triggerServiceChargeSave()
 }
+
+protocol PassBackDropPinDelegate: class {
+    func passBackDropPin(dropPin: SessionLocation)
+}

@@ -154,7 +154,6 @@ Check app updates for this happy hour tracker availability.</string>
                                 <state key="normal" title="Add/View Map Location"/>
                                 <connections>
                                     <action selector="addMapRefTapped:" destination="IcG-LW-JHk" eventType="touchUpInside" id="x1f-Gb-VUH"/>
-                                    <segue destination="zJW-6c-Gbg" kind="show" identifier="mapLocationSegue" id="Oie-vd-iFV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-eQ-Rf3">
@@ -204,6 +203,7 @@ Check app updates for this happy hour tracker availability.</string>
                         <outlet property="includeServiceCharges" destination="IyX-PR-Nc0" id="aQl-ow-NF9"/>
                         <outlet property="locationMapView" destination="qtY-OS-d8M" id="Hoa-ex-izQ"/>
                         <outlet property="venueTextField" destination="H5p-y8-Agq" id="Fpz-ay-BUY"/>
+                        <segue destination="zJW-6c-Gbg" kind="show" identifier="mapLocationSegue" id="J5B-gE-x2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHV-1c-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>

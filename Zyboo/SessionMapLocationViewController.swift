@@ -15,6 +15,7 @@ class SessionMapLocationViewController: UIViewController {
     var currentLongitude: Double = 0.0
     var currentLatitude: Double = 0.0
     var currentSessionName: String = ""
+    weak var delegate: PassBackDropPinDelegate?
     var currentAnnotation = SessionLocation(title: "",
                                             locationName: "",
                                             discipline: "",
@@ -60,11 +61,13 @@ class SessionMapLocationViewController: UIViewController {
     func mapIsTapped(_ sender: UILongPressGestureRecognizer) {
         let location = sender.location(in: self.mapView)
         let locCoord = self.mapView.convert(location, toCoordinateFrom: self.mapView)
-        let annotation = SessionLocation(title: "currentSessionName", locationName: "currentSessionName", discipline: "", coordinate: locCoord)
+        let annotation = SessionLocation(title: "", locationName: self.currentSessionName, discipline: "", coordinate: locCoord)
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(annotation)
         
         self.currentAnnotation = annotation
+        
+        delegate?.passBackDropPin(dropPin: annotation)
     }
     
     //Implement a pass back function to set the newly dropped pin so that it can be saved.

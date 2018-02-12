@@ -10,12 +10,13 @@ import UIKit
 import CoreData
 import MapKit
 
-class SessionViewController: UIViewController {
+class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocationManagerDelegate {
     var currentSessionObj = NSManagedObject()
     var newSession: Bool = false
     var longitude: Double = 0.0
     var latitude: Double = 0.0
     var sessionLocation = SessionLocation(title: "", locationName: "", discipline: "", coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var venueTextField: UITextField!
@@ -35,6 +36,13 @@ class SessionViewController: UIViewController {
     }
     
     @IBAction func addMapRefTapped(_ sender: Any) {
+        if venueTextField.text == "" {
+            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.prepareForSessionDetailSegue(segueIdentifier: "mapLocationSegue")
+        }
     }
     
     override func viewDidLoad() {
@@ -49,10 +57,20 @@ class SessionViewController: UIViewController {
     func loadData(){
         if self.newSession {
             datePicker.date = NSDate() as Date
-            checkLocationAuthorizationStatus()
-            //Get the users current location and set the latitude
-            //and longitude
-            //centerMapOnLocation(location: create a location object)
+            
+            if CLLocationManager.locationServicesEnabled() {
+                checkLocationAuthorizationStatus()
+                
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.startUpdatingLocation()
+                
+                //Get the users current location and set the latitude
+                //and longitude
+                //centerMapOnLocation(location: create a location object)
+            }
+            
+            
         } else {
             venueTextField.text = currentSessionObj.value(forKey: "locationName") as? String
             datePicker.date = currentSessionObj.value(forKey: "sessionDate") as! Date
@@ -61,6 +79,8 @@ class SessionViewController: UIViewController {
             longitude = currentSessionObj.value(forKey: "longitude") as! Double
             sessionLocation.title = venueTextField.text!
             sessionLocation.locationName = venueTextField.text!
+            addAnnotation()
+            centerMapOnLocation(location: sessionLocation)
         }
         venueTextField.isEnabled = self.newSession
         datePicker.isEnabled = self.newSession
@@ -85,11 +105,17 @@ class SessionViewController: UIViewController {
                 newSessionObj.setValue(latitude, forKey: "latitude")
                 newSessionObj.setValue(longitude, forKey: "longitude")
                 currentSessionObj = newSessionObj
+            } else {
                 
-                try managedContext.save()
-                _ = navigationController?.popViewController(animated: true)
-            
+                currentSessionObj.setValue(venueTextField.text!, forKeyPath: "locationName")
+                currentSessionObj.setValue(datePicker.date, forKey: "sessionDate")
+                currentSessionObj.setValue(includeServiceCharges.isOn, forKey: "applyServiceCharge")
+                currentSessionObj.setValue(latitude, forKey: "latitude")
+                currentSessionObj.setValue(longitude, forKey: "longitude")
             }
+            
+            try managedContext.save()
+            _ = navigationController?.popViewController(animated: true)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -105,28 +131,62 @@ class SessionViewController: UIViewController {
             let nextScene = segue.destination as! SessionMapLocationViewController
             nextScene.currentLatitude = self.latitude
             nextScene.currentLongitude = self.longitude
+            nextScene.currentSessionName = self.venueTextField.text!
+            nextScene.currentAnnotation = self.sessionLocation
+            nextScene.delegate = self
         } else if segue.identifier == "sessionDetailSegue" {
             let nextScene = segue.destination as! SessionDetailTableViewController
             nextScene.currentSessionObj = self.currentSessionObj
         }
     }
     
-    //Implement a passback delegate to passback the newly set map location
-    
     // MARK: - Map Helper Methods
-    let regionRadius: CLLocationDistance = 200 //200 meters
-    func centerMapOnLocation(location: CLLocation) {
+    let regionRadius: CLLocationDistance = 50 //50 meters
+    func centerMapOnLocation(location: SessionLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         locationMapView.setRegion(coordinateRegion, animated: true)
     }
     
-    let locationManager = CLLocationManager()
+    //let locationManager = CLLocationManager()
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             //locationMapView.showsUserLocation = true
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue: CLLocationCoordinate2D = manager.location!.coordinate
+        self.latitude = locValue.latitude
+        self.longitude = locValue.longitude
+        self.sessionLocation.coordinate.latitude = self.latitude
+        self.sessionLocation.coordinate.longitude = self.longitude
+        self.sessionLocation.locationName = self.venueTextField.text!
+        addAnnotation()
+        self.locationManager.stopUpdatingLocation()
+        centerMapOnLocation(location: self.sessionLocation)
+    }
+    
+    func passBackDropPin(dropPin: SessionLocation) {
+        self.latitude = dropPin.coordinate.latitude
+        self.longitude = dropPin.coordinate.longitude
+        self.sessionLocation.locationName = self.venueTextField.text!
+        self.sessionLocation.coordinate.latitude = self.latitude
+        self.sessionLocation.coordinate.longitude = self.longitude
+        centerMapOnLocation(location: self.sessionLocation)
+        addAnnotation()
+    }
+    
+    func addAnnotation(){
+        
+        let locCoord = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+        
+        let annotation = SessionLocation(title: self.sessionLocation.title!, locationName: self.sessionLocation.locationName, discipline: "", coordinate: locCoord)
+        self.locationMapView.removeAnnotations(locationMapView.annotations)
+        self.locationMapView.addAnnotation(annotation)
+        
+        //self.currentAnnotation = annotation
     }
 
 }
