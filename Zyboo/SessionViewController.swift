@@ -36,6 +36,9 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
     }
     
     @IBAction func addMapRefTapped(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
         if venueTextField.text == "" {
             let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -141,7 +144,7 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
     }
     
     // MARK: - Map Helper Methods
-    let regionRadius: CLLocationDistance = 50 //50 meters
+    let regionRadius: CLLocationDistance = 100 //100 meters
     func centerMapOnLocation(location: SessionLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         locationMapView.setRegion(coordinateRegion, animated: true)
@@ -187,6 +190,10 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
         self.locationMapView.addAnnotation(annotation)
         
         //self.currentAnnotation = annotation
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }

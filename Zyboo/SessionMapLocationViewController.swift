@@ -28,7 +28,7 @@ class SessionMapLocationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let initialLocation = CLLocation(latitude: 1.2771, longitude: 103.8461)
+        let initialLocation = CLLocation(latitude: self.currentLatitude, longitude: self.currentLongitude)
         centerMapOnLocation(location: initialLocation)
     }
     
@@ -43,7 +43,7 @@ class SessionMapLocationViewController: UIViewController {
     }
     
     // MARK: - Map Helper Methods
-    let regionRadius: CLLocationDistance = 200 //1000 meters
+    let regionRadius: CLLocationDistance = 100 //1000 meters
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)

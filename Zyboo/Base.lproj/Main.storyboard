@@ -208,7 +208,7 @@ Check app updates for this happy hour tracker availability.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHV-1c-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="2710" y="-80"/>
         </scene>
         <!--Session Venue-->
         <scene sceneID="Raz-2N-fXc">
