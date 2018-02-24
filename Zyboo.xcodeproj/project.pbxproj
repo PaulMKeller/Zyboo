@@ -11,6 +11,7 @@
 		DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */; };
 		DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */; };
 		DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */; };
+		DA41D6F82041928100861354 /* navigate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA41D6F72041928000861354 /* navigate.png */; };
 		DA51D08320289F22009226EA /* SessionMapLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA51D08220289F22009226EA /* SessionMapLocationViewController.swift */; };
 		DA73FFA81FA0BEC6000EE792 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73FFA71FA0BEC5000EE792 /* CurrencyViewController.swift */; };
 		DA8C3DCF1FA0E2DF004D8B98 /* coming-soon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */; };
@@ -19,6 +20,8 @@
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
 		DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */; };
+		DABA89FA2041812A002DD059 /* information-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DABA89F92041812A002DD059 /* information-icon.png */; };
+		DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */; };
 		DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC447E2202B0DC300C436C1 /* SessionLocation.swift */; };
 		DAD4E6F11F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */; };
 		DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */; };
@@ -121,6 +124,7 @@
 		DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerSessionTableViewController.swift; sourceTree = "<group>"; };
 		DA33F2201F178AA300F8882B /* TrackerNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerNavViewController.swift; sourceTree = "<group>"; };
 		DA33F2261F1793EF00F8882B /* SessionDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDetailTableViewController.swift; sourceTree = "<group>"; };
+		DA41D6F72041928000861354 /* navigate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigate.png; sourceTree = "<group>"; };
 		DA51D081202898BB009226EA /* ZybooCoreData_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData_v2.xcdatamodel; sourceTree = "<group>"; };
 		DA51D08220289F22009226EA /* SessionMapLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMapLocationViewController.swift; sourceTree = "<group>"; };
 		DA540F2D1F2EC438003115BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -131,6 +135,8 @@
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
 		DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooDataBack.swift; sourceTree = "<group>"; };
+		DABA89F92041812A002DD059 /* information-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "information-icon.png"; sourceTree = "<group>"; };
+		DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooSessionTableViewCell.swift; sourceTree = "<group>"; };
 		DAC447E2202B0DC300C436C1 /* SessionLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLocation.swift; sourceTree = "<group>"; };
 		DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 				DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */,
 				DAF3A5301F98F5D200860E6A /* SettingChargeTableViewCell.swift */,
 				DAC447E2202B0DC300C436C1 /* SessionLocation.swift */,
+				DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -272,6 +279,8 @@
 		DA8C3DCD1FA0E277004D8B98 /* App_Images */ = {
 			isa = PBXGroup;
 			children = (
+				DABA89F92041812A002DD059 /* information-icon.png */,
+				DA41D6F72041928000861354 /* navigate.png */,
 				DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */,
 			);
 			path = App_Images;
@@ -630,6 +639,7 @@
 				DAF46E831FA738B600213A6C /* Default3840x2160.png in Resources */,
 				DAF46E821FA738B600213A6C /* Default320x480.png in Resources */,
 				DAD5B4C81F1FAD340091EB17 /* Beer.png in Resources */,
+				DABA89FA2041812A002DD059 /* information-icon.png in Resources */,
 				DAD5B49E1F1FA6750091EB17 /* Icon-App-60x60@3x.png in Resources */,
 				DAD5B4AD1F1FA6750091EB17 /* Icon-27.5@2x.png in Resources */,
 				DAD5B4981F1FA6750091EB17 /* Icon-App-40x40@2x.png in Resources */,
@@ -653,6 +663,7 @@
 				DAD5B4AF1F1FA6750091EB17 /* Icon-29@3x.png in Resources */,
 				DAD5B4951F1FA6750091EB17 /* Icon-App-29x29@2x.png in Resources */,
 				DAF46E7C1FA738B600213A6C /* Default1242x2208.png in Resources */,
+				DA41D6F82041928100861354 /* navigate.png in Resources */,
 				DAD5B4A41F1FA6750091EB17 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				DAF46E801FA738B600213A6C /* Default2208x1242.png in Resources */,
 				DAF46E871FA738B600213A6C /* Default768x1024.png in Resources */,
@@ -687,6 +698,7 @@
 				DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */,
 				DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */,
 				DAF3A52A1F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift in Sources */,
+				DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */,
 				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,
 				DA51D08320289F22009226EA /* SessionMapLocationViewController.swift in Sources */,
 				DAF3A52D1F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift in Sources */,

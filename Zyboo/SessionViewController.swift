@@ -23,12 +23,18 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var includeServiceCharges: UISwitch!
     @IBAction func saveTapped(_ sender: Any) {
+        /*
         if venueTextField.text == "" {
             let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
+        }
+         */
+        if checkForSave() {
+            saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
     
@@ -45,6 +51,24 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
             self.present(alert, animated: true, completion: nil)
         } else {
             self.prepareForSessionDetailSegue(segueIdentifier: "mapLocationSegue")
+        }
+    }
+    /*
+    @IBAction func viewSessionItemsTapped(_ sender: Any) {
+        if checkForSave() {
+            saveData(sessionVenue: venueTextField.text!, sessionDate: datePicker.date)
+            self.prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue")
+        }
+    }
+    */
+    func checkForSave() -> Bool {
+        if venueTextField.text == "" {
+            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        } else {
+            return true
         }
     }
     
@@ -85,12 +109,13 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
             addAnnotation()
             centerMapOnLocation(location: sessionLocation)
         }
-        venueTextField.isEnabled = self.newSession
-        datePicker.isEnabled = self.newSession
-        includeServiceCharges.isEnabled = self.newSession
+        //venueTextField.isEnabled = self.newSession
+        //datePicker.isEnabled = self.newSession
+        //includeServiceCharges.isEnabled = self.newSession
     }
     
     func saveData(sessionVenue: String, sessionDate: Date) {
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -118,7 +143,6 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
             }
             
             try managedContext.save()
-            _ = navigationController?.popViewController(animated: true)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
