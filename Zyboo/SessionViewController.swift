@@ -106,6 +106,8 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
             longitude = currentSessionObj.value(forKey: "longitude") as! Double
             sessionLocation.title = venueTextField.text!
             sessionLocation.locationName = venueTextField.text!
+            let thisCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            sessionLocation.coordinate = thisCoordinate
             addAnnotation()
             centerMapOnLocation(location: sessionLocation)
         }
