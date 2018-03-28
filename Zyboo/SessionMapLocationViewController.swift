@@ -28,12 +28,13 @@ class SessionMapLocationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //let initialLocation = CLLocation(latitude: self.currentLatitude, longitude: self.currentLongitude)
         let initialLocation = CLLocation(latitude: self.currentAnnotation.coordinate.latitude, longitude: self.currentAnnotation.coordinate.longitude)
         centerMapOnLocation(location: initialLocation)
         
         self.mapView.removeAnnotations(mapView.annotations)
-        self.mapView.addAnnotation(self.currentAnnotation)
+        if (self.currentAnnotation.locationName != "") {
+            self.mapView.addAnnotation(self.currentAnnotation)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
