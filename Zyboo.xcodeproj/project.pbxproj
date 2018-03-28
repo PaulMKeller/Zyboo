@@ -890,7 +890,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
 				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
@@ -909,7 +909,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
 				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
