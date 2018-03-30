@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,13 +40,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="BpL-xp-Qre">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="BpL-xp-Qre" customClass="ZybooSessionTableViewCell" customModule="Zyboo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BpL-xp-Qre" id="gfP-Y8-DU4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGc-vu-sWe">
+                                            <rect key="frame" x="16" y="2" width="262" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01/01/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02b-sL-HcS">
+                                            <rect key="frame" x="16" y="22" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bi-7C-eQy">
+                                            <rect key="frame" x="102" y="22" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb3-8W-Hhu">
+                                            <rect key="frame" x="138" y="22" width="146" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-St-hGp">
+                                            <rect key="frame" x="297" y="9" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="infoTapped:" destination="BpL-xp-Qre" eventType="touchUpInside" id="pHX-bI-THZ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vup-1X-njr">
+                                            <rect key="frame" x="327" y="7" width="32" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                                            <state key="normal" title="&gt;" image="navigate.png"/>
+                                            <connections>
+                                                <action selector="detailsTapped:" destination="BpL-xp-Qre" eventType="touchUpInside" id="tPX-qf-ytC"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="sessionDate" destination="02b-sL-HcS" id="eyU-yw-V0x"/>
+                                    <outlet property="sessionName" destination="lGc-vu-sWe" id="8F2-xw-dme"/>
+                                    <outlet property="sessionTotal" destination="Lb3-8W-Hhu" id="tAk-66-hV2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -63,20 +114,20 @@
                     </navigationItem>
                     <connections>
                         <segue destination="IcG-LW-JHk" kind="show" identifier="newSessionSegue" id="fm8-3f-pmy"/>
-                        <segue destination="3X1-fQ-uud" kind="show" identifier="sessionDetailSegue" id="fQJ-cs-088"/>
+                        <segue destination="3X1-fQ-uud" kind="show" identifier="sessionDetailSegue" id="PEx-bV-YQj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLG-DQ-8kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="0.0"/>
+            <point key="canvasLocation" x="1885.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Happy Hour Map View Controller-->
         <scene sceneID="C0u-PN-TzL">
             <objects>
                 <viewController id="cDn-VH-uaQ" customClass="HappyHourMapViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sFb-e5-Ae7"/>
-                        <viewControllerLayoutGuide type="bottom" id="xya-00-sSe"/>
+                        <viewControllerLayoutGuide type="top" id="SXE-Dg-5Fa"/>
+                        <viewControllerLayoutGuide type="bottom" id="vgT-Oy-qc4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zp3-mB-cMa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -101,12 +152,12 @@ Check app updates for this happy hour tracker availability.</string>
                         <constraints>
                             <constraint firstItem="ofR-Mw-ARe" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="2ij-J8-QDr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S5M-W3-vOu" secondAttribute="trailing" id="7de-kH-vyG"/>
-                            <constraint firstItem="S5M-W3-vOu" firstAttribute="top" secondItem="sFb-e5-Ae7" secondAttribute="bottom" id="GOM-iH-Sg0"/>
+                            <constraint firstItem="S5M-W3-vOu" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="GOM-iH-Sg0"/>
                             <constraint firstItem="S5M-W3-vOu" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="GPL-bi-eLd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ofR-Mw-ARe" secondAttribute="trailing" id="VwD-gS-1d2"/>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="sFb-e5-Ae7" secondAttribute="bottom" id="grg-6R-eX9"/>
-                            <constraint firstItem="xya-00-sSe" firstAttribute="top" secondItem="S5M-W3-vOu" secondAttribute="bottom" id="ib1-28-mih"/>
-                            <constraint firstItem="xya-00-sSe" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
+                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="grg-6R-eX9"/>
+                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="S5M-W3-vOu" secondAttribute="bottom" id="ib1-28-mih"/>
+                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZpS-qO-QIA"/>
@@ -120,50 +171,69 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="IcG-LW-JHk" customClass="SessionViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9fo-XH-CF3"/>
-                        <viewControllerLayoutGuide type="bottom" id="idx-fp-EEn"/>
+                        <viewControllerLayoutGuide type="top" id="g8q-mS-ZgR"/>
+                        <viewControllerLayoutGuide type="bottom" id="VlW-Hk-WJX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VBd-bT-e3q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Venue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9JW-vy-6wX">
-                                <rect key="frame" x="16" y="86" width="343" height="21"/>
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-eQ-Rf3">
-                                <rect key="frame" x="16" y="161" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOZ-Q8-mvx">
+                                <rect key="frame" x="16" y="136" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Venue Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H5p-y8-Agq">
-                                <rect key="frame" x="16" y="115" width="343" height="30"/>
+                                <rect key="frame" x="16" y="98" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLo-gb-Zc7">
+                                <rect key="frame" x="157" y="130" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add/View Map Location"/>
+                                <connections>
+                                    <action selector="addMapRefTapped:" destination="IcG-LW-JHk" eventType="touchUpInside" id="x1f-Gb-VUH"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qtY-OS-d8M">
+                                <rect key="frame" x="16" y="164" width="343" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-eQ-Rf3">
+                                <rect key="frame" x="16" y="344" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="u0U-iK-cd1">
-                                <rect key="frame" x="0.0" y="190" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="369" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="523332778.46147603">
                                     <!--2017-08-02 02:12:58 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Include Service Charges:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-U8-kjP">
-                                <rect key="frame" x="16" y="405" width="272" height="21"/>
+                                <rect key="frame" x="16" y="584" width="272" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IyX-PR-Nc0">
-                                <rect key="frame" x="303" y="400" width="49" height="31"/>
+                                <rect key="frame" x="303" y="579" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="serviceChargesSwitched:" destination="IcG-LW-JHk" eventType="valueChanged" id="Uqv-P0-Lce"/>
@@ -182,12 +252,58 @@ Check app updates for this happy hour tracker availability.</string>
                     <connections>
                         <outlet property="datePicker" destination="u0U-iK-cd1" id="Of3-oh-35e"/>
                         <outlet property="includeServiceCharges" destination="IyX-PR-Nc0" id="aQl-ow-NF9"/>
+                        <outlet property="locationMapView" destination="qtY-OS-d8M" id="Hoa-ex-izQ"/>
                         <outlet property="venueTextField" destination="H5p-y8-Agq" id="Fpz-ay-BUY"/>
+                        <segue destination="zJW-6c-Gbg" kind="show" identifier="mapLocationSegue" id="J5B-gE-x2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHV-1c-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661.5999999999999" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="2677.5999999999999" y="-761.46926536731644"/>
+        </scene>
+        <!--Session Venue-->
+        <scene sceneID="Raz-2N-fXc">
+            <objects>
+                <viewController id="zJW-6c-Gbg" customClass="SessionMapLocationViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EvS-sl-Pp2"/>
+                        <viewControllerLayoutGuide type="bottom" id="DBO-4S-W9L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8vi-Qi-gpK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QGH-QQ-8QY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0GM-v8-nzZ" appends="YES" id="wXm-u3-toT"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DBO-4S-W9L" firstAttribute="top" secondItem="QGH-QQ-8QY" secondAttribute="bottom" id="HM2-my-DAP"/>
+                            <constraint firstItem="QGH-QQ-8QY" firstAttribute="leading" secondItem="8vi-Qi-gpK" secondAttribute="leading" id="ahN-pO-Yqn"/>
+                            <constraint firstItem="QGH-QQ-8QY" firstAttribute="top" secondItem="EvS-sl-Pp2" secondAttribute="bottom" id="d9c-hZ-3aw"/>
+                            <constraint firstAttribute="trailing" secondItem="QGH-QQ-8QY" secondAttribute="trailing" id="n8a-0l-gxu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Session Venue" id="XtZ-gQ-7V9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fb5-QZ-Qqy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="QGH-QQ-8QY" id="LEn-1m-xrr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knJ-wA-4WT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="0GM-v8-nzZ">
+                    <connections>
+                        <action selector="mapTap:" destination="zJW-6c-Gbg" id="20r-PG-2dg"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3394" y="-761"/>
         </scene>
         <!--Total: $0-->
         <scene sceneID="S5F-gH-v0L">
@@ -254,15 +370,15 @@ Check app updates for this happy hour tracker availability.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-Xz-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="390"/>
+            <point key="canvasLocation" x="2678" y="0.0"/>
         </scene>
         <!--Session Item Details-->
         <scene sceneID="wgN-uw-yol">
             <objects>
                 <viewController id="ZhN-JS-kL7" customClass="SessionItemViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XZd-Ka-G3z"/>
-                        <viewControllerLayoutGuide type="bottom" id="UmC-Zb-0OU"/>
+                        <viewControllerLayoutGuide type="top" id="K9P-zE-Hua"/>
+                        <viewControllerLayoutGuide type="bottom" id="1gJ-hh-Haa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DEl-eU-B2V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -332,7 +448,7 @@ Check app updates for this happy hour tracker availability.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQ2-xd-Hdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3541.5999999999999" y="389.95502248875567"/>
+            <point key="canvasLocation" x="3393" y="0.0"/>
         </scene>
         <!--Zyboo Tracker-->
         <scene sceneID="UR4-Bu-eVB">
@@ -369,7 +485,7 @@ Check app updates for this happy hour tracker availability.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvF-AM-q0s">
-                                            <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -481,8 +597,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="RtX-2d-X2y" customClass="CurrencyViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I5u-i0-MGB"/>
-                        <viewControllerLayoutGuide type="bottom" id="9KI-b5-mqv"/>
+                        <viewControllerLayoutGuide type="top" id="Kba-bk-Vq8"/>
+                        <viewControllerLayoutGuide type="bottom" id="MqM-te-mPw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="198-Ff-FoH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -494,10 +610,10 @@ Check app updates for this happy hour tracker availability.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eXo-G0-NZH" firstAttribute="top" secondItem="I5u-i0-MGB" secondAttribute="bottom" id="2hp-ZW-YPG"/>
+                            <constraint firstItem="eXo-G0-NZH" firstAttribute="top" secondItem="Kba-bk-Vq8" secondAttribute="bottom" id="2hp-ZW-YPG"/>
                             <constraint firstItem="eXo-G0-NZH" firstAttribute="leading" secondItem="198-Ff-FoH" secondAttribute="leading" id="AeL-G6-Gsy"/>
                             <constraint firstAttribute="trailing" secondItem="eXo-G0-NZH" secondAttribute="trailing" id="hBo-xF-qWE"/>
-                            <constraint firstItem="9KI-b5-mqv" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
+                            <constraint firstItem="MqM-te-mPw" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
                         </constraints>
                     </view>
                     <connections>
@@ -513,8 +629,8 @@ Check app updates for this happy hour tracker availability.</string>
             <objects>
                 <viewController id="YV4-4P-vgF" customClass="NewChargeViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hqd-ld-TDL"/>
-                        <viewControllerLayoutGuide type="bottom" id="btE-7O-oHt"/>
+                        <viewControllerLayoutGuide type="top" id="e3r-mR-uWz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eyz-CC-sxW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dBm-ye-4qa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -630,5 +746,6 @@ Check app updates for this happy hour tracker availability.</string>
         <image name="Settings.png" width="25" height="25"/>
         <image name="Settings_Selected.png" width="25" height="25"/>
         <image name="coming-soon.png" width="393" height="220"/>
+        <image name="navigate.png" width="512" height="512"/>
     </resources>
 </document>
