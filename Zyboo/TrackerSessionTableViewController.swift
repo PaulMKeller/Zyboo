@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TrackerSessionTableViewController: UITableViewController {
+class TrackerSessionTableViewController: UITableViewController, TriggerSessionDetailShowDelegate, TriggerSessionInfoShowDelegate {
     var sessionObjs = [NSManagedObject]()
     var serviceCharges = [NSManagedObject]()
     var segueSessionObj = NSManagedObject()
@@ -53,7 +53,7 @@ class TrackerSessionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! ZybooSessionTableViewCell
 
         var thisSession = NSManagedObject()
         thisSession = sessionObjs[indexPath.row]
@@ -66,7 +66,13 @@ class TrackerSessionTableViewController: UITableViewController {
         let locationName = thisSession.value(forKey: "locationName") as! String
         let sessionDate = dateFormatter.string(from: thisSession.value(forKey: "sessionDate") as! Date)
         
-        cell.textLabel?.text = locationName  + " " + calc.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj) + " (" + sessionDate + ")"
+        //cell.textLabel?.text = locationName  + " " + calc.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj) + " (" + sessionDate + ")"
+        cell.cellSessionObj = thisSession
+        cell.sessionName.text = locationName
+        cell.sessionDate.text = sessionDate
+        cell.sessionTotal.text = calc.calculateRunningTotal(thisSessionObj: thisSession as! SessionObj)
+        cell.detailDelegate = self
+        cell.infoDelegate = self
 
         return cell
     }
@@ -122,13 +128,33 @@ class TrackerSessionTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "newSessionSegue" {
             let nextScene = segue.destination as! SessionViewController
             nextScene.newSession = self.newSession
             nextScene.currentSessionObj = self.segueSessionObj
-        } else {
+        } else if segue.identifier == "sessionDetailSegue" {
+            //SessionDetail Segue
             let nextScene = segue.destination as! SessionDetailTableViewController
             nextScene.currentSessionObj = self.segueSessionObj
         }
+ 
+        /*
+        let nextScene = segue.destination as! SessionViewController
+        nextScene.newSession = self.newSession
+        nextScene.currentSessionObj = self.segueSessionObj
+         */
+    }
+    
+    func triggerSessionInfoShow(cellSessionObj: NSManagedObject) {
+        //prepare the right segue
+        self.segueSessionObj = cellSessionObj
+        self.prepareForSessionDetailSegue(segueIdentifier: "newSessionSegue", newSession: false, segueSessionObj: self.segueSessionObj)
+    }
+    
+    func triggerSessionDetailShow(cellSessionObj: NSManagedObject) {
+        //prepare the right segue
+        self.segueSessionObj = cellSessionObj
+        self.prepareForSessionDetailSegue(segueIdentifier: "sessionDetailSegue", newSession: false, segueSessionObj: self.segueSessionObj)
     }
 }

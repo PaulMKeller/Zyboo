@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrencyObj" representedClassName="CurrencyObj" syncable="YES">
+        <attribute name="currencyInitials" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencySymbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ServiceChargeObj" representedClassName="ServiceChargeObj" syncable="YES">
+        <attribute name="applicationOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="chargeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="percentageCharge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="SessionObj" representedClassName="SessionObj" syncable="YES">
+        <attribute name="applyServiceCharge" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locationName" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sessionDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="zybooItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ZybooItemObj" inverseName="sessions" inverseEntity="ZybooItemObj" syncable="YES"/>
+    </entity>
+    <entity name="SettingObj" representedClassName="SettingObj" syncable="YES">
+        <attribute name="settingGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="settingName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ZybooItemObj" representedClassName="ZybooItemObj" syncable="YES">
+        <attribute name="itemCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemName" attributeType="String" syncable="YES"/>
+        <attribute name="unitCost" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sessions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SessionObj" inverseName="zybooItems" inverseEntity="SessionObj" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CurrencyObj" positionX="-72" positionY="-774" width="128" height="103"/>
+        <element name="ServiceChargeObj" positionX="-72" positionY="-648" width="128" height="103"/>
+        <element name="SessionObj" positionX="-261" positionY="-405" width="128" height="135"/>
+        <element name="SettingObj" positionX="-261" positionY="-693" width="128" height="73"/>
+        <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
+    </elements>
+</model>
