@@ -29,6 +29,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ZybooItemObj" representedClassName="ZybooItemObj" syncable="YES">
         <attribute name="itemCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -41,7 +42,7 @@
         <element name="ServiceChargeObj" positionX="-72" positionY="-648" width="128" height="103"/>
         <element name="SessionObj" positionX="-261" positionY="-405" width="128" height="135"/>
         <element name="SettingObj" positionX="-261" positionY="-693" width="128" height="73"/>
+        <element name="UserObj" positionX="90" positionY="-711" width="128" height="120"/>
         <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
-        <element name="UserObj" positionX="-126" positionY="-621" width="128" height="105"/>
     </elements>
 </model>
