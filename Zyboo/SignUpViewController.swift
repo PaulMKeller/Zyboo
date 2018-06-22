@@ -13,22 +13,22 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var contactNumber: UILabel!
     @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var contactNumber: UITextField!
     @IBAction func signUp(_ sender: Any) {
         self.view.endEditing(true)
         
-        if firstName.text == "" || lastName.text == "" || emailAddress.text == "" {
-            let alert = UIAlertController(title: "Empty Values", message: "The empire insists all fields must have values...", preferredStyle: UIAlertControllerStyle.alert)
+        if firstName.text == "" || lastName.text == "" || emailAddress.text == "" ||  contactNumber.text == "" {
+            let alert = UIAlertController(title: "Empty Values", message: "Annoying I know but all fields must have values...", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            self.prepareForSegue(segueIdentifier: "signUp")
+            self.prepareForSegue(segueIdentifier: "signUpSegue")
         }
     }
     
     @IBAction func ignoreSignUp(_ sender: Any) {
-        self.prepareForSegue(segueIdentifier: "ignoreSignUp")
+        self.prepareForSegue(segueIdentifier: "signUpSegue")
     }
     
     
@@ -66,6 +66,10 @@ class SignUpViewController: UIViewController {
 
         }
         */
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 
