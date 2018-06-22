@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CurrencyObj" representedClassName="CurrencyObj" syncable="YES">
         <attribute name="currencyInitials" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currencyName" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,6 +26,7 @@
     </entity>
     <entity name="UserObj" representedClassName="UserObj" syncable="YES">
         <attribute name="contactNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,7 +43,7 @@
         <element name="ServiceChargeObj" positionX="-72" positionY="-648" width="128" height="103"/>
         <element name="SessionObj" positionX="-261" positionY="-405" width="128" height="135"/>
         <element name="SettingObj" positionX="-261" positionY="-693" width="128" height="73"/>
-        <element name="UserObj" positionX="90" positionY="-711" width="128" height="120"/>
+        <element name="UserObj" positionX="90" positionY="-711" width="128" height="135"/>
         <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
     </elements>
 </model>
