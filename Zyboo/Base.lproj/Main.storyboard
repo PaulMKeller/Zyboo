@@ -119,7 +119,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" textContentType="nickname"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,6 +129,7 @@
                         <outlet property="emailAddress" destination="AdX-Qb-NjQ" id="AaD-NF-qjh"/>
                         <outlet property="firstName" destination="4L6-j0-y5i" id="Mc8-zU-JxL"/>
                         <outlet property="lastName" destination="cQ1-VD-Gqi" id="DH2-vt-oHf"/>
+                        <outlet property="nickName" destination="uS4-dw-wX4" id="FRp-bF-Mvd"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="signUpSegue" id="zdl-NB-5ux"/>
                     </connections>
                 </viewController>

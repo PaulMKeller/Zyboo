@@ -22,5 +22,6 @@ extension UserObj {
     @NSManaged public var nickName: String?
     @NSManaged public var contactNumber: String?
     @NSManaged public var userType: String?
+    @NSManaged public var userID: Int32
 
 }
