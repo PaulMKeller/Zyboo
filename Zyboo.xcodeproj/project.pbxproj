@@ -16,6 +16,7 @@
 		DA73FFA81FA0BEC6000EE792 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73FFA71FA0BEC5000EE792 /* CurrencyViewController.swift */; };
 		DA8C3DCF1FA0E2DF004D8B98 /* coming-soon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */; };
 		DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */; };
+		DA9FF3822147DE2000ACFF93 /* ZybooNewsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */; };
 		DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA564061F5693160044434D /* SessionItemViewController.swift */; };
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
@@ -23,6 +24,9 @@
 		DABA89FA2041812A002DD059 /* information-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DABA89F92041812A002DD059 /* information-icon.png */; };
 		DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */; };
 		DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC447E2202B0DC300C436C1 /* SessionLocation.swift */; };
+		DAC62D892147E67A008CB8BB /* News.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC62D872147E678008CB8BB /* News.png */; };
+		DAC62D8A2147E67A008CB8BB /* News_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC62D882147E67A008CB8BB /* News_Selected.png */; };
+		DAC62D8C2147E782008CB8BB /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC62D8B2147E782008CB8BB /* NewsViewController.swift */; };
 		DAD4E6F11F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */; };
 		DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */; };
 		DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */; };
@@ -131,6 +135,7 @@
 		DA73FFA71FA0BEC5000EE792 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coming-soon.png"; sourceTree = "<group>"; };
 		DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChargeViewController.swift; sourceTree = "<group>"; };
+		DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooNewsNavViewController.swift; sourceTree = "<group>"; };
 		DAA564061F5693160044434D /* SessionItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionItemViewController.swift; sourceTree = "<group>"; };
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 		DABA89F92041812A002DD059 /* information-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "information-icon.png"; sourceTree = "<group>"; };
 		DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooSessionTableViewCell.swift; sourceTree = "<group>"; };
 		DAC447E2202B0DC300C436C1 /* SessionLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLocation.swift; sourceTree = "<group>"; };
+		DAC62D872147E678008CB8BB /* News.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = News.png; sourceTree = "<group>"; };
+		DAC62D882147E67A008CB8BB /* News_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = News_Selected.png; sourceTree = "<group>"; };
+		DAC62D8B2147E782008CB8BB /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		DAD4E6ED1F92355100EE89E2 /* ZybooItemObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DAD4E6EE1F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZybooItemObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DAD4E6EF1F92355100EE89E2 /* SessionObj+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionObj+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -389,6 +397,8 @@
 		DAD5B4B41F1FAB4E0091EB17 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				DAC62D882147E67A008CB8BB /* News_Selected.png */,
+				DAC62D872147E678008CB8BB /* News.png */,
 				DAD5B4C11F1FAD340091EB17 /* Beer_Selected.png */,
 				DAD5B4C21F1FAD340091EB17 /* Beer.png */,
 				DAD5B4C31F1FAD340091EB17 /* Map_Selected.png */,
@@ -446,6 +456,8 @@
 				DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */,
 				DA73FFA71FA0BEC5000EE792 /* CurrencyViewController.swift */,
 				DA51D08220289F22009226EA /* SessionMapLocationViewController.swift */,
+				DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */,
+				DAC62D8B2147E782008CB8BB /* NewsViewController.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -622,6 +634,7 @@
 				DAD5B4CA1F1FAD340091EB17 /* Map.png in Resources */,
 				DAE772781F1397CA00B32B89 /* Assets.xcassets in Resources */,
 				DAF46E7E1FA738B600213A6C /* Default1920x1080.png in Resources */,
+				DAC62D892147E67A008CB8BB /* News.png in Resources */,
 				DAF46E851FA738B600213A6C /* Default640x960.png in Resources */,
 				DAD5B49B1F1FA6750091EB17 /* Icon-App-57x57@2x.png in Resources */,
 				DAD5B4A91F1FA6750091EB17 /* iTunesArtwork@3x.png in Resources */,
@@ -643,6 +656,7 @@
 				DAD5B49E1F1FA6750091EB17 /* Icon-App-60x60@3x.png in Resources */,
 				DAD5B4AD1F1FA6750091EB17 /* Icon-27.5@2x.png in Resources */,
 				DAD5B4981F1FA6750091EB17 /* Icon-App-40x40@2x.png in Resources */,
+				DAC62D8A2147E67A008CB8BB /* News_Selected.png in Resources */,
 				DAD5B4CB1F1FAD340091EB17 /* Settings_Selected.png in Resources */,
 				DAF46E811FA738B600213A6C /* Default2436x1125.png in Resources */,
 				DAD5B4A01F1FA6750091EB17 /* Icon-App-72x72@2x.png in Resources */,
@@ -708,6 +722,7 @@
 				DAF3A52C1F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift in Sources */,
 				DAD5121A1F90BF2D00749DAB /* ZybooItemTableViewCell.swift in Sources */,
 				DAE7726F1F1397C900B32B89 /* AppDelegate.swift in Sources */,
+				DAC62D8C2147E782008CB8BB /* NewsViewController.swift in Sources */,
 				DAD5B45D1F1FA0920091EB17 /* SettingsNavViewController.swift in Sources */,
 				DAF3A52E1F98EAA600860E6A /* SettingObj+CoreDataClass.swift in Sources */,
 				DAD5B45F1F1FA0B10091EB17 /* SettingsTableViewController.swift in Sources */,
@@ -723,6 +738,7 @@
 				DA33F2211F178AA300F8882B /* TrackerNavViewController.swift in Sources */,
 				DA33F2271F1793EF00F8882B /* SessionDetailTableViewController.swift in Sources */,
 				DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */,
+				DA9FF3822147DE2000ACFF93 /* ZybooNewsNavViewController.swift in Sources */,
 				DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
