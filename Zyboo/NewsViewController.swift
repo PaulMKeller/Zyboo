@@ -9,24 +9,46 @@
 import UIKit
 import WebKit
 
-class NewsViewController: UIViewController, WKUIDelegate {
+class NewsViewController: UIViewController {
     
-    var webView: WKWebView!
+    
+    @IBOutlet var webView: WKWebView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        view = webView
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let myURL = URL(string:"http//www.zyboo.org")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        
+         let urlString = "www.zyboo.org"
+         let myRequest = URLRequest(url: URL(string: urlString)!)
+         self.webView.load(myRequest)
+ 
+        
+        /*
+        let stringUrl = "http://www.zyboo.org/blog/"
+        if let encodedURL = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: encodedURL) {
+            self.webView.load(URLRequest(url: url))
+        }
+        */
+        
+        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "loading" {
+            if webView.isLoading {
+                activityIndicator.startAnimating()
+                activityIndicator.isHidden = false
+            } else {
+                activityIndicator.stopAnimating()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
