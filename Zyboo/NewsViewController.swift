@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import WebKit
 
-class NewsViewController: UIViewController {
-
+class NewsViewController: UIViewController, WKUIDelegate {
+    
+    var webView: WKWebView!
+    
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let myURL = URL(string:"http//www.zyboo.org")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
     }
 
     override func didReceiveMemoryWarning() {

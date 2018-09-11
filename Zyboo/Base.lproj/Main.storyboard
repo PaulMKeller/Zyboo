@@ -22,10 +22,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="DYJ-lk-b4C" kind="relationship" relationship="viewControllers" id="chS-sq-CNI"/>
                         <segue destination="05d-zW-0zn" kind="relationship" relationship="viewControllers" id="pgb-ay-1rZ"/>
                         <segue destination="7Df-fj-EQc" kind="relationship" relationship="viewControllers" id="Wac-NU-7Jl"/>
                         <segue destination="k1f-yt-HjK" kind="relationship" relationship="viewControllers" id="okU-CP-XCJ"/>
-                        <segue destination="DYJ-lk-b4C" kind="relationship" relationship="viewControllers" id="chS-sq-CNI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -178,19 +178,7 @@ Check app updates for this happy hour tracker availability.</string>
                     <view key="view" contentMode="scaleToFill" id="TeY-CF-EYK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8I-85-eKk">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="S8I-85-eKk" firstAttribute="leading" secondItem="TeY-CF-EYK" secondAttribute="leadingMargin" id="ch5-KR-1UC"/>
-                            <constraint firstItem="S8I-85-eKk" firstAttribute="top" secondItem="0Cf-Oh-Q3x" secondAttribute="bottom" id="g20-jw-ZdJ"/>
-                            <constraint firstItem="qYV-3X-H8d" firstAttribute="top" secondItem="S8I-85-eKk" secondAttribute="bottom" id="gol-aD-Gcd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="S8I-85-eKk" secondAttribute="trailing" id="yQX-BM-mpY"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Xy-Pv-6au"/>
                 </viewController>
