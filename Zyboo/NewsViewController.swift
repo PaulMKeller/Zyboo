@@ -9,11 +9,11 @@
 import UIKit
 import WebKit
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     
-    @IBOutlet var webView: WKWebView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func loadView() {
         
@@ -23,12 +23,13 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //self.webView.uiDelegate = self
+        //self.webView.navigationDelegate = self
         
-         let urlString = "www.zyboo.org"
-         let myRequest = URLRequest(url: URL(string: urlString)!)
-         self.webView.load(myRequest)
+        let urlString = "http://www.zyboo.org"
+        let myRequest = URLRequest(url: URL(string: urlString)!)
+        self.webView.load(myRequest)
  
-        
         /*
         let stringUrl = "http://www.zyboo.org/blog/"
         if let encodedURL = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
