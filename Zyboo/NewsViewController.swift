@@ -9,63 +9,56 @@
 import UIKit
 import WebKit
 
-class NewsViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class NewsViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
-    
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var webView: WKWebView!
+    var activityIndicator: UIActivityIndicatorView!
     
     override func loadView() {
-        
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        view = webView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        //self.webView.uiDelegate = self
-        //self.webView.navigationDelegate = self
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         
-        let urlString = "http://www.zyboo.org"
-        let myRequest = URLRequest(url: URL(string: urlString)!)
-        self.webView.load(myRequest)
- 
-        /*
-        let stringUrl = "http://www.zyboo.org/blog/"
-        if let encodedURL = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-            let url = URL(string: encodedURL) {
-            self.webView.load(URLRequest(url: url))
-        }
-        */
+        view.addSubview(activityIndicator)
         
-        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        let url = URL(string: "http://www.zyboo.org")!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "loading" {
-            if webView.isLoading {
-                activityIndicator.startAnimating()
-                activityIndicator.isHidden = false
-            } else {
-                activityIndicator.stopAnimating()
-            }
+    func showActivityIndicator(show: Bool) {
+        if show {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
         }
     }
-
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        showActivityIndicator(show: false)
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showActivityIndicator(show: true)
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showActivityIndicator(show: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

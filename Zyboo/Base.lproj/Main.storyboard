@@ -166,7 +166,7 @@ Check app updates for this happy hour tracker availability.</string>
             </objects>
             <point key="canvasLocation" x="935" y="1961"/>
         </scene>
-        <!--News View Controller-->
+        <!--Zyboo News-->
         <scene sceneID="FIs-C9-oPh">
             <objects>
                 <viewController id="al4-QX-bO4" customClass="NewsViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,34 +177,9 @@ Check app updates for this happy hour tracker availability.</string>
                     <view key="view" contentMode="scaleToFill" id="TeY-CF-EYK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5x-4r-4hr">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Dy-F1-DqD">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="7Dy-F1-DqD" firstAttribute="centerX" secondItem="TeY-CF-EYK" secondAttribute="centerX" id="386-kW-r1W"/>
-                            <constraint firstItem="c5x-4r-4hr" firstAttribute="top" secondItem="0Cf-Oh-Q3x" secondAttribute="bottom" id="4Oa-ah-dgS"/>
-                            <constraint firstItem="c5x-4r-4hr" firstAttribute="leading" secondItem="TeY-CF-EYK" secondAttribute="leadingMargin" id="axe-sP-dE9"/>
-                            <constraint firstItem="qYV-3X-H8d" firstAttribute="top" secondItem="c5x-4r-4hr" secondAttribute="bottom" id="hFc-lm-A5Q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="c5x-4r-4hr" secondAttribute="trailing" id="sAm-3e-RXn"/>
-                            <constraint firstItem="7Dy-F1-DqD" firstAttribute="centerY" secondItem="TeY-CF-EYK" secondAttribute="centerY" id="zgw-FF-nCp"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Xy-Pv-6au"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="7Dy-F1-DqD" id="aGz-XU-2AH"/>
-                        <outlet property="webView" destination="c5x-4r-4hr" id="csT-V2-CYg"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Zyboo News" id="1Xy-Pv-6au"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiX-tG-38j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
