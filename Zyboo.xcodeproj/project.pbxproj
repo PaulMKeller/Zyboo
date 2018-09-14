@@ -21,6 +21,7 @@
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
 		DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */; };
+		DAB23938214BB53D009847DB /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB23937214BB53D009847DB /* Reachability.swift */; };
 		DABA89FA2041812A002DD059 /* information-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DABA89F92041812A002DD059 /* information-icon.png */; };
 		DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */; };
 		DAC447E3202B0DC300C436C1 /* SessionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC447E2202B0DC300C436C1 /* SessionLocation.swift */; };
@@ -140,6 +141,7 @@
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
 		DAB1CDD91F1E282300E94DE0 /* passZybooDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passZybooDataBack.swift; sourceTree = "<group>"; };
+		DAB23937214BB53D009847DB /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DABA89F92041812A002DD059 /* information-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "information-icon.png"; sourceTree = "<group>"; };
 		DABA89FB204181ED002DD059 /* ZybooSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooSessionTableViewCell.swift; sourceTree = "<group>"; };
 		DAC447E2202B0DC300C436C1 /* SessionLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLocation.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				DA51D08220289F22009226EA /* SessionMapLocationViewController.swift */,
 				DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */,
 				DAC62D8B2147E782008CB8BB /* NewsViewController.swift */,
+				DAB23937214BB53D009847DB /* Reachability.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */,
 				DAF3A52A1F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift in Sources */,
 				DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */,
+				DAB23938214BB53D009847DB /* Reachability.swift in Sources */,
 				DAD5B45B1F1F9F280091EB17 /* HappyHourMapViewController.swift in Sources */,
 				DA51D08320289F22009226EA /* SessionMapLocationViewController.swift in Sources */,
 				DAF3A52D1F98EAA600860E6A /* ServiceChargeObj+CoreDataProperties.swift in Sources */,

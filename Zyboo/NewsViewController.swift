@@ -31,10 +31,15 @@ class NewsViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         
         view.addSubview(activityIndicator)
+        //let basePage = "<html><head><title>Zyboo</title><link rel='stylesheet' href='../css/main.css'></head><body><img id='zybooImage' src='../images/iTunesArtwork@3x.png' /><h1>Zyboo</h1><div class='landingText'>Coming Soon: Your home for all your Zyboo needs.</div><div class='landingText'>We are working hard to bring you a top website to complement our Zyboo app so please check back soon for further updates.</div><div id='supportText'>For support issues please send an email to <a href='mailto:contact@zyboo.org?Subject=Support Issue' target='_top'>contact@zyboo.org</a></div></body></html>"
+        let basePage = "<html><head></head><body><h1>Loading Zyboo. Please wait...</h1><h1>If you want to contact us please send an email to <a href='mailto:contact@zyboo.org?Subject=Support Issue' target='_top'>contact@zyboo.org</a></h1></body></html>"
+        webView.loadHTMLString(basePage, baseURL: Bundle.main.bundleURL)
         
-        let url = URL(string: "http://www.zyboo.org")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
+        if Reachability.isConnectedToNetwork() {
+            let url = URL(string: "http://www.zyboo.org")!
+            webView.load(URLRequest(url: url))
+            webView.allowsBackForwardNavigationGestures = true
+        }
     }
     
     func showActivityIndicator(show: Bool) {
