@@ -115,6 +115,9 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
     
     func calculateRunningTotal() {
         sessionNavItem.title = calc.calculateRunningTotal(thisSessionObj: self.currentSessionObj as! SessionObj)
+        
+        //Calculate unit total, add it to the cell either in the ZybooItemTableViewCell, or as a separate delegate function.
+        //Watch out for data being wiped out in the load of the cell.
     }
     
     func saveData() {

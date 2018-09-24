@@ -19,11 +19,13 @@ class ZybooItemTableViewCell: UITableViewCell {
     @IBOutlet var itemCount: UILabel!
     @IBOutlet var itemStepper: UIStepper!
     @IBAction func stepperTapped(_ sender: UIStepper) {
-        itemCount.text = String(Int32(sender.value))
+        
+        
         let thisZybooItem = cellDataObj as! ZybooItemObj
         thisZybooItem.itemCount = Int32(sender.value)
+        //thisRunningTotal.text = thisZybooItem.unitCost * Int32(sender.value)
         
-        //self.delegate?.passItemDataBack(cellZybooItem: cellItemObj)
+        itemCount.text = String(Int32(sender.value))
         self.delegate?.triggerItemSave()
     }
     
