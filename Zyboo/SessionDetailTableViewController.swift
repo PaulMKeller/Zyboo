@@ -62,13 +62,18 @@ class SessionDetailTableViewController: UITableViewController, TriggerZybooItemS
         
         let currentSessionItems = currentSessionObj as! SessionObj
         let sessionItem = currentSessionItems.zybooItems?.object(at: indexPath.row) as! ZybooItemObj
-        var applyCharges:String = ""
+        /*var applyCharges:String = ""
         
         if  currentSessionItems.applyServiceCharge {
             applyCharges = calc.serviceChargeCount()
         }
+        */
         
-        cell.itemDescription.text = sessionItem.itemName! + " (" + calc.currencySymbolSetting() + String(Int(sessionItem.unitCost)) + applyCharges + ")"
+        
+        cell.applyCharges = currentSessionItems.applyServiceCharge
+        cell.itemDescription.text = sessionItem.itemName!
+        //cell.itemTotal.text = String(calc.currencySymbolSetting() + String(Int(sessionItem.unitCost * Double(sessionItem.itemCount))) )//+ applyCharges)
+        cell.itemTotal.text = calc.calculateItemTotal(thisItemObj: sessionItem, applyCharges: currentSessionItems.applyServiceCharge)
         cell.itemCount.text = String(sessionItem.itemCount)
         cell.itemStepper.value = Double(sessionItem.itemCount)
         cell.cellDataObj = sessionItem

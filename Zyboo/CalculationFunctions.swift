@@ -77,6 +77,29 @@ class calculationFunctions {
         return "Total: " + currencySymbolSetting() + String(describing: formattedAmount)
     }
     
+    func calculateItemTotal (thisItemObj: ZybooItemObj, applyCharges: Bool) -> String {
+        var runningTotal:Decimal = 0.00
+        runningTotal = runningTotal + (Decimal(thisItemObj.itemCount) * Decimal(thisItemObj.unitCost))
+        
+        if applyCharges {
+            for charge in self.serviceCharges {
+                let thisCharge = charge as! ServiceChargeObj
+                if thisCharge.isOn {
+                    let chargeTotal:Decimal = runningTotal * (Decimal(thisCharge.percentageCharge) / Decimal(100.00))
+                    runningTotal = runningTotal + chargeTotal
+                }
+            }
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        let formattedAmount = formatter.string(from: runningTotal as NSNumber)!
+        return currencySymbolSetting() + String(describing: formattedAmount)
+        
+    }
+    
     func currencySymbolSetting() -> String {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return "$"

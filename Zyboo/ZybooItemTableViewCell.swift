@@ -12,9 +12,11 @@ import CoreData
 class ZybooItemTableViewCell: UITableViewCell {
     
     var cellDataObj = NSManagedObject()
-    //weak var delegate: ZybooItemTotalPassBackDelegate?
     weak var delegate: TriggerZybooItemSaveDelegate?
+    var applyCharges: Bool?
+    var calc = calculationFunctions()
     
+    @IBOutlet weak var itemTotal: UILabel!
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemCount: UILabel!
     @IBOutlet var itemStepper: UIStepper!
@@ -23,9 +25,11 @@ class ZybooItemTableViewCell: UITableViewCell {
         
         let thisZybooItem = cellDataObj as! ZybooItemObj
         thisZybooItem.itemCount = Int32(sender.value)
-        //thisRunningTotal.text = thisZybooItem.unitCost * Int32(sender.value)
         
+        //itemTotal.text = String(thisZybooItem.unitCost * Double(sender.value))
+        itemTotal.text = calc.calculateItemTotal(thisItemObj: thisZybooItem, applyCharges: applyCharges!)
         itemCount.text = String(Int32(sender.value))
+        
         self.delegate?.triggerItemSave()
     }
     

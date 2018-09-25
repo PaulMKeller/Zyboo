@@ -358,16 +358,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zyboo/SessionDetailTableViewController.swift"
-            timestampString = "559461949.98836"
+            timestampString = "559572902.0641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "saveData()"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "calculateRunningTotal()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

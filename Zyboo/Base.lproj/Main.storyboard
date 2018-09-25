@@ -340,33 +340,55 @@ Check app updates for this happy hour tracker availability.</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ZybooItem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-gq-WMK">
-                                            <rect key="frame" x="17" y="12" width="188" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZybooItemTotal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nd7-8o-7oI">
+                                            <rect key="frame" x="5" y="22.5" width="211" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ceG-ZE-HCg">
-                                            <rect key="frame" x="263" y="8" width="94" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ceG-ZE-HCg">
+                                            <rect key="frame" x="276" y="7" width="94" height="29"/>
                                             <connections>
                                                 <action selector="stepperTapped:" destination="Nbw-Iv-mog" eventType="valueChanged" id="b5c-J5-0S7"/>
                                             </connections>
                                         </stepper>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fic-hl-2Xy">
-                                            <rect key="frame" x="213" y="12" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fic-hl-2Xy">
+                                            <rect key="frame" x="226" y="7" width="40" height="29.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="jUi-6w-OVV"/>
+                                                <constraint firstAttribute="width" constant="40" id="v1R-Yn-XwS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZybooItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-gq-WMK">
+                                            <rect key="frame" x="5" y="0.0" width="211" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nTN-gq-WMK" firstAttribute="top" secondItem="wek-VD-Isq" secondAttribute="top" id="0W0-Uh-pvK"/>
+                                        <constraint firstItem="ceG-ZE-HCg" firstAttribute="leading" secondItem="fic-hl-2Xy" secondAttribute="trailing" constant="10" id="9wk-cp-grA"/>
+                                        <constraint firstAttribute="bottom" secondItem="ceG-ZE-HCg" secondAttribute="bottom" constant="7" id="LxI-J0-tF8"/>
+                                        <constraint firstItem="fic-hl-2Xy" firstAttribute="top" secondItem="wek-VD-Isq" secondAttribute="top" constant="7" id="Nta-qs-17V"/>
+                                        <constraint firstAttribute="trailing" secondItem="ceG-ZE-HCg" secondAttribute="trailing" constant="5" id="RqQ-BY-Lg8"/>
+                                        <constraint firstAttribute="bottom" secondItem="nd7-8o-7oI" secondAttribute="bottom" id="WA9-lg-FHm"/>
+                                        <constraint firstItem="nTN-gq-WMK" firstAttribute="leading" secondItem="wek-VD-Isq" secondAttribute="leading" constant="5" id="dXJ-Ft-nKI"/>
+                                        <constraint firstItem="fic-hl-2Xy" firstAttribute="leading" secondItem="nTN-gq-WMK" secondAttribute="trailing" constant="10" id="ezQ-VX-UGy"/>
+                                        <constraint firstItem="fic-hl-2Xy" firstAttribute="leading" secondItem="nd7-8o-7oI" secondAttribute="trailing" constant="10" id="fn9-eu-mdo"/>
+                                        <constraint firstItem="ceG-ZE-HCg" firstAttribute="top" secondItem="wek-VD-Isq" secondAttribute="top" constant="7" id="rLX-oh-IkJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="fic-hl-2Xy" secondAttribute="bottom" constant="7" id="xsv-fo-crs"/>
+                                        <constraint firstItem="nd7-8o-7oI" firstAttribute="leading" secondItem="wek-VD-Isq" secondAttribute="leading" constant="5" id="zAp-As-FSo"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itemCount" destination="fic-hl-2Xy" id="Hjd-Wk-2eJ"/>
                                     <outlet property="itemDescription" destination="nTN-gq-WMK" id="XGs-78-2nb"/>
                                     <outlet property="itemStepper" destination="ceG-ZE-HCg" id="rfL-la-pZE"/>
+                                    <outlet property="itemTotal" destination="nd7-8o-7oI" id="mE7-bK-Ycl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -389,7 +411,7 @@ Check app updates for this happy hour tracker availability.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGI-Xz-B5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678" y="0.0"/>
+            <point key="canvasLocation" x="2677.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Session Item Details-->
         <scene sceneID="wgN-uw-yol">
