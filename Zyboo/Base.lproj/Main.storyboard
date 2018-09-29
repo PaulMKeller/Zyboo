@@ -129,51 +129,6 @@
             </objects>
             <point key="canvasLocation" x="1885.5999999999999" y="-0.44977511244377816"/>
         </scene>
-        <!--Happy Hour Map View Controller-->
-        <scene sceneID="C0u-PN-TzL">
-            <objects>
-                <viewController id="cDn-VH-uaQ" customClass="HappyHourMapViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SXE-Dg-5Fa"/>
-                        <viewControllerLayoutGuide type="bottom" id="vgT-Oy-qc4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zp3-mB-cMa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Mw-ARe">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
-                                <string key="text">This content is under development.
-
-Soon you will be able to see bars near you that have a happy hour and track a course between those bars to ensure you stay in happy hour heaven for all eternity.
-
-Check app updates for this happy hour tracker availability.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming-soon.png" translatesAutoresizingMaskIntoConstraints="NO" id="S5M-W3-vOu">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="2ij-J8-QDr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="S5M-W3-vOu" secondAttribute="trailing" id="7de-kH-vyG"/>
-                            <constraint firstItem="S5M-W3-vOu" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="GOM-iH-Sg0"/>
-                            <constraint firstItem="S5M-W3-vOu" firstAttribute="leading" secondItem="Zp3-mB-cMa" secondAttribute="leadingMargin" id="GPL-bi-eLd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ofR-Mw-ARe" secondAttribute="trailing" id="VwD-gS-1d2"/>
-                            <constraint firstItem="ofR-Mw-ARe" firstAttribute="top" secondItem="SXE-Dg-5Fa" secondAttribute="bottom" id="grg-6R-eX9"/>
-                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="S5M-W3-vOu" secondAttribute="bottom" id="ib1-28-mih"/>
-                            <constraint firstItem="vgT-Oy-qc4" firstAttribute="top" secondItem="ofR-Mw-ARe" secondAttribute="bottom" id="igc-5B-BBk"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="ZpS-qO-QIA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5dh-Wu-jGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="935" y="1961"/>
-        </scene>
         <!--Zyboo News-->
         <scene sceneID="FIs-C9-oPh">
             <objects>
@@ -707,6 +662,71 @@ Check app updates for this happy hour tracker availability.</string>
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="1092.5037481259371"/>
         </scene>
+        <!--Happy Hours-->
+        <scene sceneID="rie-rF-i76">
+            <objects>
+                <tableViewController id="n7R-Sf-LMM" customClass="HappyHourTableViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fpm-hP-qdH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="kTe-0a-2Ml" detailTextLabel="Jrk-PB-6nu" style="IBUITableViewCellStyleSubtitle" id="zKW-B2-6E2">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zKW-B2-6E2" id="EX6-fV-Kzh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kTe-0a-2Ml">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jrk-PB-6nu">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n7R-Sf-LMM" id="msF-AJ-Y6a"/>
+                            <outlet property="delegate" destination="n7R-Sf-LMM" id="V8g-0I-RVZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Happy Hours" id="A1U-Ff-BqL"/>
+                    <connections>
+                        <segue destination="oCd-Ay-GX0" kind="show" id="bn2-5m-uUs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfb-pe-FGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="2541"/>
+        </scene>
+        <!--Happy Hour Nav View Controller-->
+        <scene sceneID="Opx-IB-x5o">
+            <objects>
+                <navigationController id="yiq-ho-DKb" customClass="HappyHourNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gzd-IA-3aW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nyt-00-mXd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="n7R-Sf-LMM" kind="relationship" relationship="rootViewController" id="yE6-5e-4JJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFS-qu-yc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="1898"/>
+        </scene>
         <!--Currency View Controller-->
         <scene sceneID="aOR-fc-MlM">
             <objects>
@@ -738,6 +758,40 @@ Check app updates for this happy hour tracker availability.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lca-di-Bfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2774" y="1807"/>
+        </scene>
+        <!--Happy Hour Map View Controller-->
+        <scene sceneID="a5r-3y-oEI">
+            <objects>
+                <viewController id="oCd-Ay-GX0" customClass="HappyHourMapViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Fu-DJ-ExQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NqJ-DU-Ghs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m01-ww-yv4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-ah-dZR">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Vg-ah-dZR" firstAttribute="top" secondItem="3Fu-DJ-ExQ" secondAttribute="bottom" id="0mf-kc-FXU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Vg-ah-dZR" secondAttribute="trailing" id="WaI-N5-GMF"/>
+                            <constraint firstItem="NqJ-DU-Ghs" firstAttribute="top" secondItem="3Vg-ah-dZR" secondAttribute="bottom" id="r2P-gg-yJa"/>
+                            <constraint firstItem="3Vg-ah-dZR" firstAttribute="leading" secondItem="m01-ww-yv4" secondAttribute="leadingMargin" id="x49-1p-MpU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxj-Sl-BB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="2541"/>
         </scene>
         <!--Charge-->
         <scene sceneID="0ZH-Q8-o4t">
@@ -859,7 +913,7 @@ Check app updates for this happy hour tracker availability.</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cDn-VH-uaQ" kind="relationship" relationship="rootViewController" id="3WP-2z-gZ0"/>
+                        <segue destination="yiq-ho-DKb" kind="relationship" relationship="rootViewController" id="2YO-VX-b3Z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXg-S7-3vv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -876,7 +930,6 @@ Check app updates for this happy hour tracker availability.</string>
         <image name="News_Selected.png" width="25" height="25"/>
         <image name="Settings.png" width="25" height="25"/>
         <image name="Settings_Selected.png" width="25" height="25"/>
-        <image name="coming-soon.png" width="393" height="220"/>
         <image name="navigate.png" width="512" height="512"/>
     </resources>
 </document>
