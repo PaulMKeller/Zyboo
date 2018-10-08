@@ -31,13 +31,13 @@
         <attribute name="settingName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="VenueObj" representedClassName="VenueObj" syncable="YES" codeGenerationType="class">
+        <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address3" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="county" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postcode" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="telNo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="openingHours" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OpeningHoursObj" inverseName="venue" inverseEntity="OpeningHoursObj" syncable="YES"/>
     </entity>
@@ -49,11 +49,11 @@
     </entity>
     <elements>
         <element name="CurrencyObj" positionX="-72" positionY="-774" width="128" height="103"/>
+        <element name="OpeningHoursObj" positionX="-126" positionY="-621" width="128" height="105"/>
         <element name="ServiceChargeObj" positionX="-72" positionY="-648" width="128" height="103"/>
         <element name="SessionObj" positionX="-261" positionY="-405" width="128" height="135"/>
         <element name="SettingObj" positionX="-261" positionY="-693" width="128" height="73"/>
-        <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
-        <element name="OpeningHoursObj" positionX="-126" positionY="-621" width="128" height="105"/>
         <element name="VenueObj" positionX="-117" positionY="-612" width="128" height="180"/>
+        <element name="ZybooItemObj" positionX="16" positionY="-364" width="128" height="103"/>
     </elements>
 </model>
