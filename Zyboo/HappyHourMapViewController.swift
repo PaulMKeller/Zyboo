@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
 class HappyHourMapViewController: UIViewController {
 
+    @IBOutlet weak var happyHourWebView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

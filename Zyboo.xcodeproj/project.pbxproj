@@ -18,6 +18,8 @@
 		DA8C3DCF1FA0E2DF004D8B98 /* coming-soon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */; };
 		DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */; };
 		DA9FF3822147DE2000ACFF93 /* ZybooNewsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */; };
+		DAA37D032201A70500D3D8F2 /* HappyHourObj+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA37D012201A70500D3D8F2 /* HappyHourObj+CoreDataClass.swift */; };
+		DAA37D042201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA37D022201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift */; };
 		DAA564071F5693160044434D /* SessionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA564061F5693160044434D /* SessionItemViewController.swift */; };
 		DAAC89C71F98599F0018FA1D /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */; };
 		DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */; };
@@ -140,6 +142,8 @@
 		DA8C3DCE1FA0E2DF004D8B98 /* coming-soon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coming-soon.png"; sourceTree = "<group>"; };
 		DA9EDBC01F9C4DE700862220 /* NewChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChargeViewController.swift; sourceTree = "<group>"; };
 		DA9FF3812147DE1F00ACFF93 /* ZybooNewsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZybooNewsNavViewController.swift; sourceTree = "<group>"; };
+		DAA37D012201A70500D3D8F2 /* HappyHourObj+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HappyHourObj+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DAA37D022201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HappyHourObj+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DAA564061F5693160044434D /* SessionItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionItemViewController.swift; sourceTree = "<group>"; };
 		DAAC89C61F98599F0018FA1D /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 		DAAC89C81F9871280018FA1D /* ChargesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 		DAD4E6EC1F9234F200EE89E2 /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				DAA37D012201A70500D3D8F2 /* HappyHourObj+CoreDataClass.swift */,
+				DAA37D022201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift */,
 				DAF3A5241F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift */,
 				DAF3A5251F98EAA600860E6A /* CurrencyObj+CoreDataProperties.swift */,
 				DAF3A5261F98EAA600860E6A /* ServiceChargeObj+CoreDataClass.swift */,
@@ -718,6 +724,7 @@
 				DAB1CDDA1F1E282300E94DE0 /* passZybooDataBack.swift in Sources */,
 				DAEDC6EE1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld in Sources */,
 				DAD4E6F21F92355100EE89E2 /* ZybooItemObj+CoreDataProperties.swift in Sources */,
+				DAA37D032201A70500D3D8F2 /* HappyHourObj+CoreDataClass.swift in Sources */,
 				DAF3A52A1F98EAA600860E6A /* CurrencyObj+CoreDataClass.swift in Sources */,
 				DABA89FC204181ED002DD059 /* ZybooSessionTableViewCell.swift in Sources */,
 				DAB23938214BB53D009847DB /* Reachability.swift in Sources */,
@@ -737,6 +744,7 @@
 				DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */,
 				DA73FFA81FA0BEC6000EE792 /* CurrencyViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
+				DAA37D042201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift in Sources */,
 				DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */,
 				DAF3A52F1F98EAA600860E6A /* SettingObj+CoreDataProperties.swift in Sources */,
 				DAD4E6F31F92355100EE89E2 /* SessionObj+CoreDataClass.swift in Sources */,
