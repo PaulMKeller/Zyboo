@@ -38,6 +38,8 @@ class NewsViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             let url = URL(string: "http://www.zyboo.org")!
             webView.load(URLRequest(url: url))
             webView.allowsBackForwardNavigationGestures = true
+            
+            //TODO implement 404 response handle to revert to a safe page...
         }
     }
     
