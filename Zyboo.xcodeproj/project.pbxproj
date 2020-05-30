@@ -592,20 +592,20 @@
 					DAE7726A1F1397C800B32B89 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6CGSY8527L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					DAE772801F1397CA00B32B89 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6CGSY8527L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DAE7726A1F1397C800B32B89;
 					};
 					DAE7728B1F1397CA00B32B89 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6CGSY8527L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DAE7726A1F1397C800B32B89;
 					};
@@ -931,13 +931,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -950,13 +952,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CGSY8527L;
 				INFOPLIST_FILE = Zyboo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/XCode_Projects/iosFrameworks/FacebookSDKs-iOS-4";
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = org.zyboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -971,7 +975,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.ZybooTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zyboo.app/Zyboo";
 			};
 			name = Debug;
@@ -987,7 +991,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.ZybooTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zyboo.app/Zyboo";
 			};
 			name = Release;
@@ -1002,7 +1006,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.ZybooUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Zyboo;
 			};
 			name = Debug;
@@ -1017,7 +1021,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PlanetKGames.ZybooUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Zyboo;
 			};
 			name = Release;

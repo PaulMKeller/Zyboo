@@ -26,8 +26,8 @@ class NewChargeViewController: UIViewController {
         if chargeName.text != "" && stepperValue.value != 0 {
             saveData()
         } else {
-            let alert = UIAlertController(title: "Empty Charge Name", message: "Charge Name cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Empty Charge Name", message: "Charge Name cannot be empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }

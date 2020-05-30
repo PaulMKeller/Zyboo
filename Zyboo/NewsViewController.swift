@@ -28,7 +28,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         activityIndicator = UIActivityIndicatorView()
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.style = UIActivityIndicatorView.Style.large
         
         view.addSubview(activityIndicator)
         let basePage = "<html><head></head><body><h1>Loading Zyboo. Please wait...</h1><h1>If you want to contact us please send an email to <a href='mailto:contact@zyboo.org?Subject=Support Issue' target='_top'>contact@zyboo.org</a></h1></body></html>"

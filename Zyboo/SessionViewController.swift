@@ -46,8 +46,8 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
         self.view.endEditing(true)
         
         if venueTextField.text == "" {
-            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             self.prepareForSessionDetailSegue(segueIdentifier: "mapLocationSegue")
@@ -63,8 +63,8 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
     */
     func checkForSave() -> Bool {
         if venueTextField.text == "" {
-            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Empty Venue Name", message: "Venue Name cannot be empty.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return false
         } else {
@@ -172,7 +172,7 @@ class SessionViewController: UIViewController, PassBackDropPinDelegate, CLLocati
     // MARK: - Map Helper Methods
     let regionRadius: CLLocationDistance = 100 //100 meters
     func centerMapOnLocation(location: SessionLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        let coordinateRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         locationMapView.setRegion(coordinateRegion, animated: true)
     }
     
