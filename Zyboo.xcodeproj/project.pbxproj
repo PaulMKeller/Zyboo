@@ -128,6 +128,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9EF8359248262B300FF45F3 /* ZybooCoreData_v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData_v4.xcdatamodel; sourceTree = "<group>"; };
 		DA04EA1C1F316AB50051B04E /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		DA1DEF27215F00AC00ED27A2 /* ZybooCoreData_v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData_v3.xcdatamodel; sourceTree = "<group>"; };
 		DA1DEF28215F03B800ED27A2 /* HappyHourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyHourTableViewController.swift; sourceTree = "<group>"; };
@@ -615,6 +616,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1065,11 +1067,12 @@
 		DAEDC6EC1F2EC618001DC139 /* ZybooCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A9EF8359248262B300FF45F3 /* ZybooCoreData_v4.xcdatamodel */,
 				DA1DEF27215F00AC00ED27A2 /* ZybooCoreData_v3.xcdatamodel */,
 				DA51D081202898BB009226EA /* ZybooCoreData_v2.xcdatamodel */,
 				DAEDC6ED1F2EC618001DC139 /* ZybooCoreData.xcdatamodel */,
 			);
-			currentVersion = DA1DEF27215F00AC00ED27A2 /* ZybooCoreData_v3.xcdatamodel */;
+			currentVersion = A9EF8359248262B300FF45F3 /* ZybooCoreData_v4.xcdatamodel */;
 			path = ZybooCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
