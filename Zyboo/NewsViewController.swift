@@ -36,11 +36,16 @@ class NewsViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         
         if Reachability.isConnectedToNetwork() {
             let url = URL(string: "http://www.zyboo.org")!
-            webView.load(URLRequest(url: url))
+            let request = URLRequest(url: url)
+            webView.load(request)
             webView.allowsBackForwardNavigationGestures = true
-            
-            //TODO implement 404 response handle to revert to a safe page...
         }
+    }
+    
+    //Implement 404 response handle to revert to a safe page. Not working...
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        let basePage = "<html><head></head><body><h1>There's a problem with the website at the moment.</h1><h1>We're working on it but it won't stop you using the app don't worry!</h1></body></html>"
+        webView.loadHTMLString(basePage, baseURL: Bundle.main.bundleURL)
     }
     
     func showActivityIndicator(show: Bool) {
