@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9EF835B2483FA2A00FF45F3 /* FriendsNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EF835A2483FA2A00FF45F3 /* FriendsNavViewController.swift */; };
+		A9EF835E2483FF7300FF45F3 /* Friends_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A9EF835C2483FF7300FF45F3 /* Friends_Selected.png */; };
+		A9EF835F2483FF7300FF45F3 /* Friends.png in Resources */ = {isa = PBXBuildFile; fileRef = A9EF835D2483FF7300FF45F3 /* Friends.png */; };
 		DA04EA1D1F316AB50051B04E /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA04EA1C1F316AB50051B04E /* SessionViewController.swift */; };
 		DA1DEF29215F03B800ED27A2 /* HappyHourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1DEF28215F03B800ED27A2 /* HappyHourTableViewController.swift */; };
 		DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33F21C1F178A2300F8882B /* TrackerSessionTableViewController.swift */; };
@@ -129,6 +132,9 @@
 
 /* Begin PBXFileReference section */
 		A9EF8359248262B300FF45F3 /* ZybooCoreData_v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData_v4.xcdatamodel; sourceTree = "<group>"; };
+		A9EF835A2483FA2A00FF45F3 /* FriendsNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNavViewController.swift; sourceTree = "<group>"; };
+		A9EF835C2483FF7300FF45F3 /* Friends_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Friends_Selected.png; sourceTree = "<group>"; };
+		A9EF835D2483FF7300FF45F3 /* Friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Friends.png; sourceTree = "<group>"; };
 		DA04EA1C1F316AB50051B04E /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		DA1DEF27215F00AC00ED27A2 /* ZybooCoreData_v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZybooCoreData_v3.xcdatamodel; sourceTree = "<group>"; };
 		DA1DEF28215F03B800ED27A2 /* HappyHourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyHourTableViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +415,8 @@
 		DAD5B4B41F1FAB4E0091EB17 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A9EF835C2483FF7300FF45F3 /* Friends_Selected.png */,
+				A9EF835D2483FF7300FF45F3 /* Friends.png */,
 				DAC62D882147E67A008CB8BB /* News_Selected.png */,
 				DAC62D872147E678008CB8BB /* News.png */,
 				DAD5B4C11F1FAD340091EB17 /* Beer_Selected.png */,
@@ -472,6 +480,7 @@
 				DAC62D8B2147E782008CB8BB /* NewsViewController.swift */,
 				DAB23937214BB53D009847DB /* Reachability.swift */,
 				DA1DEF28215F03B800ED27A2 /* HappyHourTableViewController.swift */,
+				A9EF835A2483FA2A00FF45F3 /* FriendsNavViewController.swift */,
 			);
 			path = Zyboo;
 			sourceTree = "<group>";
@@ -657,6 +666,7 @@
 				DAD5B4C91F1FAD340091EB17 /* Map_Selected.png in Resources */,
 				DAD5B4991F1FA6750091EB17 /* Icon-App-40x40@3x.png in Resources */,
 				DAD5B4931F1FA6750091EB17 /* Icon-App-20x20@3x.png in Resources */,
+				A9EF835E2483FF7300FF45F3 /* Friends_Selected.png in Resources */,
 				DA8C3DCF1FA0E2DF004D8B98 /* coming-soon.png in Resources */,
 				DAD5B49D1F1FA6750091EB17 /* Icon-App-60x60@2x.png in Resources */,
 				DAD5B4AC1F1FA6750091EB17 /* Icon-24@2x.png in Resources */,
@@ -664,6 +674,7 @@
 				DAD5B4921F1FA6750091EB17 /* Icon-App-20x20@2x.png in Resources */,
 				DAF46E7A1FA738B600213A6C /* Default1024x768.png in Resources */,
 				DAD5B4971F1FA6750091EB17 /* Icon-App-40x40@1x.png in Resources */,
+				A9EF835F2483FF7300FF45F3 /* Friends.png in Resources */,
 				DAF46E831FA738B600213A6C /* Default3840x2160.png in Resources */,
 				DAF46E821FA738B600213A6C /* Default320x480.png in Resources */,
 				DAD5B4C81F1FAD340091EB17 /* Beer.png in Resources */,
@@ -746,6 +757,7 @@
 				DA9EDBC11F9C4DE700862220 /* NewChargeViewController.swift in Sources */,
 				DA73FFA81FA0BEC6000EE792 /* CurrencyViewController.swift in Sources */,
 				DA33F21D1F178A2300F8882B /* TrackerSessionTableViewController.swift in Sources */,
+				A9EF835B2483FA2A00FF45F3 /* FriendsNavViewController.swift in Sources */,
 				DAA37D042201A70500D3D8F2 /* HappyHourObj+CoreDataProperties.swift in Sources */,
 				DAAC89C91F9871280018FA1D /* ChargesTableViewController.swift in Sources */,
 				DAF3A52F1F98EAA600860E6A /* SettingObj+CoreDataProperties.swift in Sources */,

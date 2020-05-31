@@ -20,6 +20,7 @@
                         <segue destination="DYJ-lk-b4C" kind="relationship" relationship="viewControllers" id="chS-sq-CNI"/>
                         <segue destination="05d-zW-0zn" kind="relationship" relationship="viewControllers" id="pgb-ay-1rZ"/>
                         <segue destination="7Df-fj-EQc" kind="relationship" relationship="viewControllers" id="Wac-NU-7Jl"/>
+                        <segue destination="zCN-Rb-kPM" kind="relationship" relationship="viewControllers" id="dtD-lR-oli"/>
                         <segue destination="k1f-yt-HjK" kind="relationship" relationship="viewControllers" id="okU-CP-XCJ"/>
                     </connections>
                 </tabBarController>
@@ -741,6 +742,7 @@
                             <constraint firstItem="MqM-te-mPw" firstAttribute="top" secondItem="eXo-G0-NZH" secondAttribute="bottom" id="v8b-43-hze"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="eKD-7P-gcC"/>
                     <connections>
                         <outlet property="currencyPicker" destination="eXo-G0-NZH" id="dRY-Jo-ZC4"/>
                     </connections>
@@ -778,6 +780,7 @@
                             <constraint firstItem="3Vg-ah-dZR" firstAttribute="leading" secondItem="m01-ww-yv4" secondAttribute="leadingMargin" id="x49-1p-MpU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gHg-5w-mtU"/>
                     <connections>
                         <outlet property="happyHourWebView" destination="3Vg-ah-dZR" id="dle-Dp-JOf"/>
                     </connections>
@@ -893,6 +896,52 @@
             </objects>
             <point key="canvasLocation" x="1033" y="1093"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="31O-wy-rMg">
+            <objects>
+                <tableViewController id="OAz-gg-qj6" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yDQ-j4-8jQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a3i-hQ-sQZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a3i-hQ-sQZ" id="RsO-at-3Td">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OAz-gg-qj6" id="YUo-Or-lI0"/>
+                            <outlet property="delegate" destination="OAz-gg-qj6" id="7v9-cb-nSa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="3pa-2k-zT0"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WF-jR-PPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1711" y="1417"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="RwP-yf-JQO">
+            <objects>
+                <navigationController id="zCN-Rb-kPM" customClass="FriendsNavViewController" customModule="Zyboo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" image="Friends.png" selectedImage="Friends_Selected.png" id="BPL-NT-lWg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H50-oq-1sL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OAz-gg-qj6" kind="relationship" relationship="rootViewController" id="Ghn-UW-dYB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1t-0h-nWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-638" y="1457"/>
+        </scene>
         <!--Happy Hour Tracker-->
         <scene sceneID="TCK-BK-Emu">
             <objects>
@@ -916,6 +965,8 @@
     <resources>
         <image name="Beer.png" width="25" height="25"/>
         <image name="Beer_Selected.png" width="25" height="25"/>
+        <image name="Friends.png" width="25" height="25"/>
+        <image name="Friends_Selected.png" width="25" height="25"/>
         <image name="Map.png" width="25" height="25"/>
         <image name="Map_Selected.png" width="25" height="25"/>
         <image name="News.png" width="18.75" height="18.75"/>
